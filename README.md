@@ -1,34 +1,34 @@
-# Cheffer
+# Grocery Basket
 ## Description
 ### What?
 
-Cheﬀer is an online mobile and web application that will aid users in ﬁnding and keeping track of recipes and ingredients. It will allow users to search for and save recipes to their account, and they can use it to create an online grocery list, extracting ingredients from recipes. The app can also be used while cooking, by reading the recipe out loud.
+An application (mobile and web-based) that curates a grocery list based on the recipes you want to make. 
 
 ### Why?
+People's’ inability to organize their times and fridge leads to further problems. Poor organization can lead to fridges full of unused and spoiled food. This has an obvious financial cost. The price and unpleasantry of throwing out food will discourage people from shopping for ingredients. They will, instead opt to buy frozen unhealthy meals, or spend even more money on takeout.  
 
-With Cheﬀer, we aim to assist people who haven’t had much exposure cooking and baking and make it easier for them to organize meals and prepare food, which will hopefully lead to a healthier lifestyle.
+Many people do not have time to build a shopping list and go grocery shopping. This lack of time also pushes people to buy fattening frozen meals or spend even more hard-earned money on takeout meals. 
+
+With a tool that builds shopping list for users, people can have more freedom, alleviating the symptoms of being a bad planner. A tool like this would improve the users lives by cutting down on food waste and promoting healthier eating. 
 
 ### How?
+A previously built mobile application in Android Studio will be our foundation. The application currently has minimal functionality with an in-house SQLite database and currently has recipes that are manually entered.  We hope to move our locally stored data to cloud storage, using solutions such as Firebase or AWS cloud storage. Currently, the database takes up 2mb of memory with ~30 entries in the Recipe table. To scale the application, the storage must be transported to the cloud.  We also hope to improve features, as well as add features. For example, we want to improve the search feature by being able to not only search the meal’s name, but also search by ingredient. Adding features such as a favorites list, user being able to add their own meals, and a calendar where the user will be able to record the specific day where he/she will want to eat the meal will further increase the user’s planning power. This application will help solve the problem of grocery and meal planning, as well as time planning. 
 
-Cheﬀer will purely be a software product that runs on both mobile phones and web application. The app will also be able to store data in a scalable manner. Our team will implement a full-stack application model, with front end and back end. The framework and tools we expect to use are:
+We also want to develop a web application to go along with the expansion of the mobile app.  The web app would have a responsive design in order to be accessed from any technology, such as a phone, tablet, or computer.  The web app will access its data from the same database as the mobile application. The framework and tools we expect to use are:
 
-Front End
-* HTML, LESS (or SASS)/CSS
-* JavaScript, React/React Native
-* Apollo GraphQL
+Front End (ADD)
+* HTML/CSS
+* JavaScript
 
-Back end
-* NodeJS, Fastify
-* GraphQL, MongoDB
+Back end (ADD)
 
-Tools
-* Mobile Phone (Android/IOS), Visual Studio Code, Git/GitHub
-* Sketch/Invision, Material (or Ant) Design, Heroku/OceanDigital/AWS
-* Trello
+
+Tools (ADD)
+*  Git/GitHub
+* Onedrive
 
 Miscellaneous
-* GraphiQL/Voyager, LoDash
-* Create React App CLI, Json Web Token
+(if any)
 
 ## Deliverables
 
@@ -36,7 +36,7 @@ Miscellaneous
 2.	Web app
 3.	Documentation and testing 
 
-## Plan
+## Plan (CHANGE)
 
 1.	Week 1: Setup team Github repo. Decide on set of features for MVP (Minimal Viable Product)
 2.	Week 2: Produce design document: frontend, backend, workflow
@@ -54,6 +54,7 @@ Miscellaneous
 
 ## Team members
 
-* John Doe, Frontend Developer, Team Lead
-* Alex Max, Backend Developer, Tester
+* Kristin Johnson
+* Francesca Matira
+* Leslie Vongphakdy
 
