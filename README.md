@@ -10,13 +10,11 @@ People's’ inability to organize their times and fridge leads to further proble
 
 Many people do not have time to build a shopping list and go grocery shopping. This lack of time also pushes people to buy fattening frozen meals or spend even more hard-earned money on takeout meals. 
 
-With Grocery basket, a tool that builds shopping list for users, people can have more freedom, alleviating the symptoms of being a bad planner. A tool like this would improve the users lives by cutting down on food waste and promoting healthier eating. 
+With Grocery Basket, a tool that builds shopping list for users, people can have more freedom, alleviating the symptoms of being a bad planner. A tool like this would improve the users lives by cutting down on food waste and promoting healthier eating. 
 
 ### How?
 
-A previously built mobile application in Android Studio will be our foundation. The application currently has minimal functionality with an in-house SQLite database and currently has recipes that are manually entered.  We hope to move our locally stored data to cloud storage, using solutions such as Firebase. Currently, the database takes up 2mb of memory with ~30 entries in the Recipe table. To scale the application, the storage must be transported to the cloud.  We also hope to improve features, as well as add features. For example, we want to improve the search feature by being able to not only search the meal’s name, but also search by ingredient. Adding features such as a favorites list, user being able to add their own meals, and a calendar where the user will be able to record the specific day where he/she will want to eat the meal will further increase the user’s planning power. This application will help solve the problem of grocery and meal planning, as well as time planning. 
-
-We also want to develop a web application to go along with the expansion of the mobile app.  The web app would have a responsive design in order to be accessed from any technology, such as a phone, tablet, or computer.  The web app will access its data from the same database as the mobile application. 
+A previously built mobile application in Android Studio will be our inspiration.  We want to develop a web application that curates a shopping list based off their meals. This application will give the user the freedom to favorite meals and add their own meals.  The application will have a responsive design in order to be accessed from any technology, such as phone (Android or iOS), tablet, or computer. This application will help solve the problem of grocery and meal planning, as well as time planning. 
 
 Front End (Web Application)
 * HTML/CSS
@@ -31,7 +29,7 @@ Back end
 * Google Recipe API
 
 Tools
-* Mobile Phone (Android), Git/GitHub
+* Git/GitHub
 
 ## Deliverables
 
