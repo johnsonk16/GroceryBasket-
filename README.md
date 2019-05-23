@@ -20,7 +20,7 @@ We also want to develop a web application to go along with the expansion of the 
 
 Front End (Web Application)
 * HTML/CSS
-* JavaScript
+* JavaScript (choose Framework)
 
 Front End (Mobile Application)
 * XML
@@ -35,9 +35,14 @@ Tools
 
 ## Deliverables
 
-1.	Mobile app
-2.	Web app
-3.	Documentation and testing 
+1.	Web app
+  - User can choose meals 
+  - User can favorite meals 
+  - User can add meals 
+  - User can delete meals 
+  - User can check on/off ingredients 
+  - Analyze picture of food; output what the food is
+2.	Documentation and testing 
 
 ## Plan
 
@@ -56,7 +61,7 @@ Tools
 
 ## Team members
 
-* Francesca Matira (Mobile Developer/Database)
+* Francesca Matira (Web Developer/Database)
 * Kristin Johnson (Web Developer/Database)
 * Leslie Vongphakdy (Web Developer/Database)
 
