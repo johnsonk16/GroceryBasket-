@@ -9,7 +9,7 @@
 * Make plan
 
 ### What will you do this week?
-* Investigate how to implement choosen API 
+* Investigate how to implement chosen API 
 * Discuss further the design of the web app
 
 ### Any blocking issues/challenges need to be addressed?
