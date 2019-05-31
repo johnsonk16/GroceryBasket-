@@ -21,13 +21,16 @@
 ## Update #2
 
 ### What did your team do last week?
-...
+* Investigated how to implement AngularJS
+* Discussed and sketched the flow of the application
+* Created the branches for each page in git and delegated tasks for each branch
 
 ### What will you do this week?
-...
+* Complete a working and functional prototype
+* Begin implementing the UI for each page
 
 ### Any blocking issues/challenges need to be addressed?
-...
+* Determining which diagrams would work best for the design document.  For example, whether to use a Sequence Diagram or Collaboration Diagram.
 
 ### Link to meeting notes
-...
+* https://mywentworth-my.sharepoint.com/:w:/g/personal/vongphakdyl_wit_edu/EfvUqQQnR7tGucDvivLn5Y4B0J8_AkO92rymbudUHgCsjw?e=XcLW1M
