@@ -28,6 +28,9 @@
 ### What will you do this week?
 * Complete a working and functional prototype
 * Begin implementing the UI for each page
+* Reorganize branches and delegate each function
+* Push code of skeleton/home page
+* Divide the work
 
 ### Any blocking issues/challenges need to be addressed?
 * Determining which diagrams would work best for the design document.  For example, whether to use a Sequence Diagram or Collaboration Diagram.
