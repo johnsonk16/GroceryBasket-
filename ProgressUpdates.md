@@ -37,3 +37,22 @@
 
 ### Link to meeting notes
 * https://mywentworth-my.sharepoint.com/:w:/g/personal/vongphakdyl_wit_edu/EfvUqQQnR7tGucDvivLn5Y4B0J8_AkO92rymbudUHgCsjw?e=XcLW1M
+
+
+## Update #3
+
+### What did your team do last week?
+* Sent in Design Documentation.
+* Decided whether API's would be useful (licensing issues)
+* Prototyping
+
+### What will you do this week?
+* Revise Design Document
+* Begin creating style sheets for the site
+* Start create account/user info so we can start implementing Firebase
+
+### Any blocking issues/challenges need to be addressed?
+* 
+
+### Link to meeting notes
+* https://mywentworth-my.sharepoint.com/:w:/g/personal/vongphakdyl_wit_edu/EfvUqQQnR7tGucDvivLn5Y4B0J8_AkO92rymbudUHgCsjw?e=XcLW1M
