@@ -45,6 +45,8 @@
 * Sent in Design Documentation.
 * Decided whether API's would be useful (licensing issues)
 * Prototyping
+* Push code of home page
+* Reorganized branches based off of functions
 
 ### What will you do this week?
 * Revise Design Document
