@@ -493,7 +493,7 @@ input::-ms-clear, textarea::-ms-clear {
   height: 40px;
   right: 0;
   top: -40px;
-  background: url("../img/cd-icon-close.svg") no-repeat center center;
+  background: url("..main/img/cd-icon-close.svg") no-repeat center center;
   color: transparent;
   text-indent: 100%;
   white-space: nowrap;
