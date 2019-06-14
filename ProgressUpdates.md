@@ -58,3 +58,22 @@
 
 ### Link to meeting notes
 * https://mywentworth-my.sharepoint.com/:w:/g/personal/vongphakdyl_wit_edu/EfvUqQQnR7tGucDvivLn5Y4B0J8_AkO92rymbudUHgCsjw?e=XcLW1M
+
+## Update #4
+
+### What did your team do last week?
+* Completed UI with Header
+* Completed Database on PHP
+* Discussed changing to AWS
+	*Updated Design Document
+
+### What will you do this week?
+* Connect DB and UI 
+* Put DB on AWS for easier implementation 
+
+### Any blocking issues/challenges need to be addressed?
+* Originally firebase was going to be used to host the website and database. After looking into Firebase, the only language they allow for the database in noSQL. Given the time frame, and limited resources on how to code in noSQL, Amazon Web Services (AWS) will be used instead. AWS allows for the databse to be written in mySQL and can link to PHPmyadmin.  
+
+### Link to meeting notes
+* https://mywentworth-my.sharepoint.com/:w:/g/personal/vongphakdyl_wit_edu/EfvUqQQnR7tGucDvivLn5Y4B0J8_AkO92rymbudUHgCsjw?e=XcLW1M
+0
