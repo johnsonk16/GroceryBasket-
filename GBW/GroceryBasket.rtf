@@ -1,0 +1,129 @@
+DROP DATABASE IF EXISTS GroceryBasket;
+
+CREATE DATABASE GroceryBasket;
+
+DROP TABLE IF EXISTS Recipes; 
+DROP TABLE IF EXISTS Recipe_Ingredients;
+DROP TABLE IF EXISTS Ingredients;
+DROP TABLE IF EXISTS Step;
+DROP TABLE IF EXISTS Time;
+DROP TABLE IF EXISTS Tag;
+DROP TABLE IF EXISTS Recipe_Tag;
+DROP TABLE IF EXISTS Favorites;
+DROP TABLE IF EXISTS User_Info;
+
+
+CREATE TABLE Recipes (
+	Recipe_ID INT NOT NULL AUTO_INCREMENT,
+	Recipe_Name VARCHAR(225) NOT NULL,
+	Time_ID INT(11),
+	Serving INT (11),
+	Recipe_Img VARCHAR (255),
+	PRIMARY KEY(Recipe_ID)
+); 
+
+CREATE TABLE Recipe_Ingredients(
+	Ingredient_ID INT NOT NULL AUTO_INCREMENT,
+	Recipe_ID INT NOT NULL,
+	Amount INT, 
+	Measurement VARCHAR (225) NOT NULL,
+	PRIMARY KEY(Ingredient_ID,Recipe_ID)
+);
+
+
+CREATE TABLE Ingredients(
+	Ingredient_ID INT NOT NULL AUTO_INCREMENT,
+	Ingredient_name VARCHAR(255) NOT NULL,
+	PRIMARY KEY(Ingredient_ID)
+);
+
+CREATE TABLE Step(
+	Recipe_ID INT NOT NULL 
+	Step_Content TEXT NOT NULL,
+	Step_Number INT, 
+);
+
+CREATE TABLE Favorites(
+	Recipe_ID INT (11),
+	User_ID INT(11),
+	PRIMARY KEY(Recipe_ID,User_ID)
+);
+CREATE TABLE User_Info(
+	User_ID INT NOT NULL AUTO_INCREMENT,
+	Email VARCHAR (225) NOT NULL,
+	UserName VARCHAR (255) NOT NULL,
+	Password VARCHAR (255) NOT NULL, 
+	PRIMARY KEY(User_ID)
+);
+
+CREATE TABLE Tag(
+	Tag_ID INT NOT NULL AUTO_INCREMENT,
+	Tag_Type VARCHAR (255),
+	PRIMARY KEY(Tag_ID)
+);
+
+CREATE TABLE Recipe_Tag(
+	Tag_ID INT NOT NULL,
+	Recipe_ID INT NOT NULL,
+	PRIMARY KEY(Tag_ID, Recipe_ID)
+);
+
+CREATE TABLE Time(
+	Time_ID INT NOT NULL AUTO_INCREMENT,
+	Amount VARCHAR (255)
+	PRIMARY KEY(Time_ID)
+
+);
+
+
+
+INSERT INTO User_Info VALUES ('1','doej1@wit.edu', 'John', 'Doe', 'Passw0rd', 'What is your dog’s name?','Cooper');
+INSERT INTO Time VALUES ('1', '>10 minutes');
+INSERT INTO Time VALUES ('2', '10 - 20 minutes');
+INSERT INTO Time VALUES ('3', '20 - 30 minutes');
+INSERT INTO Time VALUES ('4', '30 - 45 minutes');
+INSERT INTO Time VALUES ('5', '45 - 1 hour');
+INSERT INTO Recipes VALUES ('1','Spicy Candied Bacon', '3', '22', 'bacon.jpg');
+
+INSERT INTO Ingredients VALUES (1,"Egg");
+INSERT INTO Ingredients VALUES (2,"Flour");
+INSERT INTO Ingredients VALUES (3,"White Sugar");
+INSERT INTO Ingredients VALUES (4,"Brown Sugar");
+INSERT INTO Ingredients VALUES (5,"Baking Soda");
+INSERT INTO Ingredients VALUES (6,"Baking Powder");
+INSERT INTO Ingredients VALUES (7,"Salt");
+INSERT INTO Ingredients VALUES (8,"Pepper");
+INSERT INTO Ingredients VALUES (9,"Garlic");
+INSERT INTO Ingredients VALUES (10, "Bacon"); 
+INSERT INTO Ingredients VALUES (11,"Chilli Powder");
+INSERT INTO Ingredients VALUES (12, "Cayenne Powder"); 
+
+
+INSERT INTO Tag VALUES (1,'Vegan');
+INSERT INTO Tag VALUES(2,"Vegetarian");
+INSERT INTO Tag VALUES(3,"Low Carbs");
+INSERT INTO Tag VALUES(4,"Low Sugar");
+INSERT INTO Tag VALUES(5,"Low Sodium");
+INSERT INTO Tag VALUES(6,"Keto");
+INSERT INTO Tag VALUES ( 7,"Gluten Free");
+INSERT INTO Tag VALUES(8,"Dairy Free");
+INSERT INTO Tag VALUES(9,"Organic");
+INSERT INTO Tag VALUES(10,"Kosher");
+
+INSERT INTO `Step`(`Recipe_ID`, `Step_Content`, `Step_Number`) VALUES (1,"Preheat oven to 350 convection or 375 conventional.",1);
+INSERT INTO `Step` VALUES (1, "Mix 1/2 cup light brown sugar with one tablespoon chili powder and 1/2 teaspoon cayenne pepper.",2);
+INSERT INTO `Step` VALUES (1, 'Prep baking tray with aluminum foil to help clean up and a rack. Spray heavy with cooking spray',3);
+INSERT INTO `Step`(`Recipe_ID`, `Step_Content`, `Step_Number`) VALUES (1,"Cut bacon strips in half and trim any large chunks of fat.",4);
+INSERT INTO `Step` VALUES (1, "Dip bacon in the brown sugar mixture and coat well.",5);
+INSERT INTO `Step` VALUES (1, 'Spread over the prepared rack leaving a little space then give them a light dusting of additional sugar and spice.',6);
+INSERT INTO `Step` VALUES (1, "Bake until bacon appears done which is dark along the edges. About 20 minutes for me but start checking at 15 minutes. The sugar can begin to burn when left in too long. Remove from oven and let sit for a few minutes and pat off any pools of fat on top the paper towel carefully.",7);
+INSERT INTO `Step` VALUES (1, 'Then transfer for cooling, another rack, a baking mat, parchment paper or just a plate should do. Do not "drain" on a paper towel due to sticking.',8);
+
+INSERT INTO `Recipe_Ingredients`(`Ingredient_ID`, `Recipe_ID`, `Amount`, `Measurement`) VALUES ('10','1','1','Pound');
+INSERT INTO `Recipe_Ingredients` VALUES ('4','1','1/2','Cup');
+INSERT INTO `Recipe_Ingredients` VALUES ('11', '1','1','Tablespoon');
+INSERT INTO `Recipe_Ingredients` VALUES ('12','1','1/2','Teaspoon');
+
+INSERT INTO `Recipe_Tag`(`Tag_ID`, `Recipe_ID`) VALUES ('7','1');
+INSERT INTO `Recipe_Tag` VALUES ('8','1');
+
