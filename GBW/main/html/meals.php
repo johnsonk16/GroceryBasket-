@@ -8,4 +8,5 @@
   } 
    
     echo 'CONNECTED TO DB';
+//test
  ?>
