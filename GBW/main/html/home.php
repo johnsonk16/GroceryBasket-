@@ -61,7 +61,7 @@
 		</div>
   
 		<div class="cd-nugget-info">
-			<a href="explore.html">Explore</a>
+			<a href="explore.php">Explore</a>
 		</div> <!-- cd-nugget-info -->
 	</div>
 
@@ -167,10 +167,5 @@
 <script src="js/placeholders.min.js"></script> <!-- polyfill for the HTML5 placeholder attribute -->
 <script src="js/main.js"></script> <!-- Resource JavaScript -->
 </body>
-
-<?php
-//close connection 
-mysqli_close($conn);
-?>
 
 </html>

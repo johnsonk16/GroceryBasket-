@@ -1,5 +1,5 @@
 (function(){
-    //Login/Signup modal window - by CodyHouse.co
+    //Login/Signup modal window
 	function ModalSignin( element ) {
 		this.element = element;
 		this.blocks = this.element.getElementsByClassName('js-signin-modal-block');
@@ -42,16 +42,21 @@
 					self.togglePassword(self.hidePassword[i]);
 				});
 			})(i);
-		} 
+		}
+
 
 		//IMPORTANT - REMOVE THIS - it's just to show/hide error messages in the demo
-		this.blocks[0].getElementsByTagName('form')[0].addEventListener('submit', function(event){
-			event.preventDefault();
-			self.toggleError(document.getElementById('signin-email'), true);
-		});
+		// this.blocks[0].getElementsByTagName('form')[0].addEventListener('submit', function(event){
+		// 	event.preventDefault();
+		// 	self.toggleError(document.getElementById('signin-email'), true);
+		// });
 		this.blocks[1].getElementsByTagName('form')[0].addEventListener('submit', function(event){
-			event.preventDefault();
-			self.toggleError(document.getElementById('signup-username'), true);
+			// event.preventDefault();
+			// self.toggleError(document.getElementById('signup-username'), true);
+			// function change() {
+			// 	var userValue = document.getElementById("signup_btn").value;
+			// 	document.getElementById("signup-username").innerHTML = userValue;
+			// }
 		});
 	};
 
