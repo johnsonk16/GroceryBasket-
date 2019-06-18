@@ -62,101 +62,96 @@
     		</div>
     		<form id="add-meal-form" name="add-meal-form">
     			<div class="modal-body">
-    			<div class="row">
-    				<div class="col-25">
-    					 <label for="recipe-name">Recipe Name: </label>
-      				</div>
-     			 	<div class="col-75">
-        				<input type="text" id="recipe-name" name="RecipeName" placeholder="Your recipe name..">
-      				</div>
-    			</div>
+    				<div class="row">
+    					<div class="col-25">
+    						<label for="recipe-name">Recipe Name: </label>
+      					</div>
+     			 		<div class="col-75">
+        					<input type="text" id="recipe-name" name="RecipeName" placeholder="Your recipe name..">
+      					</div>
+    				</div>
 
-    			<div class="row">
-      				<div class="col-25">
-        				<label for="ingredients">Ingredients: </label>
-      				</div>
-      				<div class="col-75">
-      					<table id="ingredients"> 
-                    		<tr id="ingredientRow">
-                        	<td class="measurement"><input type="text" class="number" name="measurements[]" placeholder="(ex. 2 cups)"></td>
-                     	</table>
-                     	<button type="button" onclick=addIngredient() id="addStepBtn" >Add Ingredient...</button>
-      				</div>
+    				<div class="row">
+      					<div class="col-25">
+        					<label for="ingredients">Ingredients: </label>
+      					</div>
+      					<div class="col-75">
+      						<table id="ingredients"> 
+                    			<tr id="ingredientRow">
+                        		<td class="measurement"><input type="text" class="number" name="measurements[]" placeholder="(ex. 2 cups)"></td>
+                     		</table>
+                     		<button type="button" onclick=addIngredient() id="addStepBtn" >Add Ingredient...</button>
+      					</div>
+    				</div>
 
-    			</div>
+    				<div class="row">
+      					<div class="col-25">
+        					<label for="tags">Tags: </label>
+      					</div>
+      					<div class="col-75">
+        					<select class="chosen-select" id="tags" name="tags[]" multiple data-placeholder="Select tag(s)...">
 
-    			<div class="row">
-      				<div class="col-25">
-        				<label for="tags">Tags: </label>
-      				</div>
-      				<div class="col-75">
-        				<select class="chosen-select" id="tags" name="tags[]" multiple data-placeholder="Select tag(s)...">
+        					</select>
+      					</div>
+    				</div>
 
-        				</select>
-      				</div>
-    			</div>
+    				<div class="row">
+      					<div class="col-25">
+       						<label for="country">Total Time: </label>
+      					</div>
+     					<div class="col-75">
+        					<select id="country" name="country">
+          						<option value="30-minutes">30 minutes</option>
+          						<option value="45-minutes">45 minutes</option>
+          						<option value="1-hour">1 hour</option>
+        					</select>
+      					</div>
+    				</div>
 
-    			<div class="row">
-      				<div class="col-25">
-       					<label for="country">Total Time: </label>
-      				</div>
-     				<div class="col-75">
-        				<select id="country" name="country">
-          					<option value="30-minutes">30 minutes</option>
-          					<option value="45-minutes">45 minutes</option>
-          					<option value="1-hour">1 hour</option>
-        				</select>
-      				</div>
-    			</div>
-
-    			<div class="row">
-      				<div class="col-25">
-        			<label for="servings">Servings: </label>
-      				</div>
-      				<div class="col-75">
-        				<input type="number" class="number" name="servings" placeholder="0">
-      				</div>
-    			</div>
+    				<div class="row">
+      					<div class="col-25">
+        					<label for="servings">Servings: </label>
+      					</div>
+      					<div class="col-75">
+        					<input type="number" class="number" name="servings" placeholder="0">
+      					</div>
+    				</div>
     			
-    			<div class="row">
-      				<div class="col-25">
-        				<label for="instructions">Instructions: </label>
-      				</div>
-      				<div class="col-75">
-      					<table id="steps">
-              				<tr>
-                				<td id="step" class="step">Step 1:</td>
-                				<td><textarea type="text" name="steps[]" placeholder="Enter step..." style="height:50px; width: 300px; max-width: 300px;"></textarea></td>
-              				</tr>
-            			</table>
-						<td><button type="button" onclick= addStep() id="addStepBtn" >Add Step...</button></td>
-					
-      				</div>
-    			</div>
+    				<div class="row">
+      					<div class="col-25">
+        					<label for="instructions">Instructions: </label>
+      					</div>
+      					<div class="col-75">
+      						<table id="steps">
+              					<tr>
+                					<td id="step" class="step">Step 1:</td>
+                					<td><textarea type="text" name="steps[]" placeholder="Enter step..." style="height:50px; width: 300px; max-width: 300px;"></textarea></td>
+              					</tr>
+            				</table>
+							<td><button type="button" onclick= addStep() id="addStepBtn" >Add Step...</button></td>
+      					</div>
+    				</div>
 
-    			<div class="row">
-      				<div class="col-25">
-        			<label for="uploadphoto">Upload Photo: </label>
-      				</div>
-      				<div class="col-75">
-        				<input id="uploadphoto" type="file" name="photoUpload">
-      				</div>
-    			</div>
+    				<div class="row">
+      					<div class="col-25">
+        					<label for="uploadphoto">Upload Photo: </label>
+      					</div>
+      					<div class="col-75">
+        					<input id="uploadphoto" type="file" name="photoUpload">
+      					</div>
+    				</div>
     
-    			<div class="row">
-      				<input class="submit_btn" type="submit" value="Submit">
+    				<div class="row">
+      					<input class="submit_btn" type="submit" value="Submit">
+    				</div>
+
+    				<div class="row">
+    					<p class="add-meal-modal__reset-fields" onclick="resetform()"><a>Reset Fields</a></p>
+    				</div>
+
     			</div>
-
-    			<div class="row">
-    				<p class="add-meal-modal__reset-fields" onclick="resetform()"><a>Reset Fields</a></p>
-    			</div>
-
-    		</div>
-
     		</form>
-    
   		</div>
-
   	</div>
 
 	<div id="add_meal_modal" class="modal">

@@ -178,5 +178,12 @@ input[type=submit]:hover {
   text-decoration: underline;
 }
 
+.add-meal-modal__reset-fields:hover {
+    color: #000;
+    opacity: 0.8;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 
 

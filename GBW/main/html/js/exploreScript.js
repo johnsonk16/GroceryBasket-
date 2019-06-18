@@ -19,7 +19,6 @@ function addIngredient(){
 	document.getElementById("ingredients").appendChild(newIng);
 }
 
-
 //submit form 
 function submitRecipeForm(){
 	document.forms["submitForm"].submit();
@@ -29,3 +28,8 @@ function submitRecipeForm(){
 function resetform() {
 	document.getElementById("add-meal-form").reset();
 }
+
+//TODO:
+//	1. fix responsive design of modal -- not working
+//	2. add function to delete added step/ingredient
+//	3. write to database with user's input
