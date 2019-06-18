@@ -5,8 +5,8 @@
 
 	if(!$conn){
    	die('could not connect' . mysqli_error());
-  }
-   
+  } 
+   echo 'basket';
     echo 'CONNECTED TO DB';
  ?>
 
