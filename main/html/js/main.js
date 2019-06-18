@@ -16,7 +16,7 @@
 			(function(i){
 				self.triggers[i].addEventListener('click', function(event){
 					if( event.target.hasAttribute('data-signin') ) {
-						event.preventDefault();
+						//event.preventDefault();
 						self.showSigninForm(event.target.getAttribute('data-signin'));
 					}
 				});
@@ -26,7 +26,7 @@
 		//close modal
 		this.element.addEventListener('click', function(event){
 			if( hasClass(event.target, 'js-signin-modal') || hasClass(event.target, 'js-close') ) {
-				event.preventDefault();
+				//event.preventDefault();
 				removeClass(self.element, 'cd-signin-modal--is-visible');
 			}
 		});
@@ -45,19 +45,19 @@
 		}
 
 
-		//IMPORTANT - REMOVE THIS - it's just to show/hide error messages in the demo
-		// this.blocks[0].getElementsByTagName('form')[0].addEventListener('submit', function(event){
-		// 	event.preventDefault();
-		// 	self.toggleError(document.getElementById('signin-email'), true);
-		// });
+		// //IMPORTANT - REMOVE THIS - it's just to show/hide error messages in the demo
+		this.blocks[0].getElementsByTagName('form')[0].addEventListener('submit', function(event){
+		// // 	event.preventDefault();
+			self.toggleError(document.getElementById('signin-email'), true);
+	 });
 		this.blocks[1].getElementsByTagName('form')[0].addEventListener('submit', function(event){
-			// event.preventDefault();
-			// self.toggleError(document.getElementById('signup-username'), true);
-			// function change() {
-			// 	var userValue = document.getElementById("signup_btn").value;
-			// 	document.getElementById("signup-username").innerHTML = userValue;
-			// }
-		});
+		// 	 event.preventDefault();
+			 self.toggleError(document.getElementById('signup-username'), true);
+			 function change() {
+		 	var userValue = document.getElementById("signup_btn").value;
+		 	document.getElementById("signup-username").innerHTML = userValue;
+		  }
+		  });
 	};
 
 	ModalSignin.prototype.togglePassword = function(target) {

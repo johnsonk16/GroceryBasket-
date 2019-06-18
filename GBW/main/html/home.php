@@ -7,7 +7,7 @@
    	die('could not connect' . mysqli_error());
   } 
    
-    //echo 'CONNECTED TO DB';
+    echo 'CONNECTED TO DB';
  ?>
 
 
@@ -30,11 +30,11 @@
 
 		<nav class="cd-main-nav js-main-nav">
 			<ul class="cd-main-nav__list js-signin-modal-trigger">
-				<li><a class="cd-main-nav__item cd-main-nav__item--home" href="#1">Home</a></li>
-				<li><a class="cd-main-nav__item cd-main-nav__item--meals" href="#1">Meals</a></li>
-				<li><a class="cd-main-nav__item cd-main-nav__item--home" href="#1">Basket</a></li>
-				<li><a class="cd-main-nav__item cd-main-nav__item--home" href="#1">Favorites</a></li>
-
+				<li><a class="cd-main-nav__item cd-main-nav__item--home" href="home.php">Home</a></li>
+				<li><a class="cd-main-nav__item cd-main-nav__item--meals" href="meals.php">Meals</a></li>
+				<li><a class="cd-main-nav__item cd-main-nav__item--basket" href="basket.php">Basket</a></li>
+				<li><a class="cd-main-nav__item cd-main-nav__item--favorites" href="favorites.php">Favorites</a></li>
+				
 				<!-- inser more links here -->
 				<li><a class="cd-main-nav__item cd-main-nav__item--signin" href="#0" data-signin="login">Sign in</a></li>
 				<li><a class="cd-main-nav__item cd-main-nav__item--signup" href="#0" data-signin="signup">Sign up</a></li>
@@ -73,13 +73,12 @@
 			</ul>
 
 			<div class="cd-signin-modal__block js-signin-modal-block" data-type="login"> <!-- log in form -->
-				<form class="cd-signin-modal__form" id= "ExistUser" action= "ExistUser.php" method= "post">
+				<form class="cd-signin-modal__form" id= "signIn" action= "signIn.php" method= "post">
 					<p class="cd-signin-modal__fieldset">
 						<label class="cd-signin-modal__label cd-signin-modal__label--email cd-signin-modal__label--image-replace" for="signin-email">E-mail</label>
 						<input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" id="signin-email" type="email" placeholder="E-mail" name = "email">
 
 			
-						<span class="cd-signin-modal__error">Error!</span>
 					</p>
 
 					<p class="cd-signin-modal__fieldset">
@@ -88,7 +87,6 @@
 						<a href="#0" class="cd-signin-modal__hide-password js-hide-password">Hide</a>
 
 					
-						<span class="cd-signin-modal__error">Error!</span>
 					</p>
 
 					<p class="cd-signin-modal__fieldset">
@@ -97,40 +95,32 @@
 					</p>
 
 					<p class="cd-signin-modal__fieldset">
-						<input class="cd-signin-modal__input cd-signin-modal__input--full-width" type="submit" value="Login">
-					</p>
+						<input class="cd-signin-modal__input cd-signin-modal__input--full-width" type="submit" name = "login" value="Login">
+					</p> 
 				</form>
 				
 				<p class="cd-signin-modal__bottom-message js-signin-modal-trigger"><a href="#0" data-signin="reset">Forgot your password?</a></p>
 			</div> <!-- cd-signin-modal__block -->
 
 			<div class="cd-signin-modal__block js-signin-modal-block" data-type="signup"> <!-- sign up form -->
-				<form class="cd-signin-modal__form" id= "NewUser" action= "newUser.php" method= "post">
+				<form class="cd-signin-modal__form" id= "register" action= "register.php" method= "post">
+
 					<p class="cd-signin-modal__fieldset">
 						<label class="cd-signin-modal__label cd-signin-modal__label--username cd-signin-modal__label--image-replace" for="signup-username">Username</label>
 						<input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" id="signup-username" type="text" placeholder="Username" name = "username">
-						<span class="cd-signin-modal__error">Error!</span>
+						
 					</p>
-					<?php
-						//insert username into DB
-						$usernamePOST = @$_POST['username'];
-						$sql = "INSERT INTO user_info(username) VALUES('$usernamePOST')";
-						if (!mysqli_query($connect,$sql)){
-							die('Error: '.mysqli_error($connect));
-								}
-						?>
-
 					<p class="cd-signin-modal__fieldset">
 						<label class="cd-signin-modal__label cd-signin-modal__label--email cd-signin-modal__label--image-replace" for="signup-email">E-mail</label>
 						<input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" id="signup-email" type="email" placeholder="E-mail">
-						<span class="cd-signin-modal__error">Error!</span>
+						
 					</p>
 
 					<p class="cd-signin-modal__fieldset">
 						<label class="cd-signin-modal__label cd-signin-modal__label--password cd-signin-modal__label--image-replace" for="signup-password">Password</label>
 						<input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" id="signup-password" type="text"  placeholder="Password">
 						<a href="#0" class="cd-signin-modal__hide-password js-hide-password">Hide</a>
-						<span class="cd-signin-modal__error">Error!</span>
+						
 					</p>
 
 					<p class="cd-signin-modal__fieldset">
@@ -139,7 +129,7 @@
 					</p>
 
 					<p class="cd-signin-modal__fieldset">
-						<input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding" type="submit" value="Create account">
+						<input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding" type="submit" value="Create account" name="reg_user">
 					</p>
 				</form>
 			</div> <!-- cd-signin-modal__block -->
@@ -151,7 +141,7 @@
 					<p class="cd-signin-modal__fieldset">
 						<label class="cd-signin-modal__label cd-signin-modal__label--email cd-signin-modal__label--image-replace" for="reset-email">E-mail</label>
 						<input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" id="reset-email" type="email" placeholder="E-mail">
-						<span class="cd-signin-modal__error">Error!</span>
+			
 					</p>
 
 					<p class="cd-signin-modal__fieldset">
@@ -167,5 +157,6 @@
 <script src="js/placeholders.min.js"></script> <!-- polyfill for the HTML5 placeholder attribute -->
 <script src="js/main.js"></script> <!-- Resource JavaScript -->
 </body>
+
 
 </html>

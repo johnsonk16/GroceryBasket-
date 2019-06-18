@@ -6,7 +6,6 @@
 	if(!$conn){
    	die('could not connect' . mysqli_error());
   } 
-    echo 'Meals';
+   	echo 'Basket';
     echo 'CONNECTED TO DB';
-//test
  ?>
