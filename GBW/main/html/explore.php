@@ -24,6 +24,8 @@
 	<link rel="stylesheet" href="css/demo.css"> <!-- Demo style -->
 	<link rel="stylesheet" href="css/add-meal.css"> <!-- Add meal modal style -->
   	
+  				<!-- Scripts for adding more textareas -->
+  	<script type="text/javascript" src="js/exploreScript.js"></script>
 	<title>Grocery Basket</title>
 </head>
 <body>
@@ -33,6 +35,7 @@
 		<nav class="cd-main-nav js-main-nav">
 			<ul class="cd-main-nav__list js-signin-modal-trigger">
 				<li><a class="cd-main-nav__item cd-main-nav__item--home" href="home.php">Home</a></li>
+
 				<li><a class="cd-main-nav__item cd-main-nav__item--meals" href="#1">Meals</a></li>
 				<li><a class="cd-main-nav__item cd-main-nav__item--home" href="#1">Basket</a></li>
 				<li><a class="cd-main-nav__item cd-main-nav__item--home" href="#1">Favorites</a></li>
@@ -48,7 +51,99 @@
 		<h1>Explore</h1>
   
 		<div class="cd-nugget-info">
-			<a id="add-meal-btn" onclick="addmeal()">Add Your Own Recipe</a>
+
+		
+		<form id="submitForm" action="uploadRecipe.php" method="post" enctype="multipart/form-data">
+        
+
+            <table id="displayRecipe">
+                <tr>
+                  <td class="label">Recipe Name:</td>
+                  <td><input type="text" id="textBar" name="name" placeholder="Enter recipe name..." autofocus required></td>
+                </tr>
+ 
+                <tr>
+                  <td class="label">Ingredients:</td>
+                  <td>
+                    <table id="ingredients"> 
+                      <tr id="ingredientRow">
+                        <td class="measurement"><input type="text" class="number" name="measurements[]" placeholder="(ex. 2 cups)"></td>
+                      </table>
+                    </td>
+                </tr>
+
+                <tr>
+					      <td class="label"></td>
+				      	<td><button type="button" onclick=addIngredient() id="addStepBtn" >Add Ingredient...</button></td>
+				        </tr>
+
+                <tr>
+                  <td class="label">Tags: </td>
+                  <td><select class="chosen-select" name="tags[]" id="tags" multiple data-placeholder="Select tag(s)...">
+                  <?php
+                        $sql = "SELECT * FROM Tag ORDER BY Tag_Type";
+                        $result = mysqli_query($conn, $sql);
+                        if($result->num_rows>0){
+                          while($row = $result->fetch_assoc()){
+                            echo "<option value='".$row["Tag_ID"]."'>".$row["Tag_Type"]."</option>";
+                          }
+                        }
+
+                      ?>
+                  </select></td>
+                </tr>
+
+                <tr>
+                  <td class="label">Total Time:</td>
+                  <td><select name="Time">
+                  <?php
+                  	 $sql = "SELECT * FROM Time ORDER BY Time_ID";
+                        $result = mysqli_query($conn, $sql);
+                        if($result->num_rows>0){
+                          while($row = $result->fetch_assoc()){
+                            echo "<option value='".$row["Time_ID"]."'>".$row["Amount"]."</option>";
+                          }
+                        }
+                      ?>
+                  </select></td>
+                </tr>
+				
+				<tr>
+            <td class="label">Servings:</td>
+            <td><input type="number" class="number" name="servings" placeholder="0"></td>
+        </tr>
+				
+				<tr>
+          <td class="label">Instructions:</td>
+		<td>
+            <table id="steps">
+              <tr>
+                <td class="step">Step 1:</td>
+                <td><textarea name='steps[]'></textarea></td>
+              </tr>
+            </table>
+         </td>
+				</tr>
+				
+				<tr>
+					<td class="label"></td>
+					<td><button type="button" onclick= addStep() id="addStepBtn" >Add Step...</button></td>
+				</tr>
+				
+				<tr>
+					<td class="label">Upload a Photo:</td>
+					<td><input type="file" name="photoUpload"></td>
+				</tr>
+
+                <tr>
+                  <td colspan="2" style="text-align:center;">
+                    <button onclick="submitRecipeForm" class="formButton">Submit Recipe</button>
+                    <button class="formButton" onclick="location.reload()">Reset Fields</button>
+                  </td>
+                </tr>
+              </table>
+        </form>
+
 		</div> <!-- cd-nugget-info -->
 
 	</div>
