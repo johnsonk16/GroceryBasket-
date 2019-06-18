@@ -2,13 +2,14 @@
 //add another step field
 var stepNum=2;
 function addStep(){
-		var step = document.createElement("tr");
-		step.innerHTML= "<td class='step'>Step "+stepNum+":</td><td><textarea name='steps[]'></textarea></td>"
+	var step = document.createElement("tr");
+	step.innerHTML= "<td class='step'>Step " + stepNum + ": </td><td><textarea name='steps[]' placeholder='Enter step...' style='height:50px; width: 300px; max-width: 350px; font-size: 14px;'></textarea></td>"
 
-		document.getElementById("steps").appendChild(step);
+	document.getElementById("steps").appendChild(step);
 
-		stepNum=stepNum+1;
+	stepNum=stepNum+1;
 };
+
 //add another ingredient field 
 function addIngredient(){
 	var ing = document.getElementById("ingredientRow");
@@ -17,8 +18,14 @@ function addIngredient(){
 	newIng.innerHTML = inside;
 	document.getElementById("ingredients").appendChild(newIng);
 }
+
+
 //submit form 
 function submitRecipeForm(){
 	document.forms["submitForm"].submit();
 	
+}
+
+function resetform() {
+	document.getElementById("add-meal-form").reset();
 }

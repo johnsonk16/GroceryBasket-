@@ -22,21 +22,17 @@
   border: 1px solid #888;
   width: 40%;
 
-  /*position: relative;
+  position: relative;
   background-color: #fefefe;
-  margin: auto;
-  padding: 0;
-  border: 1px solid #888;
-  width: 80%;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
   -webkit-animation-name: animatetop;
   -webkit-animation-duration: 0.4s;
   animation-name: animatetop;
-  animation-duration: 0.4s*/
+  animation-duration: 0.4s
 }
 
 /* Add Animation */
-/*@-webkit-keyframes animatetop {
+@-webkit-keyframes animatetop {
   from {top:-300px; opacity:0} 
   to {top:0; opacity:1}
 }
@@ -44,7 +40,7 @@
 @keyframes animatetop {
   from {top:-300px; opacity:0}
   to {top:0; opacity:1}
-}*/
+}
 
 /* The Close Button */
 .close {
@@ -73,8 +69,12 @@
   margin-right: 10px;
 }
 
+label {
+  margin-right: 1em;
+}
+
 input[type=text] {
-  width: 70%;
+  width: 350px;
   margin: 0.25em 0 0.25em 0;
   padding: 0.2em;
   border: 1px solid #d2d8d8;
@@ -88,12 +88,6 @@ input[type=text]:focus {
   outline: none;
 }
 
-input[type=text] {
-  width: auto;
-  border: 1px solid #d2d8d8;
-  font-size: 14px;
-}
-
 input[type=number]:focus {
   border-color: #343642;
   -webkit-box-shadow: 0 0 5px rgba(52, 54, 66, 0.1);
@@ -102,11 +96,13 @@ input[type=number]:focus {
 }
 
 textarea[type=text] {
-  width: 70%;
   margin: 0.25em 0 0.25em 0;
   padding: 0.2em;
   border: 1px solid #d2d8d8;
   font-size: 14px;
+  height:50px; 
+  width: 350px; 
+  max-width: 350px;
 }
 
 textarea[type=text]:focus {
@@ -133,6 +129,10 @@ textarea[type=text]:focus {
   content: "";
   display: table;
   clear: both;
+}
+
+input[type=file] {
+  margin-top: 1em;
 }
 
 @media screen and (max-width: 600px) {
@@ -164,6 +164,19 @@ input[type=submit]:hover {
   outline: none;
 }
 
+.add-meal-modal__reset-fields {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: -30px;
+  text-align: center;
+  font-size: 1.4rem;
+}
+
+.add-meal-modal__reset-fields a {
+  color: #FFF;
+  text-decoration: underline;
+}
 
 
 
