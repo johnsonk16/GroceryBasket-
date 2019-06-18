@@ -6,11 +6,9 @@
 	if(!$conn){
    	die('could not connect' . mysqli_error());
   } 
-<<<<<<< HEAD
-   
+   echo 'favorites';
     echo 'CONNECTED TO DB';
  ?>
-
 
 <html lang="en" class="no-js">
 <head>
@@ -148,9 +146,4 @@
 <script src="js/placeholders.min.js"></script> <!-- polyfill for the HTML5 placeholder attribute -->
 <script src="js/main.js"></script> <!-- Resource JavaScript -->
 </body>
-</html>  
-=======
-   	echo 'Basket';
-    echo 'CONNECTED TO DB';
- ?>
->>>>>>> 01edab5c5bd487a2684556b118681ad6f31d7907
+</html> 
