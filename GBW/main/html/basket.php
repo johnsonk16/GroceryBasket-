@@ -5,8 +5,7 @@
 
 	if(!$conn){
    	die('could not connect' . mysqli_error());
-  } 
-<<<<<<< HEAD
+  }
    
     echo 'CONNECTED TO DB';
  ?>
