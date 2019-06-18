@@ -8,9 +8,10 @@
     bottom: 0;
     left: 0;
   }
-  .cd-nugget-info a {
+  .cd-nugget-info button {
     position: relative;
     display: inline-block;
+    height: 3em;
     padding: 0 2.5em;
     background-color: #da5067;
     border-radius: 50em;
@@ -20,7 +21,7 @@
     -moz-transition: all 0.2s;
     transition: all 0.2s;
   }
-  .cd-nugget-info a:hover {
+  .cd-nugget-info button:hover {
     opacity: .8;
   }
   

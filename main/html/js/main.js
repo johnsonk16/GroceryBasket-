@@ -1,4 +1,4 @@
-(function(){
+(function() {
     //Login/Signup modal window
 	function ModalSignin( element ) {
 		this.element = element;
@@ -139,3 +139,4 @@
     	}
 	};
 })();
+
