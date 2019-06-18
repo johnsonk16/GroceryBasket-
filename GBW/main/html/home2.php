@@ -1,4 +1,6 @@
 <?php
+//ignore this, used for testing -KJ
+
   require_once('config.php');
 
   $conn = mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME);

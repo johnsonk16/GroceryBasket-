@@ -23,6 +23,8 @@
 	<link rel="stylesheet" href="css/home.css"> <!-- Resource style -->
 	<link rel="stylesheet" href="css/demo.css"> <!-- Demo style -->
   	
+  				<!-- Scripts for adding more textareas -->
+  	<script type="text/javascript" src="js/exploreScript.js"></script>
 	<title>Grocery Basket</title>
 </head>
 <body>
@@ -31,10 +33,10 @@
 
 		<nav class="cd-main-nav js-main-nav">
 			<ul class="cd-main-nav__list js-signin-modal-trigger">
-				<li><a class="cd-main-nav__item cd-main-nav__item--home" href="home.html">Home</a></li>
-				<li><a class="cd-main-nav__item cd-main-nav__item--meals" href="#1">Meals</a></li>
-				<li><a class="cd-main-nav__item cd-main-nav__item--home" href="#1">Basket</a></li>
-				<li><a class="cd-main-nav__item cd-main-nav__item--home" href="#1">Favorites</a></li>
+				<li><a class="cd-main-nav__item cd-main-nav__item--home" href="home.php">Home</a></li>
+				<li><a class="cd-main-nav__item cd-main-nav__item--meals" href="meals.php">Meals</a></li>
+				<li><a class="cd-main-nav__item cd-main-nav__item--basket" href="basket.php">Basket</a></li>
+				<li><a class="cd-main-nav__item cd-main-nav__item--favorites" href="favorites.php">Favorites</a></li>
 
 				<!-- inser more links here -->
 				<li><a class="cd-main-nav__item cd-main-nav__item--signin" href="#0" data-signin="login">Sign in</a></li>
@@ -89,8 +91,9 @@
 
                 <tr>
                   <td class="label">Total Time:</td>
-                  <td><select name="time">
+                  <td><select name="Time">
                   <?php
+                  	 $sql = "SELECT * FROM Time ORDER BY Time_ID";
                         $result = mysqli_query($conn, $sql);
                         if($result->num_rows>0){
                           while($row = $result->fetch_assoc()){
@@ -120,7 +123,7 @@
 				
 				<tr>
 					<td class="label"></td>
-					<td><button type="button" onclick= addTextArea() id="addStepBtn" >Add Step...</button></td>
+					<td><button type="button" onclick= addStep() id="addStepBtn" >Add Step...</button></td>
 				</tr>
 				
 				<tr>

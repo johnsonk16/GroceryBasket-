@@ -6,6 +6,7 @@
 	if(!$conn){
    	die('could not connect' . mysqli_error());
   } 
+<<<<<<< HEAD
    
     echo 'CONNECTED TO DB';
  ?>
@@ -148,3 +149,8 @@
 <script src="js/main.js"></script> <!-- Resource JavaScript -->
 </body>
 </html>  
+=======
+   	echo 'Basket';
+    echo 'CONNECTED TO DB';
+ ?>
+>>>>>>> 01edab5c5bd487a2684556b118681ad6f31d7907
