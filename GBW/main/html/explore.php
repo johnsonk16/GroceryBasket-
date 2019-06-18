@@ -36,7 +36,7 @@
 
 				<li><a class="cd-main-nav__item cd-main-nav__item--meals" href="#1">Meals</a></li>
 				<li><a class="cd-main-nav__item cd-main-nav__item--home" href="#1">Basket</a></li>
-				<li><a class="cd-main-nav__item cd-main-nav__item--home" href="#1">Favorites</a></li>
+				<li><a class="cd-main-nav__item cd-main-nav__item--home" href="favorites.php">Favorites</a></li>
 
 				<!-- inser more links here -->
 				<li><a class="cd-main-nav__item cd-main-nav__item--signin" href="#0" data-signin="login">Sign in</a></li>
