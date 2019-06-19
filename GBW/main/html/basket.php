@@ -6,7 +6,7 @@
 	if(!$conn){
    	die('could not connect' . mysqli_error());
   } 
-   echo 'favorites';
+   echo 'basket';
     echo 'CONNECTED TO DB';
  ?>
 
