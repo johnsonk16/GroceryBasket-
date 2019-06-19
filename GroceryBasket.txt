@@ -38,9 +38,9 @@ CREATE TABLE Ingredients(
 );
 
 CREATE TABLE Step(
-	Recipe_ID INT NOT NULL 
+	Recipe_ID INT NOT NULL, 
 	Step_Content TEXT NOT NULL,
-	Step_Number INT, 
+	Step_Number INT
 );
 
 CREATE TABLE Favorites(
@@ -70,14 +70,14 @@ CREATE TABLE Recipe_Tag(
 
 CREATE TABLE Time(
 	Time_ID INT NOT NULL AUTO_INCREMENT,
-	Amount VARCHAR (255)
+	Amount VARCHAR (255),
 	PRIMARY KEY(Time_ID)
 
 );
 
 
 
-INSERT INTO User_Info VALUES ('1','doej1@wit.edu', 'John', 'Doe', 'Passw0rd', 'What is your dog’s name?','Cooper');
+INSERT INTO User_Info VALUES ('1','doej1@wit.edu', ‘johndoe1’, 'Passw0rd');
 INSERT INTO Time VALUES ('1', '>10 minutes');
 INSERT INTO Time VALUES ('2', '10 - 20 minutes');
 INSERT INTO Time VALUES ('3', '20 - 30 minutes');
@@ -120,9 +120,9 @@ INSERT INTO `Step` VALUES (1, "Bake until bacon appears done which is dark along
 INSERT INTO `Step` VALUES (1, 'Then transfer for cooling, another rack, a baking mat, parchment paper or just a plate should do. Do not "drain" on a paper towel due to sticking.',8);
 
 INSERT INTO `Recipe_Ingredients`(`Ingredient_ID`, `Recipe_ID`, `Amount`, `Measurement`) VALUES ('10','1','1','Pound');
-INSERT INTO `Recipe_Ingredients` VALUES ('4','1','1/2','Cup');
-INSERT INTO `Recipe_Ingredients` VALUES ('11', '1','1','Tablespoon');
-INSERT INTO `Recipe_Ingredients` VALUES ('12','1','1/2','Teaspoon');
+INSERT INTO `Recipe_Ingredients` (`Ingredient_ID`, `Recipe_ID`, `Amount`, `Measurement`)  VALUES ('4','1','0.5','Cup');
+INSERT INTO `Recipe_Ingredients` (`Ingredient_ID`, `Recipe_ID`, `Amount`, `Measurement`)  VALUES ('11', '1','1','Tablespoon');
+INSERT INTO `Recipe_Ingredients` (`Ingredient_ID`, `Recipe_ID`, `Amount`, `Measurement`) VALUES ('12','1','0.5','Teaspoon');
 
 INSERT INTO `Recipe_Tag`(`Tag_ID`, `Recipe_ID`) VALUES ('7','1');
 INSERT INTO `Recipe_Tag` VALUES ('8','1');
