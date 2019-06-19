@@ -59,11 +59,11 @@
     			<img src="img/sushi.jpg" alt="sushi">
   			</div>
 		</div>
-  
-		<div class="cd-nugget-info">
+	</div>
+
+	<div class="cd-nugget-info">
 			<a href="explore.php">Explore</a>
 		</div> <!-- cd-nugget-info -->
-	</div>
 
 	<div class="cd-signin-modal js-signin-modal"> <!-- this is the entire modal form, including the background -->
 		<div class="cd-signin-modal__container"> <!-- this is the container wrapper -->
