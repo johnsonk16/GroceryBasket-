@@ -7,7 +7,7 @@
    	die('could not connect' . mysqli_error());
   } 
    
-    echo 'CONNECTED TO DB';
+  //  echo 'CONNECTED TO DB';
  ?>
 
 
@@ -90,7 +90,16 @@
       					</div>
       					<div class="col-75">
         					<select class="chosen-select" id="tags" name="tags[]" multiple data-placeholder="Select tag(s)...">
+                     <?php
+                        $sql = "SELECT * FROM Tag ORDER BY Tag_Type";
+                        $result = mysqli_query($conn, $sql);
+                        if($result->num_rows>0){
+                          while($row = $result->fetch_assoc()){
+                            echo "<option value='".$row["Tag_ID"]."'>".$row["Tag_Type"]."</option>";
+                          }
+                        }
 
+                      ?>
         					</select>
       					</div>
     				</div>
@@ -101,9 +110,15 @@
       					</div>
      					<div class="col-75">
         					<select id="country" name="country">
-          						<option value="30-minutes">30 minutes</option>
-          						<option value="45-minutes">45 minutes</option>
-          						<option value="1-hour">1 hour</option>
+          					<?php
+                     $sql = "SELECT * FROM Time ORDER BY Time_ID";
+                        $result = mysqli_query($conn, $sql);
+                        if($result->num_rows>0){
+                          while($row = $result->fetch_assoc()){
+                            echo "<option value='".$row["Time_ID"]."'>".$row["Amount"]."</option>";
+                          }
+                        }
+                      ?>
         					</select>
       					</div>
     				</div>
@@ -146,7 +161,7 @@
     				</div>
 
     				<div class="row">
-    					<p class="add-meal-modal__reset-fields" onclick="resetform()"><a>Reset Fields</a></p>
+    					<p class="add-meal-modal__reset-fields" onclick="location.reload()"><a>Reset Fields</a></p>
     				</div>
 
     			</div>
