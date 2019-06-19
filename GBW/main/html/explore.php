@@ -46,13 +46,11 @@
 	</header>
 
 	<div class="cd-intro">
-		<h1>Explore</h1>
-  
-		<div class="cd-nugget-info">
-			<a id="add-meal-btn" onclick="addmeal()">Add Your Own Recipe</a>
-		</div> <!-- cd-nugget-info -->
-
-	</div>
+    	<h1>Explore</h1>
+    	<div class="cd-nugget-info">
+      		<a id="add-meal-btn" onclick="addmeal()">Add Your Own Recipe</a>
+    	</div> <!-- cd-nugget-info -->
+  	</div>
 
 	<div id="add_meal_modal" class="modal">
 		<div class="modal-content">
@@ -151,94 +149,6 @@
 
     			</div>
     		</form>
-  		</div>
-  	</div>
-
-	<div id="add_meal_modal" class="modal">
-		<div class="modal-content">
-
-			<div class="modal-header">
-      			<span class="close">&times;</span>
-      			<h2>Add Recipe</h2>
-    		</div>
-
-    		<div class="modal-body">
-    			<div class="row">
-    				<div class="col-25">
-    					 <label for="recipe-name">Recipe Name: </label>
-      				</div>
-     			 	<div class="col-75">
-        				<input type="text" id="recipe-name" name="RecipeName" placeholder="Your recipe name..">
-      				</div>
-    			</div>
-
-    			<div class="row">
-      				<div class="col-25">
-        				<label for="ingredients">Ingredients: </label>
-      				</div>
-      				<div class="col-75">
-        				<input type="text" id="ingredients" name="ingredients[]" placeholder="(ex. 2 cups)..">
-        				<button type="button" onclick=addIngredient() id="addStepBtn">Add Ingredient...</button>
-      				</div>
-    			</div>
-
-    			<div class="row">
-      				<div class="col-25">
-        				<label for="tags">Tags: </label>
-      				</div>
-      				<div class="col-75">
-        				<select class="chosen-select" id="tags" name="tags[]" multiple data-placeholder="Select tag(s)...">
-
-        				</select>
-      				</div>
-    			</div>
-
-    			<div class="row">
-      				<div class="col-25">
-       					<label for="country">Total Time: </label>
-      				</div>
-     				<div class="col-75">
-        				<select id="country" name="country">
-          					<option value="30-minutes">30 minutes</option>
-          					<option value="45-minutes">45 minutes</option>
-          					<option value="1-hour">1 hour</option>
-        				</select>
-      				</div>
-    			</div>
-
-    			<div class="row">
-      				<div class="col-25">
-        			<label for="servings">Servings: </label>
-      				</div>
-      				<div class="col-75">
-        				<input type="number" class="number" name="servings" placeholder="0">
-      				</div>
-    			</div>
-    			
-    			<div class="row">
-      				<div class="col-25">
-        				<label for="instructions">Instructions: </label>
-      				</div>
-      				<div class="col-75">
-        				<textarea type="text" id="instructions" name="instructions[]" placeholder="Write down steps.." style="height:50px; width: 300px; max-width: 350px;"></textarea> 
-        				<button type="button" onclick= addTextArea() id="addStepBtn">Add Step...</button>
-      				</div>
-    			</div>
-
-    			<div class="row">
-      				<div class="col-25">
-        			<label for="uploadphoto">Upload Photo: </label>
-      				</div>
-      				<div class="col-75">
-        				<input id="uploadphoto" type="file" name="photoUpload">
-      				</div>
-    			</div>
-    
-    			<div class="row">
-      				<input class="submit_btn" type="submit" value="Submit">
-      				<!-- <input type="submit" onclick="location.reload()" value="Reset"> -->
-    			</div>
-    		</div>
   		</div>
   	</div>
 
