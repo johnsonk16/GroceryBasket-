@@ -1,4 +1,6 @@
  <?php
+ //Login/register combinded into one file. at the moment, there is no testing based off what is in DB, but will write to the DB. 
+ 
   require_once('config.php');
 
   $conn = mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME);

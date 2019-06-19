@@ -10,7 +10,6 @@
     echo 'CONNECTED TO DB';
  ?>
 
-
 <html lang="en" class="no-js">
 <head>
 	<meta charset="UTF-8">
@@ -147,4 +146,4 @@
 <script src="js/placeholders.min.js"></script> <!-- polyfill for the HTML5 placeholder attribute -->
 <script src="js/main.js"></script> <!-- Resource JavaScript -->
 </body>
-</html>  
+</html> 
