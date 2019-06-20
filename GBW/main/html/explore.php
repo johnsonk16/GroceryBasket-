@@ -90,35 +90,34 @@
       					</div>
       					<div class="col-75">
         					<select class="chosen-select" id="tags" name="tags[]" multiple data-placeholder="Select tag(s)...">
-                     <?php
-                        $sql = "SELECT * FROM Tag ORDER BY Tag_Type";
-                        $result = mysqli_query($conn, $sql);
-                        if($result->num_rows>0){
-                          while($row = $result->fetch_assoc()){
-                            echo "<option value='".$row["Tag_ID"]."'>".$row["Tag_Type"]."</option>";
-                          }
-                        }
-
-                      ?>
+                     		<?php
+                        		$sql = "SELECT * FROM Tag ORDER BY Tag_Type";
+                        		$result = mysqli_query($conn, $sql);
+                        		if($result->num_rows>0){
+                          			while($row = $result->fetch_assoc()){
+                            			echo "<option value='".$row["Tag_ID"]."'>".$row["Tag_Type"]."</option>";
+                          			}
+                        		}
+                        	?>
         					</select>
       					</div>
     				</div>
 
     				<div class="row">
       					<div class="col-25">
-       						<label for="country">Total Time: </label>
+       						<label for="time">Total Time: </label>
       					</div>
      					<div class="col-75">
-        					<select id="country" name="country">
+        					<select id="time" name="totaltime">
           					<?php
-                     $sql = "SELECT * FROM Time ORDER BY Time_ID";
-                        $result = mysqli_query($conn, $sql);
-                        if($result->num_rows>0){
-                          while($row = $result->fetch_assoc()){
-                            echo "<option value='".$row["Time_ID"]."'>".$row["Amount"]."</option>";
-                          }
-                        }
-                      ?>
+                     			$sql = "SELECT * FROM Time ORDER BY Time_ID";
+                        		$result = mysqli_query($conn, $sql);
+                        		if($result->num_rows>0){
+                          			while($row = $result->fetch_assoc()){
+                            			echo "<option value='".$row["Time_ID"]."'>".$row["Amount"]."</option>";
+                          			}
+                        		}
+                      		?>
         					</select>
       					</div>
     				</div>

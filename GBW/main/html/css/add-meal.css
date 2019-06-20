@@ -131,6 +131,13 @@ textarea[type=text]:focus {
   clear: both;
 }
 
+select:focus {
+  border-color: #343642;
+  -webkit-box-shadow: 0 0 5px rgba(52, 54, 66, 0.1);
+          box-shadow: 0 0 5px rgba(52, 54, 66, 0.1);
+  outline: none;
+}
+
 input[type=file] {
   margin-top: 1em;
 }
