@@ -1,5 +1,5 @@
  <?php
- //Login/register combinded into one file. at the moment, there is no testing based off what is in DB, but will write to the DB. 
+ //Login/register combinded into one file. Log in/register works! Next session needs to be figured out. 
  
   require_once('config.php');
 
@@ -9,44 +9,127 @@
    	die('could not connect' . mysqli_error());
   } 
   
-echo 'CONNECTED TO DB';
+//echo 'CONNECTED TO DB';
         
   if(isset($_POST['login'])){
      
         $email = mysqli_real_escape_string($conn,$_POST['email']);
         $password = mysqli_real_escape_string($conn,$_POST['password']);
-        $strSQL = mysqli_query($conn,"SELECT UserName from User_Info where Email='".$email."' and Password='".md5($password)."'");
-        $Results = mysqli_fetch_array($strSQL);
+        $Epassword = md5($password);
+
+        $queryE = "SELECT UserName FROM User_Info where Email='$email'";
+        $resultE = mysqli_query($conn,$queryE);
+        $numResultsE = mysqli_num_rows($resultE);
+
+        $queryP= "SELECT UserName FROM User_Info where Password='$Epassword'";
+        $resultP = mysqli_query($conn,$queryP);
+        $numResultsP = mysqli_num_rows($resultP);
       
-        if(($Results)>=1) //doesnt work yet
-        {
-  		        $message = $Results['UserName']." Login Sucessfully!!";
+        if (empty($email) ||empty($password))
+        { 
+      //      header("Location:http://localhost:8080/GroceryBasket-Web/GBW/main/html/home.php");
+            ?>
+            <script>
+                alert("Data is missing");
+            </script>
+            <?php
+            
         }
-        else
-        {
-            $message = "Invalid email or password!!";
-        }        
-     }
+        
+        elseif($numResultsE!=1) //this part does work (:
+        {  
+    //      header("Location:http://localhost:8080/GroceryBasket-Web/GBW/main/html/home.php");
+            ?>
+            <script>
+                alert("invalid Email");
+            </script>
+            <?php
+           
+            
+        }
+         elseif($numResultsP!=1) //this part does work (:
+        { 
+   //     header("Location:http://localhost:8080/GroceryBasket-Web/GBW/main/html/home.php");
+            ?>
+            <script>
+                alert("invalid password");
+            </script>
+            <?php
+            
+            
+        } elseif($numResultsE != $numResultsP) {
+   //      header("Location:http://localhost:8080/GroceryBasket-Web/GBW/main/html/home.php");
+         ?>
+            <script>
+                alert("User does not exist");
+            </script>
+            <?php
+             
+            
+        }
+        else {
+                    session_start();
+                    $_SESSION['userId']= ['UserID'];
+                    $_SESSION['username']= ['username'];
+        
+                    
+              ?>  <script>
+                alert("LOGGED IN");
+            </script>
+            <?php
+       //      header("Location:http://localhost:8080/GroceryBasket-Web/GBW/main/html/home.php");
+                }
+            }
+
     elseif(isset($_POST['reg_user']))
     {						//REGISTER WORKS!!!!!!! 
-        $username      = mysqli_real_escape_string($conn,$_POST['username']);
-        $email     = mysqli_real_escape_string($conn,$_POST['email']);
+        $username = mysqli_real_escape_string($conn,$_POST['username']);
+        $email = mysqli_real_escape_string($conn,$_POST['email']);
         $password  = mysqli_real_escape_string($conn,$_POST['password']);
-        $query = "SELECT Email FROM User_Info where Email='".$email."'";
+        $query = "SELECT Email FROM User_Info where Email='$email'";
+
         $result = mysqli_query($conn,$query);
         $numResults = mysqli_num_rows($result);
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) // Validate email address
+
+
+        if (empty($username)|| empty($email) ||empty($password))
         {
-            $message =  "Invalid email address please type a valid email!!";
+            ?>
+            <script>
+                alert("Data is missing");
+            </script>
+            <?php
+            exit();
         }
-        elseif($numResults>=1) //this part doesnt work yet ):
-        {
-            $message = $email." Email already exist!!";
+        elseif(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+            ?>
+            <script>
+                alert("invalid email");
+            </script>
+            <?php
+            exit();
+        }
+        elseif($numResults>=1) //this part does work (:
+        { ?>
+            <script>
+                alert("Email already in use");
+            </script>
+            <?php
+            exit(); 
+            
         }
         else
-        {
-            mysqli_query($conn,"INSERT into User_Info(Email,UserName,Password) VALUES('".$username."','".$email."','".md5($password)."')");
-            $message = "Signup Sucessfully!!";
+        { session_start();
+            mysqli_query($conn,"INSERT into User_Info(Email,UserName,Password) VALUES('".$email."','".$username."','".md5($password)."')");
+
+            header("Location:http://localhost:8080/GroceryBasket-Web/GBW/main/html/home.php");
+                    
+             ?>
+            <script>
+                alert("Logged in!");
+            </script>
+            <?php
+            
         }
     }
 
