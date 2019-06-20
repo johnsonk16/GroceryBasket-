@@ -60,8 +60,10 @@
       			<span class="close">&times;</span>
       			<h2>Add Recipe</h2>
     		</div>
-    		<form id="add-meal-form" name="add-meal-form">
-    			<div class="modal-body">
+
+    		<div class="modal-body">
+    			<form id="add-meal-form" name="add-meal-form">
+    			<!-- <div class="modal-body"> -->
     				<div class="row">
     					<div class="col-25">
     						<label for="recipe-name">Recipe Name: </label>
@@ -162,9 +164,8 @@
     				<div class="row">
     					<p class="add-meal-modal__reset-fields" onclick="location.reload()"><a>Reset Fields</a></p>
     				</div>
-
-    			</div>
-    		</form>
+    			</form>
+    		</div>	
   		</div>
   	</div>
 
