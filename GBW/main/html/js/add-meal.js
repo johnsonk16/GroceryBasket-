@@ -23,3 +23,8 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+//TODO:
+//	1. fix responsive design of modal -- not working
+//	2. add function to delete added step/ingredient
+//	3. write to database with user's input 
