@@ -21,6 +21,7 @@
 	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
 	<link rel="stylesheet" href="css/home.css"> <!-- Resource style -->
 	<link rel="stylesheet" href="css/demo.css"> <!-- Demo style -->
+	<link rel="stylesheet" href="css/search.css"> <!-- Demo style -->
   	
 	<title>Grocery Basket</title>
 </head>
@@ -60,6 +61,8 @@
   			</div>
 		</div>
 	</div>
+	<?php include 'search.php';?>
+		<br>
 
 	<div class="cd-nugget-info">
 			<a href="explore.php">Explore</a>
