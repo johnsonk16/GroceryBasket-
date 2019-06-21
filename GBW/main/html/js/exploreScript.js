@@ -21,7 +21,7 @@ function addIngredient(){
 
 //submit form 
 function submitRecipeForm(){
-	document.forms["submitForm"].submit();
+	document.forms["add-meal-form"].submit();
 	
 }
 
