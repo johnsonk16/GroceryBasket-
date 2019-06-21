@@ -69,14 +69,24 @@
         }
         else {
                     session_start();
-                    $_SESSION['userId']= ['UserID'];
-                    $_SESSION['username']= ['username'];
+                    $_SESSION['userId']= $email;
+                    // $_SESSION['username']= $username;
+                    // echo $_SESSION['userId'];
+
+                    // echo("<script>alert('it works')</script>");
+                    // echo("<script>window.location = 'http://localhost:8080/GroceryBasket-Web/GBW/main/html/home.php';</script>");
+                    // header("Location: http://localhost:8080/GroceryBasket-Web/GBW/main/html/home.php");
+
+                    
         
                     
               ?>  <script>
                 alert("LOGGED IN");
+                window.location = 'http://localhost:8080/GroceryBasket-Web/GBW/main/html/home.php';
             </script>
             <?php
+
+            echo $_SESSION['userId'];
        //      header("Location:http://localhost:8080/GroceryBasket-Web/GBW/main/html/home.php");
                 }
             }
@@ -123,7 +133,7 @@
             mysqli_query($conn,"INSERT into User_Info(Email,UserName,Password) VALUES('".$email."','".$username."','".md5($password)."')");
 
             header("Location:http://localhost:8080/GroceryBasket-Web/GBW/main/html/home.php");
-                    
+
              ?>
             <script>
                 alert("Logged in!");
