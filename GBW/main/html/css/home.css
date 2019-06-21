@@ -33,6 +33,34 @@ input::-ms-clear, textarea::-ms-clear {
   display: none;
 }
 
+.navbar .nav-item i {
+  font-size: 18px;
+}
+.navbar .dropdown-item i {
+  font-size: 16px;
+  min-width: 22px;
+}
+.navbar .nav-item.open > a {
+  background: none !important;
+}
+.navbar .dropdown-menu {
+  border-radius: 1px;
+  border-color: #e5e5e5;
+  box-shadow: 0 2px 8px rgba(0,0,0,.05);
+}
+.navbar .dropdown-menu li a {
+  color: #777;
+  padding: 8px 20px;
+  line-height: normal;
+  font-size: 14px;
+}
+.navbar .dropdown-menu li a:hover, .navbar .dropdown-menu li a:active {
+  color: #333;
+}
+.navbar .navbar-form {
+  border: none;
+}
+
 /* Login/Signup modal window */
 .cd-main-header {
   position: relative;
