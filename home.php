@@ -8,8 +8,8 @@
    	die('could not connect' . mysqli_error());
   } 
    
-    echo 'CONNECTED TO DB';
- ?>
+   // echo 'CONNECTED TO DB';
+ ?>	
 
 
 <html lang="en" class="no-js">
