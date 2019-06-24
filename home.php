@@ -70,11 +70,6 @@
 			<a href="explore.php">Explore</a>
 	</div> <!-- cd-nugget-info -->
 
-	<?php 
-		echo $_SESSION['userId'];
-
-	?>
-
 	<div class="cd-signin-modal js-signin-modal"> <!-- this is the entire modal form, including the background -->
 		<div class="cd-signin-modal__container"> <!-- this is the container wrapper -->
 			<ul class="cd-signin-modal__switcher js-signin-modal-switcher js-signin-modal-trigger">
