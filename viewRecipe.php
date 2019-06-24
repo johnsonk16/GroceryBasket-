@@ -49,7 +49,7 @@
           <td colspan="2" id="imageCell">
             <?php
               if($recipeIMG!="NULL"){
-                echo "<img src='uploads/".$recipeIMG."' id='recipeImage'>";
+                echo "<img src='img/".$recipeIMG."' id='recipeImage'>";
               } 
             ?>
           </td>

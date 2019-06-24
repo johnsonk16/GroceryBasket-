@@ -72,11 +72,11 @@
             // Verify MYME type of the file
             if(in_array($filetype, $allowed)){
                 // Check whether file exists before uploading it
-                if(file_exists("uploads/" . $filename)){
+                if(file_exists("img/" . $filename)){
                     $filename = $recipeID.$filename;
-                    move_uploaded_file($_FILES["photoUpload"]["tmp_name"], "uploads/" . $filename);
+                    move_uploaded_file($_FILES["photoUpload"]["tmp_name"], "img/" . $filename);
                 } else{
-                    move_uploaded_file($_FILES["photoUpload"]["tmp_name"], "uploads/" . $filename);
+                    move_uploaded_file($_FILES["photoUpload"]["tmp_name"], "img/" . $filename);
                 } 
             } else{
                 echo "Error: There was a problem uploading your file. Please try again."; 
