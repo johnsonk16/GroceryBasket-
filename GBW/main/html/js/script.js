@@ -1,22 +1,31 @@
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyDSXuuyEHEcBidq2a5RF7tYDoQgvsHPWzs",
-    authDomain: "grocery-basket-web.firebaseapp.com",
-    databaseURL: "https://grocery-basket-web.firebaseio.com",
-    projectId: "grocery-basket-web",
-    storageBucket: "grocery-basket-web.appspot.com",
-    messagingSenderId: "526528269130",
-    appId: "1:526528269130:web:3c565e87471e456a"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+//getting value from 'ajax.php'
+function fill (value){
+  //assigning value to "search" 
+  $('#search').val(Value);
+  //hiding display
+  $('#display').hide();
+}
 
-//   // Get the modal
-// var modal = document.getElementById('id01');
+$(document).ready(function(){
+  $("#search").keyup(function(){
+    var name = $('#search').val();
 
-// // When the user clicks anywhere outside of the modal, close it
-// window.onclick = function(event) {
-//     if (event.target == modal) {
-//         modal.style.display = "none";
-//     }
-// }
+    if(name ==""){
+      $("#display").html("");
+    }
+    else {
+      $.ajax({
+        type:"POST",
+
+        url: "ajax.php",
+
+        data: {
+          search: name
+        },
+        success: function(html){
+          $("#display").html.show();
+        }
+      });
+    }
+  });
+});

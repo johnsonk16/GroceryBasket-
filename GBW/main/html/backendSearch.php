@@ -7,10 +7,10 @@ $link= mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME);
 if($link === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
- 
+
 if(isset($_REQUEST["term"])){
     // Prepare a select statement
-    $sql = "SELECT * FROM Tag WHERE name LIKE ?";
+    $sql = "SELECT * FROM Recipes WHERE Recipe_Name LIKE ?";
     
     if($stmt = mysqli_prepare($link, $sql)){
         // Bind variables to the prepared statement as parameters
@@ -27,7 +27,7 @@ if(isset($_REQUEST["term"])){
             if(mysqli_num_rows($result) > 0){
                 // Fetch result rows as an associative array
                 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-                    echo "<p>" . $row["name"] . "</p>";
+                    echo "<p>" . $row["Recipe_Name"] . "</p>";
                 }
             } else{
                 echo "<p>No matches found</p>";

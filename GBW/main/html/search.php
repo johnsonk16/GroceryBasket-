@@ -1,24 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang ="en">
+
 <head>
-<meta charset="UTF-8">
-<link rel="stylesheet" href="css/search.css">
-<title>Database Search</title>
-<style type="text/css">
+    <meta charset="UTF-8"> 
+    <style type="text/css">
     body{
         font-family: Arail, sans-serif;
     }
-
-</style>
-<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){
+    /* Formatting search box */
+    .search-box{
+        width: 300px;
+        position: relative;
+        display: inline-block;
+        font-size: 14px;
+    }
+    .search-box input[type="text"]{
+        height: 32px;
+        padding: 5px 10px;
+        border: 1px solid #CCCCCC;
+        font-size: 14px;
+    }
+    .result{
+        position: absolute;        
+        z-index: 999;
+        top: 100%;
+        left: 0;
+    }
+    .search-box input[type="text"], .result{
+        width: 100%;
+        box-sizing: border-box;
+    }
+    /* Formatting result items */
+    .result p{
+        margin: 0;
+        padding: 7px 10px;
+        border: 1px solid #CCCCCC;
+        border-top: none;
+        cursor: pointer;
+    }
+    .result p:hover{
+        background: #f2f2f2;
+    }
+    </style>
+    
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
     $('.search-box input[type="text"]').on("keyup input", function(){
         /* Get input value on change */
         var inputVal = $(this).val();
         var resultDropdown = $(this).siblings(".result");
         if(inputVal.length){
-            $.get("backend-search.php", {term: inputVal}).done(function(data){
+            $.get("backendSearch.php", {term: inputVal}).done(function(data){
                 // Display the returned data in browser
                 resultDropdown.html(data);
             });
@@ -26,7 +59,6 @@ $(document).ready(function(){
             resultDropdown.empty();
         }
     });
-    
     // Set search input value on click of result item
     $(document).on("click", ".result p", function(){
         $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
@@ -35,10 +67,11 @@ $(document).ready(function(){
 });
 </script>
 </head>
+
 <body>
     <div class="search-box">
-        <input type="text" autocomplete="off" placeholder="Search recipes..." />
-        <div class="result"></div>
+        <input type="text" placeholder="Search" />
+            <div id="result"></div>
     </div>
 </body>
 </html>
