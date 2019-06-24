@@ -46,9 +46,27 @@ function addIngredient(){
 	document.getElementById("ingredients").appendChild(newIng);
 }
 
-function validateForm() {
-	
-}
+// TODO: error when use does not fill in input text
+
+// function validateForm() {
+// 	var x = document.forms["add-meal-form"]["recipe-name"].value;
+// 	var y = document.forms["add-meal-form"]["servings"].value;
+// 	var z = document.forms["add-meal-form"]["instruction"].value;
+
+// 	if (x == null || x == "") {
+//     	nameError = "Please enter recipe name";
+//     	document.getElementById("name_error").innerHTML = nameError; 
+//     	return false;
+// 	} else if (y == null || y == "") {
+//     	servingsError = "Please enter amount of servings";
+//     	document.getElementById("servings_error").innerHTML = servingsError;
+//     	return false;
+//     } else if (z == null || z == "") {        
+//     	instructionsError = "Please enter the instruction step";
+//     	document.getElementById("instructions_error").innerHTML = instructionsError;
+//     	return false;
+// 	} else {return true;
+// }
 
 //submit form 
 function submitRecipeForm(){
