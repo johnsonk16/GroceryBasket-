@@ -20,6 +20,7 @@
     
  ?>
 
+
 <html lang="en" class="no-js">
 <head>
   <link rel="stylesheet" href="css/view-recipe.css">
@@ -49,7 +50,7 @@
           <td colspan="2" id="imageCell">
             <?php
               if($recipeIMG!="NULL"){
-                echo "<img src='uploads/".$recipeIMG."' id='recipeImage'>";
+                echo "<img src='img/".$recipeIMG."' id='recipeImage'>";
               } 
             ?>
           </td>
