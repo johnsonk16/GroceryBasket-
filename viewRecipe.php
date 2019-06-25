@@ -20,6 +20,7 @@
     
  ?>
 
+
 <html lang="en" class="no-js">
 <head>
   <link rel="stylesheet" href="css/view-recipe.css">

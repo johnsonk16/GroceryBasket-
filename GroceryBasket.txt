@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf500
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;}
 {\colortbl;\red255\green255\blue255;}
@@ -290,3 +291,289 @@ INSERT INTO `Ingredients` (`Ingredient_ID`, `Ingredient_name`, `Category_ID`) VA
 \
 \
 }
+=======
+
+
+DROP TABLE IF EXISTS Recipes; 
+DROP TABLE IF EXISTS Recipe_Ingredients;
+DROP TABLE IF EXISTS Ingredients;
+DROP TABLE IF EXISTS Step;
+DROP TABLE IF EXISTS Time;
+DROP TABLE IF EXISTS Tag;
+DROP TABLE IF EXISTS Recipe_Tag;
+DROP TABLE IF EXISTS Favorites;
+DROP TABLE IF EXISTS User_Info;
+DROP TABLE IF EXISTS Ingredient_Category;
+
+
+CREATE TABLE Recipes (
+	Recipe_ID INT NOT NULL AUTO_INCREMENT,
+	Recipe_Name VARCHAR(225) NOT NULL,
+	Time_ID INT(11),
+	Serving INT (11),
+	Recipe_Img VARCHAR (255),
+	PRIMARY KEY(Recipe_ID)
+); 
+
+CREATE TABLE Recipe_Ingredients(
+	Ingredient_ID INT NOT NULL AUTO_INCREMENT,
+	Recipe_ID INT NOT NULL,
+	Measurement VARCHAR (225) NOT NULL,
+	PRIMARY KEY(Ingredient_ID,Recipe_ID)
+);
+
+
+CREATE TABLE Ingredients(
+	Ingredient_ID INT NOT NULL AUTO_INCREMENT,
+	Ingredient_name VARCHAR(255) NOT NULL,
+	Category_ID INT,
+	PRIMARY KEY(Ingredient_ID)
+);
+
+CREATE TABLE Step(
+	Recipe_ID INT NOT NULL, 
+	Step_Content TEXT NOT NULL,
+	Step_Number INT
+);
+
+CREATE TABLE Favorites(
+	Recipe_ID INT (11),
+	User_ID INT(11),
+	PRIMARY KEY(Recipe_ID,User_ID)
+);
+CREATE TABLE User_Info(
+	User_ID INT NOT NULL AUTO_INCREMENT,
+	Email VARCHAR (225) NOT NULL,
+	UserName VARCHAR (255) NOT NULL,
+	Password VARCHAR (255) NOT NULL, 
+	PRIMARY KEY(User_ID)
+);
+
+CREATE TABLE Tag(
+	Tag_ID INT NOT NULL AUTO_INCREMENT,
+	Tag_Type VARCHAR (255),
+	PRIMARY KEY(Tag_ID)
+);
+
+CREATE TABLE Recipe_Tag(
+	Tag_ID INT NOT NULL,
+	Recipe_ID INT NOT NULL,
+	PRIMARY KEY(Tag_ID, Recipe_ID)
+);
+
+CREATE TABLE Time(
+	Time_ID INT NOT NULL AUTO_INCREMENT,
+	Amount VARCHAR (255),
+	PRIMARY KEY(Time_ID)
+
+);
+
+CREATE TABLE `Ingredient_Category` (
+  `Category_ID` int(11) NOT NULL,
+  `Category_Type` varchar(255)
+) ;
+
+INSERT INTO `Ingredient_Category` (`Category_ID`, `Category_Type`) VALUES
+(1, 'Fruit'),
+(2, 'Vegetables'),
+(3, 'Meat'),
+(4, 'Seafood'),
+(5, 'Spices'),
+(6, 'Grains'),
+(7, 'Dairy'),
+(8, 'Oil'),
+(9, 'Dry Goods'),
+(10, 'Wet Goods'),
+(11, 'Other');
+
+INSERT INTO Time VALUES ('1', '>10 minutes');
+INSERT INTO Time VALUES ('2', '10 - 20 minutes');
+INSERT INTO Time VALUES ('3', '20 - 30 minutes');
+INSERT INTO Time VALUES ('4', '30 - 45 minutes');
+INSERT INTO Time VALUES ('5', '45 - 1 hour');
+INSERT INTO Recipes VALUES ('1','Spicy Candied Bacon', '3', '22', 'bacon.jpg');
+
+INSERT INTO Tag VALUES (1,'Vegan');
+INSERT INTO Tag VALUES(2,"Vegetarian");
+INSERT INTO Tag VALUES(3,"Low Carbs");
+INSERT INTO Tag VALUES(4,"Low Sugar");
+INSERT INTO Tag VALUES(5,"Low Sodium");
+INSERT INTO Tag VALUES(6,"Keto");
+INSERT INTO Tag VALUES ( 7,"Gluten Free");
+INSERT INTO Tag VALUES(8,"Dairy Free");
+INSERT INTO Tag VALUES(9,"Organic");
+INSERT INTO Tag VALUES(10,"Kosher");
+
+INSERT INTO `Step`(`Recipe_ID`, `Step_Content`, `Step_Number`) VALUES (1,"Preheat oven to 350 convection or 375 conventional.",1);
+INSERT INTO `Step` VALUES (1, "Mix 1/2 cup light brown sugar with one tablespoon chili powder and 1/2 teaspoon cayenne pepper.",2);
+INSERT INTO `Step` VALUES (1, 'Prep baking tray with aluminum foil to help clean up and a rack. Spray heavy with cooking spray',3);
+INSERT INTO `Step`(`Recipe_ID`, `Step_Content`, `Step_Number`) VALUES (1,"Cut bacon strips in half and trim any large chunks of fat.",4);
+INSERT INTO `Step` VALUES (1, "Dip bacon in the brown sugar mixture and coat well.",5);
+INSERT INTO `Step` VALUES (1, 'Spread over the prepared rack leaving a little space then give them a light dusting of additional sugar and spice.',6);
+INSERT INTO `Step` VALUES (1, "Bake until bacon appears done which is dark along the edges. About 20 minutes for me but start checking at 15 minutes. The sugar can begin to burn when left in too long. Remove from oven and let sit for a few minutes and pat off any pools of fat on top the paper towel carefully.",7);
+INSERT INTO `Step` VALUES (1, 'Then transfer for cooling, another rack, a baking mat, parchment paper or just a plate should do. Do not "drain" on a paper towel due to sticking.',8);
+
+INSERT INTO `Recipe_Ingredients`(`Ingredient_ID`, `Recipe_ID`, `Measurement`) VALUES ('10','1','1 Pound');
+INSERT INTO `Recipe_Ingredients` (`Ingredient_ID`, `Recipe_ID`, `Measurement`)  VALUES ('4','1','1/2 Cup');
+INSERT INTO `Recipe_Ingredients` (`Ingredient_ID`, `Recipe_ID`, `Measurement`)  VALUES ('11', '1','1 Tablespoon');
+INSERT INTO `Recipe_Ingredients` (`Ingredient_ID`, `Recipe_ID`, `Measurement`) VALUES ('12','1','1/2 Teaspoon');
+
+INSERT INTO `Recipe_Tag`(`Tag_ID`, `Recipe_ID`) VALUES ('7','1');
+INSERT INTO `Recipe_Tag` VALUES ('8','1');
+
+
+INSERT INTO `Ingredients` (`Ingredient_ID`, `Ingredient_name`, `Category_ID`) VALUES
+(1, 'Egg', 11),
+(2, 'Flour', 9),
+(3, 'White Sugar', 9),
+(4, 'Brown Sugar', 9),
+(5, 'Baking Soda', 9),
+(6, 'Baking Powder', 9),
+(7, 'Salt', 9),
+(8, 'Pepper', 9),
+(9, 'Garlic', 5),
+(10, 'Garlic Powder', 5),
+(11, 'Paprika', 5),
+(12, 'Basil', 5),
+(13, 'Oregano', 5),
+(14, 'Cilantro', 5),
+(15, 'Chili Powder', 5),
+(16, 'Ginger', 5),
+(17, 'Thyme', 5),
+(18, 'Cayenne Powder', 5),
+(19, 'Parsley', 5),
+(20, 'Onion Powder', 5),
+(21, 'Apple', 1),
+(22, 'Orange', 1),
+(23, 'Banana', 1),
+(24, 'Grape', 1),
+(25, 'Pineapple', 1),
+(26, 'Strawberry', 1),
+(27, 'Blueberry', 1),
+(28, 'Peach', 1),
+(29, 'Blackberry', 1),
+(30, 'Avocado', 1),
+(31, 'Mango', 1),
+(32, 'Plum', 1),
+(33, 'Carrot', 2),
+(34, 'Corn', 2),
+(35, 'Spinach', 2),
+(36, 'Arugula', 2),
+(37, 'Celery', 2),
+(38, 'Kale', 2),
+(39, 'Cabbage', 2),
+(40, 'Tomato', 2),
+(41, 'Peas', 2),
+(42, 'Green Bean', 2),
+(43, 'Broccoli', 2),
+(44, 'Brussels Sprouts', 2),
+(45, 'Ground Beef', 3),
+(46, 'Ground Turkey', 3),
+(47, 'Steak', 3),
+(48, 'Turkey', 3),
+(49, 'Ham', 3),
+(50, 'Pork Chop', 3),
+(51, 'Chicken Breast', 3),
+(52, 'Chicken Wings', 3),
+(53, 'Steak Tips', 3),
+(54, 'Pork Loin', 3),
+(55, 'Shrimp', 4),
+(56, 'Salmon', 4),
+(57, 'Tuna', 4),
+(58, 'Crab', 4),
+(59, 'Clam', 4),
+(60, 'Cod', 4),
+(61, 'Catfish', 4),
+(62, 'Lobster', 4),
+(63, 'Mussels', 4),
+(64, 'Swordfish', 4),
+(65, 'Quinoa', 6),
+(66, 'Buckwheat', 6),
+(67, 'Rice', 6),
+(68, 'Barley', 6),
+(69, 'Oat', 6),
+(70, 'Rye', 6),
+(71, 'Whole Milk', 7),
+(72, '2% Milk', 7),
+(73, '1% Milk', 7),
+(74, 'Butter (Salted)', 7),
+(75, 'Butter (Unsalted)', 7),
+(76, 'Olive Oil', 8),
+(77, 'Coconut Oil', 8),
+(78, 'Canola Oil', 8),
+(79, 'Peanut Oil', 8),
+(80, 'Sesame Oil', 8),
+(81, 'Peanut Oil', 8),
+(82, 'Powdered Sugar', 9),
+(83, 'Tomato Paste', 9),
+(84, 'Pasta', 9),
+(85, 'Cornstarch', 9),
+(86, 'Yeast', 9),
+(87, 'White Vinegar', 10),
+(88, 'Apple Cider Vinegar', 10),
+(89, 'Wine Vinegar', 10),
+(90, 'Honey', 10),
+(91, 'Vanilla', 10),
+(92, 'Corn Syrup', 10),
+(93, 'Maple Syrup', 10),
+(94, 'Molasses', 10),
+(95, 'Sugar', 9),
+(96, 'Red Pepper', 2),
+(97, 'Green Pepper', 2),
+(98, 'Black Beans', 2),
+(99, 'Parmesan Cheese', 7),
+(100, 'Mozzarella Cheese', 7),
+(101, 'Ricotta Cheese', 7),
+(102, 'Blue Cheese', 7),
+(103, 'Cheddar Cheese', 7),
+(104, 'American Cheese', 7),
+(105, 'Soy Sauce', 10),
+(106, 'Buttermilk', 7),
+(107, 'Xanthan Gum', 11),
+(108, 'Potato Starch', 9),
+(109, 'Soy Flour', 9),
+(110, 'Rice Flour', 9),
+(111, 'White Bread', 9),
+(112, 'Wheat Bread', 9),
+(113, 'Rye Bread', 9),
+(114, 'Ground Cornmeal', 9),
+(115, 'Shortening', 11),
+(116, 'Almond Flour', 9),
+(117, 'Water', 10),
+(118, 'Chicken Broth', 10),
+(119, 'Beef Stock', 10),
+(120, 'Zucchini', 2),
+(121, 'Lime', 1),
+(122, 'Lemon', 1),
+(123, 'Jalapeno', 2),
+(124, 'Shallots', 2),
+(125, 'Red Pepper Flakes', 5),
+(126, 'White Wine', 11),
+(127, 'Red Wine', 11),
+(128, 'Cauliflower', 2),
+(129, 'Heavy Whipping Cream', 7),
+(130, 'Clarified butter', 7),
+(131, 'Nutmeg', 5),
+(132, 'Mustard', 11),
+(133, 'Ketchup', 11),
+(134, 'Unsweetened Cocoa Powder', 9),
+(135, 'Chocolate Chips', 9),
+(136, 'Almond Extract', 10),
+(137, 'Bread Crumbs', 9),
+(138, 'Hot Sauce', 11),
+(139, 'Worcestershire Sauce ', 11),
+(140, 'Italian Seasoning', 5),
+(141, 'Bay Leaves', 5),
+(142, 'Tomato Sauce', 10),
+(143, 'Sausage', 3),
+(144, 'Cinnamon', 5),
+(145, 'Lemon Juice', 10),
+(146, 'Lettuce', 2),
+(147, 'Onion', 2),
+(148, 'Sour Cream', 7),
+(149, 'Bacon', 3),
+(150, 'Chilli Powder',5); 
+
+
+
+>>>>>>> b616afd38cef67fdf1857dfc8da8f5625a736bf5

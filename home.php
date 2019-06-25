@@ -8,8 +8,8 @@
    	die('could not connect' . mysqli_error());
   } 
    
-    echo 'CONNECTED TO DB';
- ?>
+   // echo 'CONNECTED TO DB';
+ ?>	
 
 
 <html lang="en" class="no-js">
@@ -69,11 +69,6 @@
 	<div class="cd-nugget-info">
 			<a href="explore.php">Explore</a>
 	</div> <!-- cd-nugget-info -->
-
-	<?php 
-		echo $_SESSION['userId'];
-
-	?>
 
 	<div class="cd-signin-modal js-signin-modal"> <!-- this is the entire modal form, including the background -->
 		<div class="cd-signin-modal__container"> <!-- this is the container wrapper -->
