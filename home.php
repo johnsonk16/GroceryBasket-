@@ -68,8 +68,21 @@
 
 	<div class="cd-nugget-info">
 			<a href="explore.php">Explore</a>
-	</div> <!-- cd-nugget-info -->
-
+	<!-- cd-nugget-info -->
+	</div>
+	<div id="main">
+        <form id="form" action="search.php" method="post">
+            <h1>Find a Recipe</h1>
+            <input type="text" id="textBar" placeholder="enter keywords (optional)" name='term' autofocus>
+            <tr>
+                  <td colspan="2" style="text-align:center;">
+                    <input type="submit" class="formButton" value="Search Recipes"/>
+                    <button class="formButton" type="button" onclick="location.reload()" >Reset Fields</button>
+                  </td>
+                </tr>
+        </form>
+      </div>
+ 
 	<div class="cd-signin-modal js-signin-modal"> <!-- this is the entire modal form, including the background -->
 		<div class="cd-signin-modal__container"> <!-- this is the container wrapper -->
 			<ul class="cd-signin-modal__switcher js-signin-modal-switcher js-signin-modal-trigger">

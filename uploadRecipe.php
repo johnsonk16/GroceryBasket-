@@ -68,7 +68,8 @@
             // Verify file size - 5MB maximum
             $maxsize = 5 * 1024 * 1024;
             if($filesize > $maxsize) die("Error: File size is larger than the allowed limit.");
-        
+
+
             // Verify MYME type of the file
 
             if(in_array($filetype, $allowed)){
@@ -82,6 +83,7 @@
             } else{
                 echo "Error: There was a problem uploading your file. Please try again."; 
             }
+
         } 
     }
 
