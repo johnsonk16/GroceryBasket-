@@ -35,7 +35,7 @@
 	
 	<div class="cd-intro">
 		<h1>Explore</h1>
-  
+
 		<div class="cd-nugget-info">
 			<a id="add-meal-btn" onclick="addmeal()">Add Your Own Recipe</a>
 		</div> <!-- cd-nugget-info -->
