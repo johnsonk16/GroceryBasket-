@@ -31,6 +31,12 @@
    <link rel="stylesheet" href="css/home.css"> <!-- Resource style -->
 
    <script type="text/javascript" src="scripts.js"></script>
+   <script> jQuery(document).ready(function($) {
+            $(".clickable-row").click(function() {
+                window.location = $(this).data("href");
+            });
+        });
+      </script>
 
 </head>
 
@@ -95,14 +101,6 @@
             }
      ?>
     </div>
-
-<!-- Search box. -->
-
-   <!-- <input class="center" type="text" id="search" placeholder="Search" /> -->
-
-   <!-- Suggestions will be displayed in below div. -->
-
- <!--  <div id="display"></div> -->
 
 </body>
 
