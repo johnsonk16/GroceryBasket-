@@ -541,3 +541,9 @@ input::-ms-clear, textarea::-ms-clear {
 .cd-signin-modal__block.cd-signin-modal__block--is-selected {
   display: block;
 }
+
+.center {
+    display: block;
+    text-align: center;
+    font-size: 20px;
+}

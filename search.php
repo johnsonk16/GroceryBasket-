@@ -13,9 +13,8 @@
 <style>
 .center {
     display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 40%;
+    margin-left: 35%;   
+    padding: 50px 50px;
 }
 </style>
 
@@ -29,6 +28,7 @@
 
    <!-- Including our scripting file. -->
    <link rel="stylesheet" href="css/home.css"> <!-- Resource style -->
+   <?php include 'header.php' ?>
 
    <script type="text/javascript" src="scripts.js"></script>
    <script> jQuery(document).ready(function($) {
@@ -45,7 +45,8 @@
 <body>
 
   <div id="main">
-    <a href="javascript:history.back()">< Back to search</a>
+      <br>
+
     <?php
             $results = NULL;
             // Get search parameters
@@ -67,10 +68,13 @@
             }
             if($results == NULL || count($results)==0){
                 echo "<h2 class='no_result'>No results.</h2><h3 class='no_result'>Try changing your search parameters.</h3>";
-            } else{
+                echo '<p><a href="javascript:history.back()">< Back to search</a></p>';
+            } else {
                 if(count($results)==1){
+                    echo '<p><a href="javascript:history.back()">< Back to search</a></p>';
                     echo "<h2 id='resultTitle'>1 result:</h2>";
                 } else{
+                    echo '<p><a href="javascript:history.back()">< Back to search</a></p>'; 
                     echo "<h2 id='resultTitle'>".count($results)." results:</h2>";
                 }
                 echo "<p style='text-align:center'><table id='results' style='text-align: center;table-layout:fixed; width:100%; border-collapse: collapse;'>";
