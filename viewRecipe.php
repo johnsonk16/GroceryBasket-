@@ -20,7 +20,6 @@
     
  ?>
 
-
 <html lang="en" class="no-js">
 <head>
   <link rel="stylesheet" href="css/view-recipe.css">
@@ -32,18 +31,11 @@
 
     <div id="main">
       <form method="post" id="child">
-      <table class="center" id="searchFilters" align="center" cellpadding="2" cellspacing="5" border="0">
+     <table class="center" id="searchFilters" align="center" cellpadding="2" cellspacing="5" border="0"> 
+      
         <col width = 30%>
         <col witdh =70%>
 
-        <!-- Recipe Name -->
-        <tr>
-          <td colspan="2"><h1>
-            <?php 
-              echo $recipeName;
-            ?>
-          </h1></td>
-        </tr>
 
         <!-- Recipe Image -->
         <tr>
@@ -56,6 +48,14 @@
           </td>
         </tr>
 
+        <!-- Recipe Name -->
+        <tr>
+          <td colspan="2"><h1>
+            <?php 
+              echo $recipeName;
+            ?>
+          </h1></td>
+        </tr>
         <!-- Recipe Ingredients -->
         <tr>
           <td class="left">Ingredients Required:</td>
