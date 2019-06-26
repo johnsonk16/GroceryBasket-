@@ -13,7 +13,9 @@
 </head>
 <body>
 	<header class="cd-main-header">
-		<div class="cd-main-header__logo"><a href="#0"><img src="img/cd-logo.svg" alt="Logo"></a></div>
+		<div class="cd-main-header__logo">
+			<h1>Grocery Basket</h1>
+		</div>
 
 		<nav class="cd-main-nav js-main-nav">
 			<ul class="cd-main-nav__list js-signin-modal-trigger">
@@ -98,8 +100,9 @@
 				</form>
 			</div> <!-- cd-signin-modal__block -->
 
-			<div class="cd-signin-modal__block js-signin-modal-block" data-type="reset"> <!-- reset password form -->
-				<p class="cd-signin-modal__message">Lost your password? Please enter your email address. You will receive a link to create a new password.</p>
+
+			<div class="cd-signin-modal__block js-signin-modal-block" data-type="reset"> 
+				<p class="cd-signin-modal__message">Lost your password? Please enter your email address. You will receive a link to create a new password.</p> <!-- reset password form -->
 
 				<form class="cd-signin-modal__form">
 					<p class="cd-signin-modal__fieldset">
@@ -118,6 +121,7 @@
 			<a href="#0" class="cd-signin-modal__close js-close">Close</a>
 		</div> <!-- cd-signin-modal__container -->
 	</div> <!-- cd-signin-modal -->
+	
 <script src="js/placeholders.min.js"></script> <!-- polyfill for the HTML5 placeholder attribute -->
 <script src="js/main.js"></script> <!-- Resource JavaScript -->
 </body>

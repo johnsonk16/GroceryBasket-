@@ -32,6 +32,7 @@
 		<header>
      <?php include 'header.php';?>
     </header>
+  </header>
 	
 	<div class="cd-intro">
 		<h1>Explore</h1>

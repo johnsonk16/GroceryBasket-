@@ -61,7 +61,7 @@ input::-ms-clear, textarea::-ms-clear {
   border: none;
 }
 
-/* Login/Signup modal window */
+/* login/signup modal window */
 .cd-main-header {
   position: relative;
   z-index: 1;
@@ -70,7 +70,6 @@ input::-ms-clear, textarea::-ms-clear {
 }
 
 .cd-main-header::after {
-  /* clearfix */
   content: '';
   display: table;
   clear: both;
@@ -88,8 +87,10 @@ input::-ms-clear, textarea::-ms-clear {
           transform: scale(0.8);
 }
 
-.cd-main-header__logo img {
-  display: block;
+.cd-main-header__logo h1 {
+  font-size: 2.2rem;
+  color: white;
+  font-weight: bold;
 }
 
 @media only screen and (min-width: 768px) {
@@ -521,7 +522,7 @@ input::-ms-clear, textarea::-ms-clear {
   height: 40px;
   right: 0;
   top: -40px;
-  background: url("..main/img/cd-icon-close.svg") no-repeat center center;
+  background: url("../img/cd-icon-close.svg") no-repeat center center;
   color: transparent;
   text-indent: 100%;
   white-space: nowrap;
