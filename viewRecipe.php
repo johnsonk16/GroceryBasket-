@@ -171,9 +171,10 @@
                 echo "<i>None specified.</i>";
               }
             ?> 
+            <button> Add to Meals</button>
           </td>
         </tr>
-
+       
       </table>
       </form>
 
