@@ -1,4 +1,7 @@
  <?php
+
+ session_start();
+
   require_once('config.php');
 
   $conn = mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME);
@@ -10,41 +13,65 @@
 echo 'CONNECTED TO DB';
         
   if(isset($_POST['login'])){
-     
+                //login
         $email = mysqli_real_escape_string($conn,$_POST['email']);
         $password = mysqli_real_escape_string($conn,$_POST['password']);
-        $strSQL = mysqli_query($conn,"SELECT UserName from User_Info where Email='".$email."' and Password='".md5($password)."'");
+        $sql= "SELECT UserName from User_Info where Email='".$email."' and Password='".md5($password)."'";
+        $strSQL = mysqli_query($conn,$sql);
+
         $Results = mysqli_fetch_array($strSQL);
       
-        if(($Results)>=1) //doesnt work yet
+        if(($Results)>=1) 
         {
-  		        $message = $Results['UserName']." Login Sucessfully!!";
+
+       $dbemail = $_POST['email'];
+
+        $dbpassword = $_POST['password'];
+
+         if ($email == $dbemail && $password == $dbpassword) {
+
+         $_SESSION['email'] = $email;
+
+        header("location: favorites.php");
+
+            }        
         }
+         
         else
         {
             $message = "Invalid email or password!!";
-        }        
+        }     
+  
      }
     elseif(isset($_POST['reg_user']))
-    {						//REGISTER WORKS!!!!!!! 
+    {						//REGISTER
         $username      = mysqli_real_escape_string($conn,$_POST['username']);
         $email     = mysqli_real_escape_string($conn,$_POST['email']);
         $password  = mysqli_real_escape_string($conn,$_POST['password']);
         $query = "SELECT Email FROM User_Info where Email='".$email."'";
         $result = mysqli_query($conn,$query);
         $numResults = mysqli_num_rows($result);
+
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) // Validate email address
         {
             $message =  "Invalid email address please type a valid email!!";
         }
-        elseif($numResults>=1) //this part doesnt work yet ):
+        elseif($numResults>=1) 
         {
             $message = $email." Email already exist!!";
         }
         else
         {
-            mysqli_query($conn,"INSERT into User_Info(Email,UserName,Password) VALUES('".$username."','".$email."','".md5($password)."')");
-            $message = "Signup Sucessfully!!";
+            $qry= mysqli_query($conn,"INSERT into User_Info(Email,UserName,Password) VALUES('".$email."','".$username."','".md5($password)."')");
+
+            if($qry) {
+
+            $_SESSION['email'] = $email;
+
+            header("location: favorites.php");
+
+                }
+           alert("sign up successful");
         }
     }
 

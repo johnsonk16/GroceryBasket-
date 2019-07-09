@@ -1,3 +1,8 @@
+<!-- <?php
+	session_start();
+	
+?> -->
+
 <html lang="en" class="no-js">
 <head>
 	<meta charset="UTF-8">
@@ -39,7 +44,7 @@
 			</ul>
 
 			<div class="cd-signin-modal__block js-signin-modal-block" data-type="login"> <!-- log in form -->
-				<form class="cd-signin-modal__form" id= "signIn" action= "User.php" method= "post" name = signin>
+				<form class="cd-signin-modal__form" id= "signIn" action= "register.php" method= "post" name = signin>
 					<p class="cd-signin-modal__fieldset">
 						<label class="cd-signin-modal__label cd-signin-modal__label--email cd-signin-modal__label--image-replace" for="signin-email">E-mail</label>
 						<input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" id="signin-email" type="email" placeholder="E-mail" name = "email">
@@ -69,7 +74,7 @@
 			</div> <!-- cd-signin-modal__block -->
 
 			<div class="cd-signin-modal__block js-signin-modal-block" data-type="signup"> <!-- sign up form -->
-				<form class="cd-signin-modal__form" id= "register" action= "User.php" method= "post" name =register>
+				<form class="cd-signin-modal__form" id= "register" action= "register.php" method= "post" name =register>
 
 					<p class="cd-signin-modal__fieldset">
 						<label class="cd-signin-modal__label cd-signin-modal__label--username cd-signin-modal__label--image-replace" for="signup-username">Username</label>
