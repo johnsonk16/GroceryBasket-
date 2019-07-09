@@ -82,7 +82,7 @@
                     
               ?>  <script>
                 alert("LOGGED IN");
-                window.location = 'http://localhost:8080/GroceryBasket-Web/GBW/main/html/home.php';
+                window.location = 'http://localhost:8080/GroceryBasket-Web/home.php';
             </script>
             <?php
 
@@ -132,7 +132,7 @@
         { session_start();
             mysqli_query($conn,"INSERT into User_Info(Email,UserName,Password) VALUES('".$email."','".$username."','".md5($password)."')");
 
-            header("Location:http://localhost:8080/GroceryBasket-Web/GBW/main/html/home.php");
+            header("Location:http://localhost:8080/GroceryBasket-Web/home.php");
 
              ?>
             <script>
