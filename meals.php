@@ -6,15 +6,18 @@
 	if(!$conn){
    	die('could not connect' . mysqli_error());
   } 
-    echo 'Meals';
-    echo 'CONNECTED TO DB';
+    // echo 'Meals';
+    // echo 'CONNECTED TO DB';
 //test
  ?>
 
 <html lang="en" class="no-js">
 <head>
-  <!-- <link rel="stylesheet" href="css/view-recipe.css"> -->
+  <link rel="stylesheet" href="css/reset.css"> 
+  <link rel="stylesheet" href="css/home.css"> 
   <link rel="stylesheet" href="css/demo.css"> 
+  <link rel="stylesheet" href="css/meals.css">
+
 </head>
   <body>
     <header>
@@ -22,8 +25,16 @@
     </header>
 
     <div class="cd-intro">
-		<h1>Meals</h1>
-	</div>
+		  <h1>Meals</h1>
+	   </div>
+
+     <!-- 'You have no meals' type of message -->
+     <div class="message-no-meals">
+       <p>You have no meals saved currently. Start exploring...</p>
+       <div class="cd-nugget-info">
+          <a href="home.php">Explore</a>
+        </div> 
+     </div>
 
   </body>
 

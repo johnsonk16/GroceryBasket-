@@ -1,7 +1,9 @@
 
 body {
-	background: #ebebeb;
+	/*background: #ebebeb;*/
 	font-family: "Open Sans", sans-serif;
+	color: #505260;
+	background-color: white;
 }
 .col-center {
 	margin: 0 auto;
