@@ -39,12 +39,7 @@
         <col width = 30%>
         <col witdh =70%>
 
-
-        <!-- Recipe Image -->
-        <tr>
-          <td colspan="2" id="imageCell">
-          <button onclick="goBack()">Back to results</button> 
-          <script>
+  <script>
             //trying to set function to go back to results page. 
           function goBack(){
            <?php
@@ -52,6 +47,11 @@
                ?>
           } 
           </script>
+        <!-- Recipe Image -->
+        <tr>
+          <td colspan="2" id="imageCell">
+          <button onclick="goBack()">Back to results</button> 
+        
             <?php
 
                if($recipeIMG!="NULL")
