@@ -200,7 +200,10 @@
 <?php
 // as of 7/10, displays name and image in a list, will work on linking the name to recipe site. Add recipe button wont work???? I may have messed up the syntax above. -kristin
 
-for($i=1; $i<34;$i++){
+$result = mysqli_query($conn,"SELECT * FROM Recipes"); 
+// calculates the number of recipes in DB
+$num_rows = mysqli_num_rows($result);
+for($i=1; $i<$num_rows;$i++){
  
   $sql = "SELECT * FROM Recipes WHERE Recipe_ID = '" .mysqli_real_escape_string($conn,$i) . "'";
   $result = mysqli_query($conn, $sql);
