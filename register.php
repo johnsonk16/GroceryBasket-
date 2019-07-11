@@ -17,7 +17,6 @@ $conn = mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME);
 
         $Results = mysqli_fetch_array($strSQL);
       
-<<<<<<< HEAD
         if(($Results)>=1){
             $dbemail = $_POST['email']; 
             $dbpassword = $_POST['password'];
@@ -26,22 +25,6 @@ $conn = mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME);
                 $_SESSION['login'] = true; 
                 $_SESSION['username'] = $username;
                 header("location: home.php");
-=======
-        if(($Results)>=1) 
-        {
-
-       $dbemail = $_POST['email'];
-
-        $dbpassword = $_POST['password'];
-
-         if ($email == $dbemail && $password == $dbpassword) {
-
-         $_SESSION['email'] = $email;
-
-
-       header("location: favorites.php");
-
->>>>>>> c32192afcc40c66c86fdefc087306505186fb22d
             }        
         }
          
