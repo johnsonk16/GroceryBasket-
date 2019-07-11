@@ -22,9 +22,10 @@ $conn = mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME);
             $dbpassword = $_POST['password'];
             //redirect to home
             if ($email == $dbemail && $password == $dbpassword) {
-                $_SESSION['login'] = true; 
-                $_SESSION['username'] = $username;
-                header("location: home.php");
+            $_SESSION['login'] = true; 
+            $_SESSION['email'] = $email;
+            header("location: home.php");
+
             }        
         }
          
@@ -58,7 +59,6 @@ $conn = mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME);
             if($qry) {
 
             $_SESSION['email'] = $email;
-           // echo $_SESSION['email'];
 
             header("location: favorites.php");
 
