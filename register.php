@@ -32,7 +32,8 @@ echo 'CONNECTED TO DB';
 
          $_SESSION['email'] = $email;
 
-        header("location: favorites.php");
+
+       header("location: favorites.php");
 
             }        
         }
@@ -67,6 +68,7 @@ echo 'CONNECTED TO DB';
             if($qry) {
 
             $_SESSION['email'] = $email;
+           // echo $_SESSION['email'];
 
             header("location: favorites.php");
 

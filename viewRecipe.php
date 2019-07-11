@@ -1,4 +1,6 @@
 <?php
+  session_start();
+  $_SESSION['email'];
   require_once('config.php');
 
   $conn = mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME);
@@ -52,9 +54,11 @@
           </script>
             <?php
 
-               if($recipeIMG!="NULL"){
+               if($recipeIMG!="NULL")
                  echo "<img src='img/".$recipeIMG."' id='recipeImage'>";
-               } 
+       
+               else
+               echo "<img src='img/GroceryBasket.jpg' id='recipeImage'>";
             ?>
 
           </td>
@@ -85,11 +89,15 @@
                   echo "<ul>";
                   while($row = $result->fetch_assoc()){
                     $sql = "SELECT Ingredient_Name FROM Ingredients WHERE Ingredient_ID = ".$row["Ingredient_ID"];
+                    $sql2 = "SELECT Measurement FROM Measurement WHERE Measurement_ID = ".$row["Measurement_ID"];
                     $getName = mysqli_query($conn, $sql);
+                    $getMeasurement = mysqli_query($conn,$sql2);
                     if($getName->num_rows>0) {
-                      $data = mysqli_fetch_assoc($getName);
-                      $ingredientName = $data['Ingredient_Name'];
-                      echo "<li>".$row["Measurement"]." ".$ingredientName."</li>";
+                      $name = mysqli_fetch_assoc($getName);
+                      $measurement = mysqli_fetch_assoc($getMeasurement);
+                      $ingredientName = $name['Ingredient_Name'];
+                      $ingMeasurement = $measurement['Measurement'];
+                      echo "<li>".$row["Quantity"]." ".$ingMeasurement." ".$ingredientName."</li>";
                     }
                   }
                   echo "</ul>";
@@ -171,7 +179,14 @@
                 echo "<i>None specified.</i>";
               }
             ?> 
-            <button> Add to Meals</button>
+            <button onsubmit=""> Add to Meals</button>
+            <script type="text/javascript">
+              function addToMeals(){
+              //pull recipe id and user id 
+              //make in into an array????
+              //send to meals.php
+              }
+            </script>
           </td>
         </tr>
        
