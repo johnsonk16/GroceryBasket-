@@ -1,5 +1,5 @@
 <?php
-    session_start();
+	session_start();
   require_once('config.php');
 
   $conn = mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME);
@@ -7,7 +7,6 @@
 	if(!$conn){
    	die('could not connect' . mysqli_error());
   } 
-   
    // echo 'CONNECTED TO DB';
  ?>	
 
@@ -18,7 +17,9 @@
 <link rel="stylesheet" href="css/home.css"> 
 <link rel="stylesheet" href="css/demo.css"> 
 <link rel="stylesheet" href="css/add-meal.css"> <!-- Add meal modal style -->
-
+<?php
+		 	echo 'hi ' .$_SESSION["username"];
+		 ?>
 <!-- 	<div class="cd-intro">
 		<h1>Grocery Basket</h1>
 

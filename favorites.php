@@ -1,4 +1,5 @@
 <?php
+  session_start();
   require_once('config.php');
 
   $conn = mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME);
@@ -7,7 +8,7 @@
    	die('could not connect' . mysqli_error());
   } 
    echo 'favorites';
-    echo 'CONNECTED TO DB';
+	echo 'CONNECTED TO DB';
  ?>
 
 
@@ -37,7 +38,7 @@
   	</header>
   	<br>
   	<div class="cd-intro">
-  		<h1>Just For You</h1>  
+  		<h1>Just For You <b><?php echo htmlspecialchars($_SESSION['email']); ?></b></h1>  
 	</div>
   <body>  
     <div class="container">
