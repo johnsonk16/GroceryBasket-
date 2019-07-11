@@ -93,7 +93,7 @@
                              $time = $row['Amount'];
                         }
                         if($img=="NULL"){
-                            echo"<td style='text-align:center; width:40%;'><img src='GroceryBasket.jpg' height='100px' style='float:left; margin:10px; '></td>";
+                            echo"<td style='text-align:center; width:40%;'><img src='img/GroceryBasket.jpg' height='100px' style='float:left; margin:10px; '></td>";
                         }else{
                             echo"<td style='text-align:center; width:40%;'><img src='img/".$img."' height='100px' style='float:left; margin:10px; '></td>";
                         }

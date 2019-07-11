@@ -91,7 +91,11 @@
       					<div class="col-75">
       						<table id="ingredients"> 
                     			<tr id="ingredientRow">
-                        		<td class="measurement"><input type="text" class="number" name="measurements[]" placeholder="(ex. 2 cups)"></td>
+                        		<td class="Quantity"><input type="text" class="number" name="quantity[]" placeholder="(ex. 2)"></td>
+                            <td><select class="measurement" id="measure" name="measurement[]" data-placeholder="Select measurement..." required="">
+                              <option value="">Select Measurement...</option>
+                            <option value='1'>Pinch</option><option value='2'>Teaspoon</option><option value='3'>Tablespoon</option><option value='4'>Cup</option><option value='5'>Ounce</option><option value='6'>Pound</option><option value='7'>Gallon</option><option value='8'> </option><option value='9'>Pint</option><option value='10'>Quart</option><option value='11'>Clove</option>
+
                         		<span class="error"><p id="ingredients_error"></p></span>
 
                              <td><select class="ingredient" id="newest" name="ingredients[]" data-placeholder="Select ingredient..." required="">
@@ -189,10 +193,68 @@
     			</form>
     		</div>	
   		</div>
-  	</div>
+    </div>
+ 
 
-<script src="js/add-meal.js"></script>
-</body>
+
+<!-- Show recipe name and image on home page -->
+<?php
+// as of 7/10, displays name and image in a list, will work on linking the name to recipe site. Add recipe button wont work???? I may have messed up the syntax above. -kristin
+
+$result = mysqli_query($conn,"SELECT * FROM Recipes"); 
+// calculates the number of recipes in DB
+$num_rows = mysqli_num_rows($result);
+for($i=1; $i<$num_rows;$i++){
+ 
+  $sql = "SELECT * FROM Recipes WHERE Recipe_ID = '" .mysqli_real_escape_string($conn,$i) . "'";
+  $result = mysqli_query($conn, $sql);
+  $data = mysqli_fetch_assoc($result);
+  $recipeID= $data['Recipe_ID'];
+  $recipeName = $data['Recipe_Name'];
+  $recipeIMG= $data['Recipe_Img'];
+  $timeID= $data['Time_ID'];
+  $servings = $data['Serving'];
+  
+    
+ ?>
+
+    <div id="main">
+      <form method="post" id="child">
+     <table class="center" id="searchFilters" align="center" cellpadding="2" cellspacing="5" border="0"> 
+
+        <col width = 30%>
+        <col witdh =70%>
+
+
+        <!-- Recipe Image -->
+        <tr>
+          <td colspan="2" id="imageCell">
+            <?php
+
+               if($recipeIMG!="NULL")
+                 echo "<img src='img/".$recipeIMG."' id='recipeImage'>";
+       
+               else
+               echo "<img src='img/GroceryBasket.jpg' id='recipeImage'>";
+            ?>
+
+          </td>
+        </tr>
+
+        <!-- Recipe Name -->
+        <tr>
+
+          <td colspan="2"><h1>
+            <?php 
+              echo $recipeName;
+           } ?>
+      
+          </h1>
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>
 
 
 

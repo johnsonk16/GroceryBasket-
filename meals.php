@@ -27,7 +27,12 @@
     <div class="cd-intro">
 		  <h1>Meals</h1>
 	   </div>
+<?php
+    $numRecipes = 0; //# of recipes user has added to meals
+    
+  
 
+?>
      <!-- 'You have no meals' type of message -->
      <div class="message-no-meals">
        <p>You have no meals saved currently. Start exploring...</p>

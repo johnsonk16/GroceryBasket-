@@ -2,7 +2,7 @@
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;}
 {\colortbl;\red255\green255\blue255;}
 {\*\expandedcolortbl;;}
-\margl1440\margr1440\vieww18640\viewh14420\viewkind0
+\margl1440\margr1440\vieww11980\viewh14420\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\fs24 \cf0 \
@@ -16,6 +16,8 @@ DROP TABLE IF EXISTS Recipe_Tag;\
 DROP TABLE IF EXISTS Favorites;\
 DROP TABLE IF EXISTS User_Info;\
 DROP TABLE IF EXISTS Ingredient_Category;\
+DROP TABLE IF EXISTS Measurement;\
+DROP TABLE IF EXISTS Meals;\
 \
 \
 CREATE TABLE Recipes (\
@@ -30,7 +32,8 @@ CREATE TABLE Recipes (\
 CREATE TABLE Recipe_Ingredients(\
 	Ingredient_ID INT NOT NULL AUTO_INCREMENT,\
 	Recipe_ID INT NOT NULL,\
-	Measurement VARCHAR (225) NOT NULL,\
+	Quantity INT,\
+	Measurement_ID INT,\
 	PRIMARY KEY(Ingredient_ID,Recipe_ID)\
 );\
 \
@@ -53,6 +56,12 @@ CREATE TABLE Favorites( \
 	User_ID INT(11), \
 	PRIMARY KEY(Recipe_ID,User_ID) \
 ); \
+\
+CREATE TABLE Meals(\
+	Recipe_ID INT,\
+	User_ID INT\
+);\
+\
 CREATE TABLE User_Info( \
 	User_ID INT NOT NULL AUTO_INCREMENT, \
 	Email VARCHAR (225) NOT NULL, \
@@ -60,6 +69,12 @@ CREATE TABLE User_Info( \
 	Password VARCHAR (255) NOT NULL,  \
 	PRIMARY KEY(User_ID) \
 ); \
+\
+CREATE TABLE Measurement(\
+	Measurement_ID INT,\
+	Measurement VARCHAR(255),\
+	PRIMARY KEY(Measurement_ID)\
+);\
  \
 CREATE TABLE Tag( \
 	Tag_ID INT NOT NULL AUTO_INCREMENT, \
@@ -84,6 +99,9 @@ CREATE TABLE `Ingredient_Category` ( \
   `Category_ID` int(11) NOT NULL, \
   `Category_Type` varchar(255) \
 ) ; \
+\
+\
+\
  \
 INSERT INTO `Ingredient_Category` (`Category_ID`, `Category_Type`) VALUES \
 (1, 'Fruit'), \
@@ -125,15 +143,17 @@ INSERT INTO `Step` VALUES (1, 'Spread over the prepared rack leaving a little sp
 INSERT INTO `Step` VALUES (1, "Bake until bacon appears done which is dark along the edges. About 20 minutes for me but start checking at 15 minutes. The sugar can begin to burn when left in too long. Remove from oven and let sit for a few minutes and pat off any pools of fat on top the paper towel carefully.",7); \
 INSERT INTO `Step` VALUES (1, 'Then transfer for cooling, another rack, a baking mat, parchment paper or just a plate should do. Do not "drain" on a paper towel due to sticking.',8); \
  \
-INSERT INTO `Recipe_Ingredients`(`Ingredient_ID`, `Recipe_ID`, `Measurement`) VALUES ('10','1','1 Pound'); \
-INSERT INTO `Recipe_Ingredients` (`Ingredient_ID`, `Recipe_ID`, `Measurement`)  VALUES ('4','1','1/2 Cup'); \
-INSERT INTO `Recipe_Ingredients` (`Ingredient_ID`, `Recipe_ID`, `Measurement`)  VALUES ('11', '1','1 Tablespoon'); \
-INSERT INTO `Recipe_Ingredients` (`Ingredient_ID`, `Recipe_ID`, `Measurement`) VALUES ('12','1','1/2 Teaspoon'); \
+INSERT INTO `Recipe_Ingredients`(`Ingredient_ID`, `Recipe_ID`, `Measurement`) VALUES ('10\'92,\'921\'92,\'921\'92,\'926\'92); \
+INSERT INTO `Recipe_Ingredients` (`Ingredient_ID`, `Recipe_ID`, `Measurement`)  VALUES (\'914\'92,\'921\'92,\'92.5\'92,\'924\'92); \
+INSERT INTO `Recipe_Ingredients` (`Ingredient_ID`, `Recipe_ID`, `Measurement`)  VALUES ('11', \'911\'92,\'921\'92, \'913\'92); \
+INSERT INTO `Recipe_Ingredients` (`Ingredient_ID`, `Recipe_ID`, `Measurement`) VALUES ('12\'92,\'921\'92,\'92.5,\'92 \'912\'92); \
  \
 INSERT INTO `Recipe_Tag`(`Tag_ID`, `Recipe_ID`) VALUES ('7','1'); \
 INSERT INTO `Recipe_Tag` VALUES ('8','1'); \
  \
- \
+\
+INSERT INTO `Measurement`(`Measurement_ID`, `Measurement`) VALUES (1, 'Pinch'), (2, 'Teaspoon'), (3, 'Tablespoon'), (4, 'Cup') , (5, 'Ounce'), (6, 'Pound'), (7, 'Gallon') ,(8, '') , (9, 'Pint'), (10,'Quart'), (11,'Clove\'92),(12,\'94Can\'94); \
+\
 INSERT INTO `Ingredients` (`Ingredient_ID`, `Ingredient_name`, `Category_ID`) VALUES \
 (1, 'Egg', 11), \
 (2, 'Flour', 9), \
