@@ -8,8 +8,8 @@
     left: 0;
   }
   .cd-nugget-info a {
+    margin-top: 20px;
     position: relative;
-    margin-top: 4em;
     padding: 2em;
     background-color: #da5067;
     border-radius: 50em;
@@ -38,17 +38,16 @@
 
   .message-no-meals {
     position: relative;
-    height: 250px;
-    line-height: 200px;
+    height: 20px;
+    line-height: 20px;
     text-align: center;
+    margin-top: 100px;
   }
 
   .message-no-meals p {
     color: black;
-    font-size: 2.2rem;
+    font-size: 1.3rem;
   }
-
-
 
   @media only screen and (min-width: 600px) {
     .cd-intro {
@@ -61,3 +60,40 @@
       font-size: 3.2rem;
     }
   }
+
+
+  .split {
+  margin-top: 130px;
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  
+}
+
+.left {
+  left: 0;
+  background-color: white;
+}
+
+.right {
+  right: 0;
+  background-color: white;
+}
+
+.centered {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.centered h2 {
+  /* margin-top: 0; */
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}

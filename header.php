@@ -27,8 +27,8 @@
 			<ul class="cd-main-nav__list js-signin-modal-trigger">
 				<li><a class="cd-main-nav__item cd-main-nav__item--home" href="home.php">Home</a></li>
 				<li><a class="cd-main-nav__item cd-main-nav__item--meals" href="meals.php">Meals</a></li>
-				<li><a class="cd-main-nav__item cd-main-nav__item--basket" href="basket.php">Basket</a></li>
-				<li><a class="cd-main-nav__item cd-main-nav__item--favorites" href="favorites.php">Favorites</a></li>
+				<!-- <li><a class="cd-main-nav__item cd-main-nav__item--basket" href="basket.php">Basket</a></li>
+				<li><a class="cd-main-nav__item cd-main-nav__item--favorites" href="favorites.php">Favorites</a></li> -->
 				
 				<!-- inser more links here -->
 				<li><a class="cd-main-nav__item cd-main-nav__item--signin" href="#0" data-signin="login">Sign in</a></li>
