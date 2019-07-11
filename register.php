@@ -1,19 +1,15 @@
- <?php
-
- session_start();
-
-  require_once('config.php');
-
-  $conn = mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME);
-
-	if(!$conn){
-   	die('could not connect' . mysqli_error());
-  } 
-  
-echo 'CONNECTED TO DB';
+<?php
+session_start();
+require_once('config.php');
+$conn = mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME);
+    if(!$conn){
+        die('could not connect' . mysqli_error());
+    }
+    echo 'CONNECTED TO DB';
+    
+    if(isset($_POST['login'])){
         
-  if(isset($_POST['login'])){
-                //login
+        //login
         $email = mysqli_real_escape_string($conn,$_POST['email']);
         $password = mysqli_real_escape_string($conn,$_POST['password']);
         $sql= "SELECT UserName from User_Info where Email='".$email."' and Password='".md5($password)."'";
@@ -21,19 +17,14 @@ echo 'CONNECTED TO DB';
 
         $Results = mysqli_fetch_array($strSQL);
       
-        if(($Results)>=1) 
-        {
-
-       $dbemail = $_POST['email'];
-
-        $dbpassword = $_POST['password'];
-
-         if ($email == $dbemail && $password == $dbpassword) {
-
-         $_SESSION['email'] = $email;
-
-        header("location: favorites.php");
-
+        if(($Results)>=1){
+            $dbemail = $_POST['email']; 
+            $dbpassword = $_POST['password'];
+            //redirect to home
+            if ($email == $dbemail && $password == $dbpassword) {
+                $_SESSION['login'] = true; 
+                $_SESSION['username'] = $username;
+                header("location: home.php");
             }        
         }
          
@@ -67,6 +58,7 @@ echo 'CONNECTED TO DB';
             if($qry) {
 
             $_SESSION['email'] = $email;
+           // echo $_SESSION['email'];
 
             header("location: favorites.php");
 
