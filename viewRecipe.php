@@ -18,6 +18,7 @@
   $recipeIMG= $data['Recipe_Img'];
   $timeID= $data['Time_ID'];
   $servings = $data['Serving'];
+  $email = $_SESSION['email'];
   
     
  ?>
@@ -74,7 +75,24 @@
             ?>
       
             <!-- Favorite Recipe -->
-           <input type="image" src="img/starClicked.png" width="40" height="40" /> 
+    <script type="text/javascript">
+              function addToFavorites(){
+               
+                <?php
+                $sql = "SELECT User_ID FROM User_Info WHERE Email LIKE ".$email."";
+      // annoyed its not working???
+               $userID = mysqli_query($conn, $sql);
+               
+               $input = "INSERT INTO Favorites VALUES (".$recipeID.", ".$userID.")"
+                ?>
+                alert("<?php echo $input ?>");
+
+
+              } 
+            </script>
+
+
+           <input onclick= "addToFavorites()" type="image" src="img/starClicked.png" width="40" height="40" /> 
 
           </h1></td>
         </tr>
@@ -179,14 +197,27 @@
                 echo "<i>None specified.</i>";
               }
             ?> 
-            <button onsubmit=""> Add to Meals</button>
+
             <script type="text/javascript">
+              //inputting data into Meals table 
               function addToMeals(){
-              //pull recipe id and user id 
-              //make in into an array????
-              //send to meals.php
-              }
+               
+                <?php
+                $sql = "SELECT User_ID FROM User_Info WHERE Email LIKE ".$email."";
+      // annoyed its not working???
+               $userID = mysqli_query($conn, $sql);
+               
+               $input = "INSERT INTO MEALS VALUES (".$recipeID.", ".$userID.")"
+                ?>
+                alert("<?php echo $input ?>");
+
+
+              } 
             </script>
+
+            <button onclick="addToMeals()"> Add to Meals</button>
+          
+         
           </td>
         </tr>
        
