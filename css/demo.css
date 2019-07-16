@@ -6,6 +6,7 @@
     line-height: 0px;
     bottom: 0;
     left: 0;
+    border: none !important;
   }
   .cd-nugget-info a {
     margin-top: 20px;
@@ -46,7 +47,7 @@
 
   .message-no-meals p {
     color: black;
-    font-size: 1.3rem;
+    font-size: 1.8rem;
   }
 
   @media only screen and (min-width: 600px) {

@@ -205,7 +205,7 @@
 $result = mysqli_query($conn,"SELECT * FROM Recipes"); 
 // calculates the number of recipes in DB
 $num_rows = mysqli_num_rows($result);
-for($i=1; $i<$num_rows;$i++){
+for($i=1; $i<=$num_rows;$i++){
  
   $sql = "SELECT * FROM Recipes WHERE Recipe_ID = '" .mysqli_real_escape_string($conn,$i) . "'";
   $result = mysqli_query($conn, $sql);
