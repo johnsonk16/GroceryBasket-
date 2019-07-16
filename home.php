@@ -252,6 +252,7 @@ for($i=1; $i<$num_rows;$i++){
         </td>
       </tr>
     </table>
+    <script type="text/javascript" src="js/add-meal.js"></script>
 
 
 </html>
