@@ -16,10 +16,18 @@ $conn = mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME);
         $strSQL = mysqli_query($conn,$sql);
 
         $Results = mysqli_fetch_array($strSQL);
+
+        $sqlID = "SELECT User_ID FROM User_Info WHERE Email = '".$email."'";
+        $IDSQL = mysqli_query($conn,$sqlID);
+        $idResult = mysqli_fetch_array($IDSQL);
+
+        $_SESSION['id'] = $idResult;
+        echo $_SESSION['id'];
       
         if(($Results)>=1){
             $dbemail = $_POST['email']; 
             $dbpassword = $_POST['password'];
+
             //redirect to home
             if ($email == $dbemail && $password == $dbpassword) {
             $_SESSION['login'] = true; 

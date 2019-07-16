@@ -19,8 +19,16 @@
   $timeID= $data['Time_ID'];
   $servings = $data['Serving'];
   $email = $_SESSION['email'];
-  
-    
+
+
+        $sqlID = "SELECT User_ID FROM User_Info WHERE Email = '".$email."'";
+        $IDSQL = mysqli_query($conn,$sqlID);
+
+        while($row=mysqli_fetch_array($IDSQL,MYSQLI_NUM)){
+          $userID = $row[0];
+
+          echo($userID);
+        }
  ?>
 
 
@@ -52,7 +60,7 @@
         <tr>
           <td colspan="2" id="imageCell">
           <button onclick="goBack()">Back to results</button> 
-        
+
             <?php
 
                if($recipeIMG!="NULL")
@@ -61,7 +69,6 @@
                else
                echo "<img src='img/GroceryBasket.jpg' id='recipeImage'>";
             ?>
-
           </td>
         </tr>
   
@@ -79,13 +86,11 @@
               function addToFavorites(){
                
                 <?php
-                $sql = "SELECT User_ID FROM User_Info WHERE Email LIKE ".$email."";
-      // annoyed its not working???
-               $userID = mysqli_query($conn, $sql);
                
-               $input = "INSERT INTO Favorites VALUES (".$recipeID.", ".$userID.")"
+               $sql = "INSERT INTO Favorites VALUES (".$recipeID.", ".$userID.")";
+               $input = mysqli_query($conn,$sql);
                 ?>
-                alert("<?php echo $input ?>");
+                alert("<?php echo $sql ?>");
 
 
               } 
@@ -203,15 +208,13 @@
               function addToMeals(){
                
                 <?php
-                $sql = "SELECT User_ID FROM User_Info WHERE Email LIKE ".$email."";
-      // annoyed its not working???
-               $userID = mysqli_query($conn, $sql);
+
                
-               $input = "INSERT INTO MEALS VALUES (".$recipeID.", ".$userID.")"
+              $sql = "INSERT INTO Meals VALUES (".$recipeID.", ".$userID.")";
+              $input = mysqli_query($conn,$sql);
+         
                 ?>
-                alert("<?php echo $input ?>");
-
-
+                alert("<?php echo $userID ?>");
               } 
             </script>
 
