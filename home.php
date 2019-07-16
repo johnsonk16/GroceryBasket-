@@ -200,7 +200,7 @@
 
                     <!-- Show recipe name and image on home page -->
 <?php
-// as of 7/14, displays name and image in a list. Recipe name links to recipe Add recipe button wont work???? I may have messed up the syntax above. -kristin
+// as of 7/16, displays name and image in a list. Recipe name links to recipe. Fracnesca fixed the add recipe button -kristin
 
 $result = mysqli_query($conn,"SELECT * FROM Recipes"); 
 // calculates the number of recipes in DB

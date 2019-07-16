@@ -1,6 +1,7 @@
 <?php
   session_start();
   $_SESSION['email'];
+
   require_once('config.php');
 
   $conn = mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME);
@@ -25,7 +26,8 @@
         $IDSQL = mysqli_query($conn,$sqlID);
 
         while($row=mysqli_fetch_array($IDSQL,MYSQLI_NUM)){
-          $userID = $row[0];
+       //   $userID = $row[0];
+          $_SESSION['id'] = $row[0];
         }
  ?>
 
@@ -82,27 +84,25 @@
             <!-- Favorite Recipe -->
     <script type="text/javascript">
               function addToFavorites(){
-               
+               //add recipe and user id to favorites table
                 <?php
                
-               $sqlF = "INSERT INTO Favorites VALUES (".$recipeID.", ".$userID.")";
+               $sqlF = "INSERT INTO Favorites VALUES (".$recipeID.", ".$_SESSION['id'].")";
                $inputF = mysqli_query($conn,$sqlF);
                 ?>
-
 
               } 
 
                 function addToMeals(){
-               
+               //add recipe and user id to meals table
                 <?php
-              $sqlM = "INSERT INTO Meals VALUES (".$recipeID.", ".$userID.")";
+              $sqlM = "INSERT INTO Meals VALUES (".$recipeID.", ".$_SESSION['id'].")";
               $inputM = mysqli_query($conn,$sqlM);
          ?>
             </script>
 
 
            <input onclick= "addToFavorites()" type="image" src="img/starClicked.png" width="40" height="40" /> 
-
 
 
           <button onclick = "addToMeals()">Add to Meals</button>
