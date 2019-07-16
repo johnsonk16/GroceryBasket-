@@ -26,8 +26,6 @@
 
         while($row=mysqli_fetch_array($IDSQL,MYSQLI_NUM)){
           $userID = $row[0];
-
-          echo($userID);
         }
  ?>
 
@@ -87,17 +85,27 @@
                
                 <?php
                
-               $sql = "INSERT INTO Favorites VALUES (".$recipeID.", ".$userID.")";
-               $input = mysqli_query($conn,$sql);
+               $sqlF = "INSERT INTO Favorites VALUES (".$recipeID.", ".$userID.")";
+               $inputF = mysqli_query($conn,$sqlF);
                 ?>
-                alert("<?php echo $sql ?>");
 
 
               } 
+
+                function addToMeals(){
+               
+                <?php
+              $sqlM = "INSERT INTO Meals VALUES (".$recipeID.", ".$userID.")";
+              $inputM = mysqli_query($conn,$sqlM);
+         ?>
             </script>
 
 
            <input onclick= "addToFavorites()" type="image" src="img/starClicked.png" width="40" height="40" /> 
+
+
+
+          <button onclick = "addToMeals()">Add to Meals</button>
 
           </h1></td>
         </tr>
@@ -202,23 +210,6 @@
                 echo "<i>None specified.</i>";
               }
             ?> 
-
-            <script type="text/javascript">
-              //inputting data into Meals table 
-              function addToMeals(){
-               
-                <?php
-
-               
-              $sql = "INSERT INTO Meals VALUES (".$recipeID.", ".$userID.")";
-              $input = mysqli_query($conn,$sql);
-         
-                ?>
-                alert("<?php echo $userID ?>");
-              } 
-            </script>
-
-            <button onclick="addToMeals()"> Add to Meals</button>
           
          
           </td>
