@@ -2,6 +2,7 @@
   session_start();
   $_SESSION['email'];
   $_SESSION['id'];
+
   require_once('config.php');
 
   $conn = mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME);
@@ -39,28 +40,28 @@
     <div class="meals">
           <?php
             $result = mysqli_query($conn, "SELECT Recipe_ID FROM Meals WHERE User_ID = ".$_SESSION['id']);
+
             $numRecipes = mysqli_num_rows($result);
-  
-            //create an array of recipe ids (similar to how the user id is selcted) use $i to itterate through 
-            //right now, its just going the for loop 1 by 1 
 
             if ($numRecipes != 0){
-              for($i=1; $i<$numRecipes +1;$i++){
+              for($i=0; $i<$numRecipes;$i++){
+                while($row=mysqli_fetch_array($result, MYSQLI_NUM)){
+    
+              $RecipeID= $row[0];
 
-                $sql = "SELECT * FROM Recipes WHERE Recipe_ID = '" .mysqli_real_escape_string($conn,$i) . "'";
-                $result = mysqli_query($conn, $sql);
-                $data = mysqli_fetch_assoc($result);
-                $recipeID= $data['Recipe_ID'];
+                $sql = "SELECT * FROM Recipes WHERE Recipe_ID = '".$RecipeID. "'";
+
+                $resultR = mysqli_query($conn, $sql);
+                $data = mysqli_fetch_assoc($resultR);
                 $recipeName = $data['Recipe_Name'];
                 $recipeIMG= $data['Recipe_Img'];
-
-
-                if($recipeIMG!="NULL")
-                  echo "<img src='img/".$recipeIMG."' id='recipeImage'>";
+      
+         if($recipeIMG!="NULL")
+                echo "<img src='img/".$recipeIMG."' id='recipeImage'>";
        
                 else
-                  echo "<img src='img/GroceryBasket.jpg' id='recipeImage'>";
-                ?>
+               echo "<img src='img/GroceryBasket.jpg' id='recipeImage'>";
+                 ?>
 
                 </td>
                 </tr>
@@ -70,19 +71,21 @@
 
                 <td colspan="2"><h1>
                 <?php 
-                  echo "<a href='viewRecipe.php?Recipe_ID=".$recipeID." '>".$recipeName
-                  ;
+            echo "<a href='viewRecipe.php?Recipe_ID=".$RecipeID." '>".$recipeName;
               }
-            }
-            else {
-              ?>  <div class="message-no-meals">
+         }
+       }
+         else {
+               ?> 
+            <div class="message-no-meals"> 
                     <p>You have no meals saved currently. Start exploring...</p>
                     <div class="cd-nugget-info">
                       <a href="home.php">Explore</a>
                     </div> 
-                  </div>
+                  </div>  
               <?php
-              }
+
+           }       
               ?>
 
       </div>
@@ -90,11 +93,56 @@
 
   <div id="favorites" class="tabcontent">
     <h2>Favorites</h2>
-    <div class="message-no-meals">
-      <p>You have no favorites saved currently. Start exploring...</p>
-      <div class="btn">
-        <a href="home.php">Explore</a>
-      </div> 
+    <div class="favorites">
+ <?php
+            $resultF = mysqli_query($conn, "SELECT Recipe_ID FROM Favorites WHERE User_ID = ".$_SESSION['id']);
+
+            $numRecipesF = mysqli_num_rows($resultF);
+
+            if ($numRecipesF != 0){
+              for($i=0; $i<$numRecipesF;$i++){
+                while($rowF=mysqli_fetch_array($resultF, MYSQLI_NUM)){
+                    $RecipeIDF= $rowF[0];
+                    
+                $sqlF = "SELECT * FROM Recipes WHERE Recipe_ID = '".$RecipeIDF. "'";
+
+                $resultR = mysqli_query($conn, $sqlF);
+                $dataF = mysqli_fetch_assoc($resultR);
+                $recipeNameF = $dataF['Recipe_Name'];
+                $recipeIMGF= $dataF['Recipe_Img'];
+
+         if($recipeIMGF!="NULL")
+                echo "<img src='img/".$recipeIMGF."' id='recipeImage'>";
+       
+                else
+               echo "<img src='img/GroceryBasket.jpg' id='recipeImage'>";
+                 ?>
+
+                </td>
+                </tr>
+
+                <!-- Recipe Name -->
+                <tr>
+
+                <td colspan="2"><h1>
+                <?php 
+            echo "<a href='viewRecipe.php?Recipe_ID=".$RecipeIDF." '>".$recipeNameF;
+              }
+         }
+       }
+         else {
+               ?> 
+            <div class="message-no-meals"> 
+                    <p>You have no meals saved currently. Start exploring...</p>
+                    <div class="cd-nugget-info">
+                      <a href="home.php">Explore</a>
+                    </div> 
+                  </div>  
+              <?php
+
+           }       
+              ?>
+
     </div>
   </div>
 

@@ -29,6 +29,13 @@ $conn = mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME);
 
             }        
         }
+
+        $sqlID = "SELECT User_ID FROM User_Info WHERE Email = '".$email."'";
+        $IDSQL = mysqli_query($conn,$sqlID);
+
+        while($row=mysqli_fetch_array($IDSQL,MYSQLI_NUM)){
+          $_SESSION['id'] = $row[0];
+        }
          
         else
         {

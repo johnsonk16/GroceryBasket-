@@ -1,6 +1,7 @@
 <?php
   session_start();
   $_SESSION['email'];
+  $_SESSION['id'];
 
   require_once('config.php');
 
@@ -20,15 +21,6 @@
   $timeID= $data['Time_ID'];
   $servings = $data['Serving'];
   $email = $_SESSION['email'];
-
-
-        $sqlID = "SELECT User_ID FROM User_Info WHERE Email = '".$email."'";
-        $IDSQL = mysqli_query($conn,$sqlID);
-
-        while($row=mysqli_fetch_array($IDSQL,MYSQLI_NUM)){
-       //   $userID = $row[0];
-          $_SESSION['id'] = $row[0];
-        }
  ?>
 
 
