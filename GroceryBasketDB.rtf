@@ -30,11 +30,10 @@ CREATE TABLE Recipes (\
 ); \
 \
 CREATE TABLE Recipe_Ingredients(\
-	Ingredient_ID INT NOT NULL AUTO_INCREMENT,\
+	Ingredient_ID INT NOT NULL ,\
 	Recipe_ID INT NOT NULL,\
-	Quantity INT,\
-	Measurement_ID INT,\
-	PRIMARY KEY(Ingredient_ID,Recipe_ID)\
+	Quantity DOUBLE,\
+	Measurement_ID INT\
 );\
 \
 \
@@ -121,7 +120,7 @@ INSERT INTO Time VALUES ('2', '10 - 20 minutes'); \
 INSERT INTO Time VALUES ('3', '20 - 30 minutes'); \
 INSERT INTO Time VALUES ('4', '30 - 45 minutes'); \
 INSERT INTO Time VALUES ('5', '45 - 1 hour'); \
-INSERT INTO Recipes VALUES ('1','Spicy Candied Bacon', '3', '22', 'bacon.jpg'); \
+\
  \
 INSERT INTO Tag VALUES (1,'Vegan'); \
 INSERT INTO Tag VALUES(2,"Vegetarian"); \
@@ -134,25 +133,13 @@ INSERT INTO Tag VALUES(8,"Dairy Free"); \
 INSERT INTO Tag VALUES(9,"Organic"); \
 INSERT INTO Tag VALUES(10,"Kosher"); \
  \
-INSERT INTO `Step`(`Recipe_ID`, `Step_Content`, `Step_Number`) VALUES (1,"Preheat oven to 350 convection or 375 conventional.",1); \
-INSERT INTO `Step` VALUES (1, "Mix 1/2 cup light brown sugar with one tablespoon chili powder and 1/2 teaspoon cayenne pepper.",2); \
-INSERT INTO `Step` VALUES (1, 'Prep baking tray with aluminum foil to help clean up and a rack. Spray heavy with cooking spray',3); \
-INSERT INTO `Step`(`Recipe_ID`, `Step_Content`, `Step_Number`) VALUES (1,"Cut bacon strips in half and trim any large chunks of fat.",4); \
-INSERT INTO `Step` VALUES (1, "Dip bacon in the brown sugar mixture and coat well.",5); \
-INSERT INTO `Step` VALUES (1, 'Spread over the prepared rack leaving a little space then give them a light dusting of additional sugar and spice.',6); \
-INSERT INTO `Step` VALUES (1, "Bake until bacon appears done which is dark along the edges. About 20 minutes for me but start checking at 15 minutes. The sugar can begin to burn when left in too long. Remove from oven and let sit for a few minutes and pat off any pools of fat on top the paper towel carefully.",7); \
-INSERT INTO `Step` VALUES (1, 'Then transfer for cooling, another rack, a baking mat, parchment paper or just a plate should do. Do not "drain" on a paper towel due to sticking.',8); \
- \
-INSERT INTO `Recipe_Ingredients`(`Ingredient_ID`, `Recipe_ID`, `Measurement`) VALUES ('10\'92,\'921\'92,\'921\'92,\'926\'92); \
-INSERT INTO `Recipe_Ingredients` (`Ingredient_ID`, `Recipe_ID`, `Measurement`)  VALUES (\'914\'92,\'921\'92,\'92.5\'92,\'924\'92); \
-INSERT INTO `Recipe_Ingredients` (`Ingredient_ID`, `Recipe_ID`, `Measurement`)  VALUES ('11', \'911\'92,\'921\'92, \'913\'92); \
-INSERT INTO `Recipe_Ingredients` (`Ingredient_ID`, `Recipe_ID`, `Measurement`) VALUES ('12\'92,\'921\'92,\'92.5,\'92 \'912\'92); \
+\
  \
 INSERT INTO `Recipe_Tag`(`Tag_ID`, `Recipe_ID`) VALUES ('7','1'); \
 INSERT INTO `Recipe_Tag` VALUES ('8','1'); \
  \
 \
-INSERT INTO `Measurement`(`Measurement_ID`, `Measurement`) VALUES (1, 'Pinch'), (2, 'Teaspoon'), (3, 'Tablespoon'), (4, 'Cup') , (5, 'Ounce'), (6, 'Pound'), (7, 'Gallon') ,(8, '') , (9, 'Pint'), (10,'Quart'), (11,'Clove\'92),(12,\'94Can\'94); \
+INSERT INTO `Measurement`(`Measurement_ID`, `Measurement`) VALUES (1, 'Pinch'), (2, 'Teaspoon'), (3, 'Tablespoon'), (4, 'Cup') , (5, 'Ounce'), (6, 'Pound'), (7, 'Gallon') ,(8, '') , (9, 'Pint'), (10,'Quart'), (11,'Clove'),(12,'Can'); \
 \
 INSERT INTO `Ingredients` (`Ingredient_ID`, `Ingredient_name`, `Category_ID`) VALUES \
 (1, 'Egg', 11), \
@@ -304,7 +291,10 @@ INSERT INTO `Ingredients` (`Ingredient_ID`, `Ingredient_name`, `Category_ID`) VA
 (147, 'Onion', 2), \
 (148, 'Sour Cream', 7), \
 (149, 'Bacon', 3), \
-(150, 'Chilli Powder',5);  \
+(150, 'Chilli Powder\'92,5),\
+(151, \'91Mushroom\'92,2),\
+(152, \'91Mushroom Soup\'92,10);   \
+\
  \
  \
  \

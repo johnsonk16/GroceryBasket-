@@ -1,6 +1,7 @@
 <?php
   session_start();
   $_SESSION['email'];
+  $_SESSION['id'];
 
   require_once('config.php');
 
@@ -20,17 +21,8 @@
   $timeID= $data['Time_ID'];
   $servings = $data['Serving'];
   $email = $_SESSION['email'];
-
-
-        $sqlID = "SELECT User_ID FROM User_Info WHERE Email = '".$email."'";
-        $IDSQL = mysqli_query($conn,$sqlID);
-
-        while($row=mysqli_fetch_array($IDSQL,MYSQLI_NUM)){
-       //   $userID = $row[0];
-          $_SESSION['id'] = $row[0];
-        }
  ?>
-
+</style>
 
 <html lang="en" class="no-js">
 <head>
@@ -86,24 +78,44 @@
               function addToFavorites(){
                //add recipe and user id to favorites table
                 <?php
-               
+                //if Rec/Usr ID combo in DB, it will be removed, else it'll be added
+                //needs to be fixed so JS doenst run on page reload  (7/16) - kristin
+                $favCheckSQL = "SELECT Recipe_ID FROM Favorites WHERE Recipe_ID = '".$recipeID."'AND User_ID = ".$_SESSION['id'];
+                $favCheck = mysqli_query($conn, $favCheckSQL);
+                $numFavs = mysqli_num_rows($favCheck);
+                $msg=""; 
+
+
+                if ($numFavs == 1){
+                  $rmFav = "DELETE FROM `Favorites` WHERE Recipe_ID = '".$recipeID."' AND User_ID ='".$_SESSION['id']."'";
+                  $rm = mysqli_query($conn,$rmFav);
+                  $msg = "Removed from Favorites";
+                }
+
+                else {
                $sqlF = "INSERT INTO Favorites VALUES (".$recipeID.", ".$_SESSION['id'].")";
-               $inputF = mysqli_query($conn,$sqlF);
+                $inputF = mysqli_query($conn,$sqlF);
+                $msg = "Added to Favorites";
+                }
                 ?>
 
+                  alert(<? echo $msg ?>);
+                
               } 
 
-                function addToMeals(){
+              function addToMeals(){
                //add recipe and user id to meals table
                 <?php
               $sqlM = "INSERT INTO Meals VALUES (".$recipeID.", ".$_SESSION['id'].")";
               $inputM = mysqli_query($conn,$sqlM);
-         ?>
+                ?>
+                alert("Added to Meals");
+              }
+
             </script>
 
 
-           <input onclick= "addToFavorites()" type="image" src="img/starClicked.png" width="40" height="40" /> 
-
+           <input onclick= "addToFavorites()" type="image" src="img/starClicked.png" width="40" height="40" />
 
           <button onclick = "addToMeals()">Add to Meals</button>
 
