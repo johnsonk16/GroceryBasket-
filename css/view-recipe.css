@@ -8,9 +8,14 @@ tr h1 {
 }
 
 #imageCell {
-	text-align: center;
-	padding-bottom: 1em;
-  padding-top: 25em;
+  float: center;
+  width: 100%;
+  padding: 1px;
+}
+
+#resize {
+  width: 400px;
+  height: 400px;
 }
 
 /*tr.spaceUnder>td {
@@ -28,8 +33,8 @@ table#searchFilters {
 }
 
 #main {
-	width: 100%
-  	height: 600px;
+	width: 100%;
+  /*	height: 600px;
   	/*background-color: gold;*/
   	position: absolute;
   	/*it can be fixed too*/
