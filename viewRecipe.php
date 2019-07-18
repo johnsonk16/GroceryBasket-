@@ -41,41 +41,36 @@
 
         <col width = 30%>
         <col witdh =70%>
-
-  <script>
-         
-        function addToFavorites(){
+<script type="text/javascript">
+  
+//if Rec/Usr ID combo in DB, it will be removed, else it'll be added
+ //needs to be fixed so JS doenst run on page reload  (7/16) - kristin
+ //hidden form
+    function addToFavorites(){
+      <?
+    $favCheckSQL = "SELECT Recipe_ID FROM Favorites WHERE Recipe_ID = '".$recipeID."'AND User_ID = ".$_SESSION['id'];
+    $favCheck = mysqli_query($conn, $favCheckSQL);
+    $numFavs = mysqli_num_rows($favCheck);
         
-              //add recipe and user id to favorites table
-                <?php
-                //if Rec/Usr ID combo in DB, it will be removed, else it'll be added
-                //needs to be fixed so JS doenst run on page reload  (7/16) - kristin
-                $favCheckSQL = "SELECT Recipe_ID FROM Favorites WHERE Recipe_ID = '".$recipeID."'AND User_ID = ".$_SESSION['id'];
-                $favCheck = mysqli_query($conn, $favCheckSQL);
-                $numFavs = mysqli_num_rows($favCheck);
-
-
-
-                if ($numFavs == 0){
-                $sqlF = "INSERT INTO Favorites VALUES (".$recipeID.", ".$_SESSION['id'].")";
+        if ($numFavs == 0){
+            $sqlF = "INSERT INTO Favorites VALUES (".$recipeID.", ".$_SESSION['id'].")";
                 $inputF = mysqli_query($conn,$sqlF);
-                 ?>
-                alert("Added to Favorites"); //being dumb and showing up when item is being removed???
-                <?
-              }
+                $msg = "Added to Favorites";
+                }
 
-                else {
+        else {
+          $rmFav = "DELETE FROM `Favorites` WHERE Recipe_ID = '".$recipeID."' AND User_ID ='".$_SESSION['id']."'";
+            $rm = mysqli_query($conn,$rmFav);
+            $msg = "Removed from Favorites";
                
-                $rmFav = "DELETE FROM `Favorites` WHERE Recipe_ID = '".$recipeID."' AND User_ID ='".$_SESSION['id']."'";
-                  $Frm = mysqli_query($conn,$rmFav);
-                 ?>
-                alert("Removed from Favorites");
-                <?
-                }
+             }
 
-                ?>   
+                ?>
+
+                  alert(<? echo $numFavs ?>);
                 }
-          </script>
+</script>>
+  
 
           <script>
             function addToMeals(){
@@ -129,7 +124,7 @@
             ?>
       
 
-           <input onclick= "addToFavorites()" type="image" src="img/starClicked.png" width="40" height="40" />
+           <input onclick="addToFavorites()" type="image" src="img/starClicked.png" width="40" height="40" />
 
           <button onclick = "addToMeals()">Add to Meals</button>
 

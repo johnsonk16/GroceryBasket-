@@ -4,6 +4,7 @@
   $_SESSION['id'];
 
   require_once('config.php');
+  require('fpdf.php'); //for generating pdf file 
 
   $conn = mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME);
 
@@ -21,6 +22,21 @@
   <link rel="stylesheet" href="css/demo.css"> 
   <link rel="stylesheet" href="css/meals.css">
 
+<script type="text/javascript">
+  function basket(){
+       alert("basket");
+    <?
+// $pdf = new FPDF();
+// $pdf->AddPage();
+// $pdf->SetFont('Arial', 'B',18);
+// $pdf->Cell(40,10,'Test');
+// $pdf->output();
+    ?>
+
+
+  }
+
+</script>
 
 </head>
   <body>
@@ -37,8 +53,11 @@
 
   <div id="meals" class="tabcontent">
     <h2>Meals</h2>
-    <div class="meals">
+     <button onclick = "basket()"> Generate Shopping List</button> 
+     <div class="meals">
+
           <?php
+
             $result = mysqli_query($conn, "SELECT Recipe_ID FROM Meals WHERE User_ID = ".$_SESSION['id']);
 
             $numRecipes = mysqli_num_rows($result);
