@@ -106,13 +106,13 @@
           </script>
         <!-- Recipe Image -->
         <tr>
-          <td colspan="2" id="imageCell">
+          <td colspan="2" id="imageCell" >
           <button onclick="goBack()">Back to results</button> 
 
             <?php
 
                if($recipeIMG!="NULL")
-                 echo "<img src='img/".$recipeIMG."' id='recipeImage'>";
+                 echo "<img src='img/".$recipeIMG."' id='resize'>";
        
                else
                echo "<img src='img/GroceryBasket.jpg' id='recipeImage'>";

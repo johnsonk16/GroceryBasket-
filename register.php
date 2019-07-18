@@ -1,4 +1,4 @@
-<?php
+k<?php
 session_start();
 require_once('config.php');
 $conn = mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME);
@@ -35,12 +35,12 @@ $conn = mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME);
 
         while($row=mysqli_fetch_array($IDSQL,MYSQLI_NUM)){
           $_SESSION['id'] = $row[0];
-        }
-         
-        else
-        {
-            $message = "Invalid email or password!!";
-        }     
+        } 
+    /* this section gave me parse errors - LV */
+    //    else
+    //    {
+    //        $message = "Invalid email or password!!";
+    //    }     
   
      }
     elseif(isset($_POST['reg_user']))
