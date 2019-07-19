@@ -48,7 +48,7 @@
      <button onclick = "basket()"> Generate Shopping List</button> 
      <div class="meals">
 
-   <form action = "basket.php" method = "get">
+   <form action = "basket.php" method = "GET">
           <?php
 
             $result = mysqli_query($conn, "SELECT Recipe_ID FROM Meals WHERE User_ID = ".$_SESSION['id']);
@@ -69,11 +69,11 @@
                 $recipeIMG= $data['Recipe_Img'];
        
          if($recipeIMG!="NULL")
-               echo "<img src='img/".$recipeIMG."' id='recipeImage'>";
+              //  echo "<img src='img/".$recipeIMG."' id='recipeImage'>";
        
-                 else
-              echo "<img src='img/GroceryBasket.jpg' id='recipeImage'>";
-                 ?>
+              //    else
+              // echo "<img src='img/GroceryBasket.jpg' id='recipeImage'>";
+              //    ?>
 
                 </td>
                 </tr>
@@ -104,21 +104,6 @@
               ?>
     <input type = "submit" value = "submit">
      </form>
-
-    <form action="basket.php">
-  <select name="recipes" multiple>
-    <? 
-    for($i=0; $i<$numRecipes;$i++){
-      ?>
-  
-    <option value="<?php echo $RecipeID?>"><?php echo $recipeName ?></option>
-      <?php
-      }
-      ?>
-  </select>
-  <br><br>
-  <input type="submit">
-</form>
 
 
       </div>
