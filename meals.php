@@ -25,9 +25,10 @@
 	} else {
 		include 'header.php';
   }
-  
-    if(isset($_SESSION["login"]) && $_SESSION["login"] == false) {
-	
+
+  if(isset($_SESSION["login"]) && $_SESSION["login"] == true) {
+       alert("Please login to view your personal basket, favorites, and basket!");
+  }
   ?>
 
 
