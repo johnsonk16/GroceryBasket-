@@ -38,7 +38,7 @@
 					<li><a class="cd-main-nav__item cd-main-nav__item--signout" href="#0">Logout</a></li>
 
 					<?php
-                    }else{ ?>
+                    echo 'hello'; }else{ ?>
 
 				<li><a class="cd-main-nav__item cd-main-nav__item--signin" href="#0" data-signin="login">Sign in</a></li>;
 				<li><a class="cd-main-nav__item cd-main-nav__item--signup" href="#0" data-signin="signup">Sign up</a></li>;
