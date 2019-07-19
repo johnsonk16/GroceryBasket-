@@ -14,13 +14,6 @@
 
 <html lang="en" class="no-js">
 <link rel="stylesheet" href="css/reset.css">
-<?php  	 
-if(isset($_SESSION["login"]) && $_SESSION["login"] == true) {
-		include 'header-logged-in.php';
-	} else {
-		include 'header.php';
-	}
-?>
 <link rel="stylesheet" href="css/home.css"> 
 <link rel="stylesheet" href="css/demo.css"> 
 <link rel="stylesheet" href="css/add-meal.css"> <!-- Add meal modal style -->
@@ -28,9 +21,14 @@ if(isset($_SESSION["login"]) && $_SESSION["login"] == true) {
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 
-<!-- <?php
-		 	echo 'hi ' .$_SESSION["username"];
-		 ?> -->
+<?php  	 
+if(isset($_SESSION["login"]) && $_SESSION["login"] == true) {
+		include 'header-logged-in.php';
+	} else {
+		include 'header.php';
+	}
+?>
+
 <!-- 	<div class="cd-intro">
 		<h1>Grocery Basket</h1>
 
@@ -232,8 +230,6 @@ for($i=1; $i<=$num_rows;$i++){
         <!-- <col witdh =70%> -->
 
 				<div class="container-fluid">
-  <div class="row">
-    <div class="col-sm">
    
         <!-- Recipe Image -->
         <tr>
@@ -243,8 +239,6 @@ for($i=1; $i<=$num_rows;$i++){
 
                if($recipeIMG!="NULL"){
 								echo "<img src='img/".$recipeIMG."' class='resize'>";
-								echo "<img src='img/".$recipeIMG."' class='resize'>";
-								echo "<img src='img/".$recipeIMG."' class='resize'>";
 							 }     
                else
                echo "<img src='img/yummyFood.jpg' class='resize'>";
@@ -253,8 +247,6 @@ for($i=1; $i<=$num_rows;$i++){
           </td>
 				</tr>
 				</div>
-  </div>
-</div>
 
         <!-- Recipe Name -->
         <tr>

@@ -551,11 +551,7 @@ input::-ms-clear, textarea::-ms-clear {
 }
 
 .resize {
-  width: 400px;
-  height: 400px;
-}
-.column {
-  float: left;
-  width: 170px;
-  /*padding: -50px;*/
+  display: inline-flex;
+  width: 500px;
+  height: 500px;
 }
