@@ -5,7 +5,7 @@ $conn = mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME);
     if(!$conn){
         die('could not connect' . mysqli_error());
     }
-    echo 'CONNECTED TO DB';
+    //echo 'CONNECTED TO DB';
     
     if(isset($_POST['login'])){
         
@@ -68,7 +68,7 @@ $conn = mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME);
 
             $_SESSION['email'] = $email;
 
-            header("location: favorites.php");
+            header("location: home.php");
 
                 }
            alert("sign up successful");
