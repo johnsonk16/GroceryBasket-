@@ -24,11 +24,7 @@
 		include 'header-logged-in.php';
 	} else {
 		include 'header.php';
-  }
-
-  if(isset($_SESSION["login"]) && $_SESSION["login"] == true) {
-       alert("Please login to view your personal basket, favorites, and basket!");
-  }
+  } 
   ?>
 
 
