@@ -4,7 +4,6 @@
   $_SESSION['id'];
 
   require_once('config.php');
-  require('fpdf.php'); //for generating pdf file 
 
   $conn = mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME);
 
@@ -12,7 +11,6 @@
 	if(!$conn){
    	die('could not connect' . mysqli_error());
   } 
- 
  ?>
 
 <html lang="en" class="no-js">
@@ -22,18 +20,12 @@
   <link rel="stylesheet" href="css/demo.css"> 
   <link rel="stylesheet" href="css/meals.css">
 
+
+
+
 <script type="text/javascript">
   function basket(){
        alert("basket");
-    <?
-// $pdf = new FPDF();
-// $pdf->AddPage();
-// $pdf->SetFont('Arial', 'B',18);
-// $pdf->Cell(40,10,'Test');
-// $pdf->output();
-    ?>
-
-
   }
 
 </script>
@@ -56,6 +48,7 @@
      <button onclick = "basket()"> Generate Shopping List</button> 
      <div class="meals">
 
+   <form action = "basket.php" method = "get">
           <?php
 
             $result = mysqli_query($conn, "SELECT Recipe_ID FROM Meals WHERE User_ID = ".$_SESSION['id']);
@@ -74,12 +67,12 @@
                 $data = mysqli_fetch_assoc($resultR);
                 $recipeName = $data['Recipe_Name'];
                 $recipeIMG= $data['Recipe_Img'];
-      
-         if($recipeIMG!="NULL")
-                echo "<img src='img/".$recipeIMG."' id='recipeImage'>";
        
-                else
-               echo "<img src='img/GroceryBasket.jpg' id='recipeImage'>";
+         if($recipeIMG!="NULL")
+           //     echo "<img src='img/".$recipeIMG."' id='recipeImage'>";
+       
+           //     else
+             //  echo "<img src='img/GroceryBasket.jpg' id='recipeImage'>";
                  ?>
 
                 </td>
@@ -89,8 +82,12 @@
                 <tr>
 
                 <td colspan="2"><h1>
+              <input type="checkbox" name="recipe[]" value = "<?php echo $RecipeID?>">
                 <?php 
             echo "<a href='viewRecipe.php?Recipe_ID=".$RecipeID." '>".$recipeName;
+              ?>
+              <br>
+              <?php
               }
          }
        }
@@ -102,10 +99,27 @@
                       <a href="home.php">Explore</a>
                     </div> 
                   </div>  
-              <?php
-
+       <?php
            }       
               ?>
+    <input type = "submit" value = "submit">
+     </form>
+
+    <form action="basket.php">
+  <select name="recipes" multiple>
+    <? 
+    for($i=0; $i<$numRecipes;$i++){
+      ?>
+  
+    <option value="<?php echo $RecipeID?>"><?php echo $recipeName ?></option>
+      <?php
+      }
+      ?>
+  </select>
+  <br><br>
+  <input type="submit">
+</form>
+
 
       </div>
   </div>
