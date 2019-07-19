@@ -1,7 +1,6 @@
-<!-- <?php
-	session_start();
-	
-?> -->
+<?php
+	//session_start();
+?>
 
 <html lang="en" class="no-js">
 <head>
@@ -19,7 +18,7 @@
 <body>
 	<header class="cd-main-header">
 		<div class="cd-main-header__logo">
-			<h1>Grocery Basket &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Hi,<b><?php echo htmlspecialchars($_SESSION['email']); ?></b></h1>
+			<h1>Grocery Basket</h1>
 
 		</div>
 
@@ -30,9 +29,9 @@
 				<!-- <li><a class="cd-main-nav__item cd-main-nav__item--basket" href="basket.php">Basket</a></li>
 				<li><a class="cd-main-nav__item cd-main-nav__item--favorites" href="favorites.php">Favorites</a></li> -->
 				
-				<!-- inser more links here -->
-				<li><a class="cd-main-nav__item cd-main-nav__item--signin" href="#0" data-signin="login">Sign in</a></li>
-				<li><a class="cd-main-nav__item cd-main-nav__item--signup" href="#0" data-signin="signup">Sign up</a></li>
+
+				<li><a class="cd-main-nav__item cd-main-nav__item--signin" href="#0" data-signin="login">Sign in</a></li>;
+				<li><a class="cd-main-nav__item cd-main-nav__item--signup" href="#0" data-signin="signup">Sign up</a></li>;
 			</ul>
 		</nav>
 	</header>
@@ -131,6 +130,5 @@
 <script src="js/placeholders.min.js"></script> <!-- polyfill for the HTML5 placeholder attribute -->
 <script src="js/main.js"></script> <!-- Resource JavaScript -->
 </body>
-
 
 </html>

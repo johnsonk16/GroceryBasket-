@@ -2,22 +2,28 @@
 	session_start();
   require_once('config.php');
 
-  $conn = mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME);
+	$conn = mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME);
 
 	if(!$conn){
    	die('could not connect' . mysqli_error());
   } 
-   // echo 'CONNECTED TO DB';
+	 // echo 'CONNECTED TO DB';
+
  ?>	
 
 
 <html lang="en" class="no-js">
-<?php include 'header.php';?>
-<link rel="stylesheet" href="css/reset.css"> 
+<link rel="stylesheet" href="css/reset.css">
+<?php  	 
+if(isset($_SESSION["login"]) && $_SESSION["login"] == true) {
+		include 'header-logged-in.php';
+	} else {
+		include 'header.php';
+	}
+?>
 <link rel="stylesheet" href="css/home.css"> 
 <link rel="stylesheet" href="css/demo.css"> 
 <link rel="stylesheet" href="css/add-meal.css"> <!-- Add meal modal style -->
-<link rel="stylesheet" href="css/view-recipe.css"> 
 
 <!-- <?php
 		 	echo 'hi ' .$_SESSION["username"];
@@ -234,7 +240,7 @@ for($i=1; $i<=$num_rows;$i++){
                  echo "<img src='img/".$recipeIMG."' id='resize'>";
        
                else
-               echo "<img src='img/GroceryBasket.jpg' id='resize'>";
+               echo "<img src='img/yummyFood.jpg' id='resize'>";
             ?>
 
           </td>

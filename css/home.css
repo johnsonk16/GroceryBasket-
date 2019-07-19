@@ -549,3 +549,15 @@ input::-ms-clear, textarea::-ms-clear {
     text-align: center;
     font-size: 20px;
 }
+
+#resize {
+  width: 400px;
+  height: 400px;
+}
+
+/* The grid: Four equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 25%;
+  padding: 10px;
+}
