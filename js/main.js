@@ -67,6 +67,8 @@
 		putCursorAtEnd(password);
 	}
 
+	//if statement checking if user is logged in -- dont display
+
 	ModalSignin.prototype.showSigninForm = function(type) {
 		// show modal if not visible
 		!hasClass(this.element, 'cd-signin-modal--is-visible') && addClass(this.element, 'cd-signin-modal--is-visible');

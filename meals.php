@@ -19,7 +19,16 @@
   <link rel="stylesheet" href="css/home.css"> 
   <link rel="stylesheet" href="css/demo.css"> 
   <link rel="stylesheet" href="css/meals.css">
-
+  <?php
+    if(isset($_SESSION["login"]) && $_SESSION["login"] == true) {
+		include 'header-logged-in.php';
+	} else {
+		include 'header.php';
+  }
+  
+    if(isset($_SESSION["login"]) && $_SESSION["login"] == false) {
+	
+  ?>
 
 
 
@@ -32,10 +41,6 @@
 
 </head>
   <body>
-    <header>
-     <?php include 'header.php';?>
-    </header>
-
 
   <div class="tab">
     <button class="tablinks" onclick="openTab(event, 'meals')">Meals</button>

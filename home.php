@@ -2,18 +2,25 @@
 	session_start();
   require_once('config.php');
 
-  $conn = mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME);
+	$conn = mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME);
 
 	if(!$conn){
    	die('could not connect' . mysqli_error());
   } 
-   // echo 'CONNECTED TO DB';
+	 // echo 'CONNECTED TO DB';
+
  ?>	
 
 
 <html lang="en" class="no-js">
-<?php include 'header.php';?>
-<link rel="stylesheet" href="css/reset.css"> 
+<link rel="stylesheet" href="css/reset.css">
+<?php  	 
+if(isset($_SESSION["login"]) && $_SESSION["login"] == true) {
+		include 'header-logged-in.php';
+	} else {
+		include 'header.php';
+	}
+?>
 <link rel="stylesheet" href="css/home.css"> 
 <link rel="stylesheet" href="css/demo.css"> 
 <link rel="stylesheet" href="css/add-meal.css"> <!-- Add meal modal style -->
