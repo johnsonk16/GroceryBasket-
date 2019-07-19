@@ -31,7 +31,13 @@
 </head>
   <body>
     <header>
-     <?php include 'header.php';?>
+    <?php
+    if(isset($_SESSION["login"]) && $_SESSION["login"] == true) {
+		include 'header-logged-in.php';
+	} else {
+		include 'header.php';
+  } 
+  ?>
     
     </header>
 

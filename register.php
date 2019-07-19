@@ -16,6 +16,15 @@ $conn = mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME);
         $strSQL = mysqli_query($conn,$sql);
 
         $Results = mysqli_fetch_array($strSQL);
+
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) // Validate email address
+        {
+            $message =  "Invalid email address please type a valid email!!";
+        }
+        elseif($numResults>=1) 
+        {
+            $message = $email." Email already exist!!";
+        }
       
         if(($Results)>=1){
             $dbemail = $_POST['email']; 
