@@ -30,12 +30,24 @@
 				<!-- <li><a class="cd-main-nav__item cd-main-nav__item--basket" href="basket.php">Basket</a></li>
 				<li><a class="cd-main-nav__item cd-main-nav__item--favorites" href="favorites.php">Favorites</a></li> -->
 				
-				<!-- inser more links here -->
-				<li><a class="cd-main-nav__item cd-main-nav__item--signin" href="#0" data-signin="login">Sign in</a></li>
-				<li><a class="cd-main-nav__item cd-main-nav__item--signup" href="#0" data-signin="signup">Sign up</a></li>
+				<?php 
+				if(isset($_SESSION['email'])  && $_SESSION['email'] == true) {
+					?>
+					<div class="cd-signin-modal js-signin-modal"> <!-- this is the entire modal form, including the background -->
+					<div class="cd-signin-modal__container"> <!-- this is the container wrapper -->
+					<li><a class="cd-main-nav__item cd-main-nav__item--signout" href="#0">Logout</a></li>
+
+					<?php
+                    }else{ ?>
+
+				<li><a class="cd-main-nav__item cd-main-nav__item--signin" href="#0" data-signin="login">Sign in</a></li>;
+				<li><a class="cd-main-nav__item cd-main-nav__item--signup" href="#0" data-signin="signup">Sign up</a></li>;
 			</ul>
 		</nav>
 	</header>
+	<?php
+	}
+	?>
 
 	<div class="cd-signin-modal js-signin-modal"> <!-- this is the entire modal form, including the background -->
 		<div class="cd-signin-modal__container"> <!-- this is the container wrapper -->
@@ -131,6 +143,5 @@
 <script src="js/placeholders.min.js"></script> <!-- polyfill for the HTML5 placeholder attribute -->
 <script src="js/main.js"></script> <!-- Resource JavaScript -->
 </body>
-
 
 </html>

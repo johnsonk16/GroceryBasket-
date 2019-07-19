@@ -1,4 +1,4 @@
-k<?php
+<?php
 session_start();
 require_once('config.php');
 $conn = mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME);

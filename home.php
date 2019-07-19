@@ -17,7 +17,6 @@
 <link rel="stylesheet" href="css/home.css"> 
 <link rel="stylesheet" href="css/demo.css"> 
 <link rel="stylesheet" href="css/add-meal.css"> <!-- Add meal modal style -->
-<link rel="stylesheet" href="css/view-recipe.css"> 
 
 <!-- <?php
 		 	echo 'hi ' .$_SESSION["username"];
@@ -234,7 +233,7 @@ for($i=1; $i<=$num_rows;$i++){
                  echo "<img src='img/".$recipeIMG."' id='resize'>";
        
                else
-               echo "<img src='img/GroceryBasket.jpg' id='resize'>";
+               echo "<img src='img/yummyFood.jpg' id='resize'>";
             ?>
 
           </td>
