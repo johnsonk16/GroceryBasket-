@@ -69,10 +69,10 @@
                 $recipeIMG= $data['Recipe_Img'];
        
          if($recipeIMG!="NULL")
-           //     echo "<img src='img/".$recipeIMG."' id='recipeImage'>";
+               echo "<img src='img/".$recipeIMG."' id='recipeImage'>";
        
-           //     else
-             //  echo "<img src='img/GroceryBasket.jpg' id='recipeImage'>";
+                 else
+              echo "<img src='img/GroceryBasket.jpg' id='recipeImage'>";
                  ?>
 
                 </td>
@@ -82,7 +82,7 @@
                 <tr>
 
                 <td colspan="2"><h1>
-              <input type="checkbox" name="recipe[]" value = "<?php echo $RecipeID?>">
+              <input type="checkbox" name="recipe" value = "<?php echo $RecipeID?>">
                 <?php 
             echo "<a href='viewRecipe.php?Recipe_ID=".$RecipeID." '>".$recipeName;
               ?>
