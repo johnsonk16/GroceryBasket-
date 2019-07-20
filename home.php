@@ -14,13 +14,6 @@
 
 <html lang="en" class="no-js">
 <link rel="stylesheet" href="css/reset.css">
-<link rel="stylesheet" href="css/home.css"> 
-<link rel="stylesheet" href="css/demo.css"> 
-<link rel="stylesheet" href="css/add-meal.css"> <!-- Add meal modal style -->
-
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-
 <?php  	 
 if(isset($_SESSION["login"]) && $_SESSION["login"] == true) {
 		include 'header-logged-in.php';
@@ -28,7 +21,16 @@ if(isset($_SESSION["login"]) && $_SESSION["login"] == true) {
 		include 'header.php';
 	}
 ?>
+<link rel="stylesheet" href="css/home.css"> 
+<link rel="stylesheet" href="css/demo.css"> 
+<link rel="stylesheet" href="css/add-meal.css"> <!-- Add meal modal style -->
 
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+<!-- <?php
+		 	echo 'hi ' .$_SESSION["username"];
+		 ?> -->
 <!-- 	<div class="cd-intro">
 		<h1>Grocery Basket</h1>
 
@@ -224,12 +226,12 @@ for($i=1; $i<=$num_rows;$i++){
   $recipeIMG= $data['Recipe_Img'];
  
  ?>
-    <!-- <table class="center" align="center" cellpadding="2" cellspacing="5" border="0">  -->
+     <table class="center" align="center" cellpadding="2" cellspacing="5" border="0"> 
 
-        <!-- <col width = 30%> -->
-        <!-- <col witdh =70%> -->
+        <col width = 30%>
+        <col witdh =70%>
 
-				<div class="container-fluid">
+
    
         <!-- Recipe Image -->
         <tr>
@@ -237,16 +239,15 @@ for($i=1; $i<=$num_rows;$i++){
    
       <?php
 
-               if($recipeIMG!="NULL"){
-								echo "<img src='img/".$recipeIMG."' class='resize'>";
-							 }     
+               if($recipeIMG!="NULL")
+                 echo "<img src='img/".$recipeIMG."' class='resize'>";
+       
                else
                echo "<img src='img/yummyFood.jpg' class='resize'>";
             ?>
 
           </td>
-				</tr>
-				</div>
+        </tr>
 
         <!-- Recipe Name -->
         <tr>

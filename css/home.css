@@ -551,7 +551,6 @@ input::-ms-clear, textarea::-ms-clear {
 }
 
 .resize {
-  display: inline-flex;
   width: 500px;
   height: 500px;
 }
