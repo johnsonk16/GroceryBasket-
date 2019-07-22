@@ -27,7 +27,7 @@
 <body>
 	<header class="cd-main-header">
 		<div class="cd-main-header__logo">
-			<h1>Grocery Basket <br> Hi,<b><?php echo htmlspecialchars($_SESSION['email']); ?></b></h1>
+			<h1>Grocery Basket <br> Hi, <b><?php echo htmlspecialchars($_SESSION['email']); ?></b></h1>
 		</div>
 
 		<nav class="cd-main-nav js-main-nav">

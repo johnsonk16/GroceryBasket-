@@ -89,6 +89,7 @@ input::-ms-clear, textarea::-ms-clear {
 }
 
 .cd-main-header__logo h1 {
+  margin: 0;
   font-size: 2.2rem;
   color: white;
   font-weight: bold;
