@@ -1,35 +1,20 @@
-
-
 <?php
-//require "pdfcrowd.php";
-
-// $pdf = $client->convertFile('/GroceryBasket-Web/meals.php');
-// $pdf = $client->convertString('<b>bold</b> and <i>italic</i>');
   session_start();
   $_SESSION['email'];
   $_SESSION['id'];
 
 
   require_once('config.php');
- // require('../fpdf.php'); //for generating pdf file 
-
-
   $conn = mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME);
 
 
   if(!$conn){
     die('could not connect' . mysqli_error());
   }
-
-  // $pdf = new FPDF();
-  // $pdf->AddPage();
-  // $pdf->SetFont('Times', 'B',18); 
-  // $pdf->Cell(40,10,"Your Basket List: ");
  ?>
-
+ <body onload="window.location.href = 'meals.php'">
 <div id="basket" class="tabcontent">
-    <h2>Basket</h2>
-    <!-- <button onsubmit= "basket.php">Basket</button> -->
+    <h2>Generating List...</h2>
     <div>
 <?php
 $myfile = fopen("basket.txt", "w+") or die("Unable to open file!");
@@ -51,7 +36,7 @@ fwrite($myfile, "\n");
       $dataB = mysqli_fetch_assoc($resultB1);
       $recipeNameB = $dataB['Recipe_Name'];
 
-     // $pdf->Cell(40,10,$recipeNameB);
+   
     fwrite($myfile, $recipeNameB);
     fwrite($myfile, "\n");
     fwrite($myfile, "\n");
@@ -74,11 +59,10 @@ fwrite($myfile, "\n");
                   $ingMeasurement = $measurement['Measurement'];
                      if ($row["Quantity"] == "0")
                         { $row["Quantity"] = "";}
-                //      $pdf->Cell($row["Quantity"]." ".$ingMeasurement." ".$ingredientName);
                       $fullMeasurement = $row["Quantity"]." ".$ingMeasurement." ".$ingredientName;
                 fwrite($myfile, $fullMeasurement);
                 fwrite($myfile, "\n");
-               // echo "<li>".$row["Quantity"]." ".$ingMeasurement." ".$ingredientName."</li>";
+    
 
                     }
                   }
@@ -93,9 +77,9 @@ fwrite($myfile, "\n");
           }
           fwrite($myfile, "\n");
           fclose($myfile);
-     // $pdf->Output();
+
 ?>
 </div>
   </div>
-
+</body>
 
