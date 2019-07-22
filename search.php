@@ -75,11 +75,11 @@
                     echo "<h2 id='resultTitle'>1 result:</h2>";
                 } else{
                     echo '<p><a href="javascript:history.back()">< Back to search</a></p>'; 
-                    echo "<h2 id='resultTitle'>".count($results)." results:</h2>";
+                    echo "<h2 id='resultTitle' style='font-weight:bold; margin-top:15px; margin-left:15px;'>".count($results)." results:</h2>";
                 }
                 echo "<p style='text-align:center'><table id='results' style='text-align: center;table-layout:fixed; width:100%; border-collapse: collapse;'>";
                 foreach($results as $recipe){
-                    echo "<tr class='clickable-row' data-href='viewRecipe.php?Recipe_ID=".$recipe."'>";
+                    echo "<tr style='height:100px;'' class='clickable-row' data-href='viewRecipe.php?Recipe_ID=".$recipe."'>";
                     $query = $conn -> query("SELECT * FROM Recipes WHERE Recipe_ID = ".$recipe);
                     if($query->num_rows>0){
                         $row = $query->fetch_assoc();
@@ -93,15 +93,16 @@
                              $time = $row['Amount'];
                         }
                         if($img=="NULL"){
-                            echo"<td style='text-align:center; width:40%;'><img src='img/GroceryBasket.jpg' height='100px' style='float:left; margin:10px; '></td>";
+                            echo"<td valign='center' style='width:50%'><img src='img/GroceryBasket.jpg' height='100px' style='float:center; margin-left:420px; margin-bottom:20px;'></td>";
                         }else{
-                            echo"<td style='text-align:center; width:40%;'><img src='img/".$img."' height='100px' style='float:left; margin:10px; '></td>";
+                            echo"<td valign='center' style='width:50%'><img src='img/".$img."' height='100px' style='float:center; margin-left:400px; margin-bottom:20px;'></td>";
                         }
-                        echo "<td><h3>".$name."</h3><br/>Time: ".$time."<br/>Servings: ".$serving."</td>";
+                        echo "<td valign='center' style='vertical-align:top;'><div style='text-align:center; margin-right:500px;'><h3 style='font-weight:bold;'>".$name."</h3><br/><a>Time: ".$time."</a><br/><a>Servings: ".$serving."</a></div></td>";
                     }
                     echo "</tr>";
                 }
                 echo "</table></p>";
+                echo '<p><a href="javascript:history.back()">< Back to search</a></p>';
             }
      ?>
     </div>
