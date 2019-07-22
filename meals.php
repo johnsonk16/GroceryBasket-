@@ -74,7 +74,6 @@
                 <tr>             
 
                 <td colspan="2"><h1>
-             
 
                 <?php 
            echo "<a href='viewRecipe.php?Recipe_ID=".$RecipeID." '>".$recipeName;
