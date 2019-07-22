@@ -32,7 +32,7 @@
     <!-- <button onsubmit= "basket.php">Basket</button> -->
     <div>
 <?php
-$myfile = fopen("basket1.txt", "w+") or die("Unable to open file!");
+$myfile = fopen("basket.txt", "w+") or die("Unable to open file!");
 
   $resultB = mysqli_query($conn, "SELECT Recipe_ID FROM Meals WHERE User_ID = ".$_SESSION['id']);
     $numRecipesB = mysqli_num_rows($resultB);
