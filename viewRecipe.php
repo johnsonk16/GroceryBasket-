@@ -47,6 +47,7 @@
 
         <col width = 30%>
         <col witdh =70%>
+
 <script type="text/javascript">
   
 //if Rec/Usr ID combo in DB, it will be removed, else it'll be added
@@ -61,19 +62,20 @@
         if ($numFavs == 0){
             $sqlF = "INSERT INTO Favorites VALUES (".$recipeID.", ".$_SESSION['id'].")";
                 $inputF = mysqli_query($conn,$sqlF);
-                $msg = "Added to Favorites";
+               ?>
+                alert("Added to Favorites");
+                <?
                 }
 
         else {
           $rmFav = "DELETE FROM `Favorites` WHERE Recipe_ID = '".$recipeID."' AND User_ID ='".$_SESSION['id']."'";
             $rm = mysqli_query($conn,$rmFav);
-            $msg = "Removed from Favorites";
-               
+               alert("Removed from Favorites");
              }
 
                 ?>
 
-                  alert(<? echo $numFavs ?>);
+                  
                 }
 </script>
   
@@ -108,7 +110,7 @@
         <!-- Recipe Image -->
         <tr>
           <td colspan="2" id="imageCell" >
-          <button onclick="goBack()">Back to results</button> 
+    
 
             <?php
 
@@ -130,7 +132,7 @@
             ?>
       
 
-           <input onclick="addToFavorites()" type="image" src="img/starClicked.png" width="40" height="40" />
+           <input onclick = "addToFavorites()" type="image" src="img/starClicked.png" width="40" height="40" />
 
           <button onclick = "addToMeals()">Add to Meals</button>
 

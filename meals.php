@@ -60,47 +60,28 @@
                 $recipeIMG= $data['Recipe_Img'];
        
          if($recipeIMG!="NULL")
-              //  echo "<img src='img/".$recipeIMG."' id='recipeImage'>";
+               echo "<img src='img/".$recipeIMG."' id='recipeImage'>";
        
-              //    else
-              // echo "<img src='img/GroceryBasket.jpg' id='recipeImage'>";
-              //    ?>
+            else
+              echo "<img src='img/GroceryBasket.jpg' id='recipeImage'>";
+               ?>
 
                 </td>
                 </tr>
 
                 <!-- Recipe Name -->
                 <tr>             
-         <form method = "GET">
 
                 <td colspan="2"><h1>
-              <input type = "hidden" name = "recipe" value= "0">
-              <input type="checkbox" name= "recipe" value = "1">
-              <!-- if checked, add value (1) to db (new row) -->
+             
 
                 <?php 
             echo "<a href='viewRecipe.php?Recipe_ID=".$RecipeID." '>".$recipeName;
               ?>
               <br>
               <?php
-       
-   
-        if($_GET['recipe'] = '1'){
-         echo $_GET['recipe'];
-         
-          $sqlB = "INSERT INTO Basket(`Recipe_ID`, `User_ID`, `Checked`) VALUES ('".$RecipeID. "','".$_SESSION['id']. "','1')";
-  
-         $sqlInsert = mysqli_query($conn,$sqlB);
-          echo ($sqlB);
-        }
-      else 
-        echo ("nothing selected.");
       } 
     }   
-?>
-       <input type = "submit" value = "submit">
-     </form>
-     <?php
        }
          else {
                ?> 
@@ -113,22 +94,6 @@
        <?php
            }       
               ?>
-   <!--  <input type = "submit" value = "submit">
-     </form>
-
-
-      <?php
-     // if (isset($_GET['recipe'])){
-     //    if($_GET['recipe'] = 1)
-     //    {
-     //      $sqlB = "INSERT INTO Basket(`Recipe_ID`, `User_ID`, `Checked`) VALUES ('".$RecipeID. "','".$_SESSION['id']. "','1')";
-  
-     //   //  $sqlInsert = mysqli_query($conn,$sqlB);
-     //      echo ($sqlB);
-     //    }
-     // }
-
-      ?> -->
 
       </div>
   </div>
@@ -190,6 +155,8 @@
 
   <div id="basket" class="tabcontent">
     <h2>Basket</h2>
+    <button onsubmit= "basket.php">Basket</button>
+    <div>
 <?php
   $resultB = mysqli_query($conn, "SELECT Recipe_ID FROM Meals WHERE User_ID = ".$_SESSION['id']);
     $numRecipesB = mysqli_num_rows($resultB);
@@ -240,7 +207,7 @@
             
           }
 ?>
-
+</div>
   </div>
 
   <script>
