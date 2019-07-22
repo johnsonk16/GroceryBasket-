@@ -33,6 +33,8 @@
     <div>
 <?php
 $myfile = fopen("basket.txt", "w+") or die("Unable to open file!");
+fwrite($myfile, "Your basket: ");
+fwrite($myfile, "\n");
 
   $resultB = mysqli_query($conn, "SELECT Recipe_ID FROM Meals WHERE User_ID = ".$_SESSION['id']);
     $numRecipesB = mysqli_num_rows($resultB);
