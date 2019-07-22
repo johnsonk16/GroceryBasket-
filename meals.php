@@ -37,9 +37,10 @@
 
   <div id="meals" class="tabcontent">
     <h2>Meals</h2>
-
+                  <!-- have it write to a file instead of a page -->
+                  <!-- change number of servings (drop down selction) -->
      <button onclick = "window.location.href= 'basket.php'"> Generate Shopping List</button> 
-     <div class="meals">
+     <div class="meals"> 
 
           <?php
 

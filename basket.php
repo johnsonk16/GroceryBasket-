@@ -32,6 +32,8 @@
     <!-- <button onsubmit= "basket.php">Basket</button> -->
     <div>
 <?php
+$myfile = fopen("basket1.txt", "w+") or die("Unable to open file!");
+
   $resultB = mysqli_query($conn, "SELECT Recipe_ID FROM Meals WHERE User_ID = ".$_SESSION['id']);
     $numRecipesB = mysqli_num_rows($resultB);
 
@@ -48,15 +50,16 @@
       $recipeNameB = $dataB['Recipe_Name'];
 
      // $pdf->Cell(40,10,$recipeNameB);
-
-     echo $recipeNameB;
+    fwrite($myfile, $recipeNameB);
+    fwrite($myfile, "\n");
+    fwrite($myfile, "\n");
 
       $sqlRI = "SELECT * FROM Recipe_Ingredients WHERE Recipe_ID = ".$RecipeIDB;
 
       $sqlRI = "SELECT * FROM Recipe_Ingredients WHERE Recipe_ID = ".$RecipeIDB;
         $resultB2 = mysqli_query($conn, $sqlRI);
           if($resultB2->num_rows>0){
-           echo "<ul>";
+          // echo "<ul>";
             while($row = $resultB2->fetch_assoc()){
               $sqlName = "SELECT Ingredient_Name FROM Ingredients WHERE Ingredient_ID = ".$row["Ingredient_ID"];
               $sqlMmt = "SELECT Measurement FROM Measurement WHERE Measurement_ID = ".$row["Measurement_ID"];
@@ -70,8 +73,10 @@
                      if ($row["Quantity"] == "0")
                         { $row["Quantity"] = "";}
                 //      $pdf->Cell($row["Quantity"]." ".$ingMeasurement." ".$ingredientName);
-
-                echo "<li>".$row["Quantity"]." ".$ingMeasurement." ".$ingredientName."</li>";
+                      $fullMeasurement = $row["Quantity"]." ".$ingMeasurement." ".$ingredientName;
+                fwrite($myfile, $fullMeasurement);
+                fwrite($myfile, "\n");
+               // echo "<li>".$row["Quantity"]." ".$ingMeasurement." ".$ingredientName."</li>";
 
                     }
                   }
@@ -84,6 +89,8 @@
             }
             
           }
+          fwrite($myfile, "\n");
+          fclose($myfile);
      // $pdf->Output();
 ?>
 </div>
