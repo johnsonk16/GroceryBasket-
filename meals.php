@@ -33,7 +33,6 @@
   <div class="tab">
     <button class="tablinks" onclick="openTab(event, 'meals')">Meals</button>
     <button class="tablinks" onclick="openTab(event, 'favorites')">Favorites</button>
-    <button class="tablinks" onclick="openTab(event, 'basket')">Basket</button>
   </div>
 
   <div id="meals" class="tabcontent">
@@ -155,67 +154,7 @@
     </div>
   </div>
 
-  <div id="basket" class="tabcontent">
-    <h2>Basket</h2>
-    <script type="text/javascript">
-      function basket(){
-      window.location.href = "basket.php";
-    }
-    </script>
-    <button onclick= "basket()">Basket</button>
-    <div>
-<?php
-  $resultB = mysqli_query($conn, "SELECT Recipe_ID FROM Meals WHERE User_ID = ".$_SESSION['id']);
-    $numRecipesB = mysqli_num_rows($resultB);
-
-  if ($numRecipesB != 0){
-      for($i=0; $i<$numRecipesB;$i++){
-           while($rowB=mysqli_fetch_array($resultB, MYSQLI_NUM)){
-          $RecipeIDB= $rowB[0];
-         
-                    
-      $sqlB = "SELECT * FROM Recipes WHERE Recipe_ID = '".$RecipeIDB. "'";
-
-      $resultB1 = mysqli_query($conn, $sqlB);
-      $dataB = mysqli_fetch_assoc($resultB1);
-      $recipeNameB = $dataB['Recipe_Name'];
-
-     // echo "<a href='viewRecipe.php?Recipe_ID=".$RecipeIDB." '>".$recipeNameB;
-
-      $sqlRI = "SELECT * FROM Recipe_Ingredients WHERE Recipe_ID = ".$RecipeIDB;
-
-      $sqlRI = "SELECT * FROM Recipe_Ingredients WHERE Recipe_ID = ".$RecipeIDB;
-        $resultB2 = mysqli_query($conn, $sqlRI);
-          if($resultB2->num_rows>0){
-            echo "<ul>";
-            while($row = $resultB2->fetch_assoc()){
-              $sqlName = "SELECT Ingredient_Name FROM Ingredients WHERE Ingredient_ID = ".$row["Ingredient_ID"];
-              $sqlMmt = "SELECT Measurement FROM Measurement WHERE Measurement_ID = ".$row["Measurement_ID"];
-              $getName = mysqli_query($conn, $sqlName);
-              $getMeasurement = mysqli_query($conn,$sqlMmt);
-                if($getName->num_rows>0) {
-                  $name = mysqli_fetch_assoc($getName);
-                  $measurement = mysqli_fetch_assoc($getMeasurement);
-                  $ingredientName = $name['Ingredient_Name'];
-                  $ingMeasurement = $measurement['Measurement'];
-                     if ($row["Quantity"] == "0")
-                        { $row["Quantity"] = "";}
-                  echo "<li>".$row["Quantity"]." ".$ingMeasurement." ".$ingredientName."</li>";
-
-                    }
-                  }
-                  echo "</ul>";
-                     echo "<br>";
-                }
-      
-              }
   
-            }
-            
-          }
-?>
-</div>
-  </div>
 
   <script>
     function openTab(evt, cityName) {
