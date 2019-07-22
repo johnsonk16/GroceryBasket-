@@ -11,7 +11,7 @@
 
 
   require_once('config.php');
-  require('../fpdf.php'); //for generating pdf file 
+ // require('../fpdf.php'); //for generating pdf file 
 
 
   $conn = mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME);
@@ -21,10 +21,10 @@
     die('could not connect' . mysqli_error());
   }
 
-  $pdf = new FPDF();
-  $pdf->AddPage();
-  $pdf->SetFont('Times', 'B',18); 
-  $pdf->Cell(40,10,"Your Basket List: ");
+  // $pdf = new FPDF();
+  // $pdf->AddPage();
+  // $pdf->SetFont('Times', 'B',18); 
+  // $pdf->Cell(40,10,"Your Basket List: ");
  ?>
 
 <div id="basket" class="tabcontent">

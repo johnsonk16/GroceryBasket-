@@ -76,8 +76,8 @@
              
 
                 <?php 
-          // echo "<a href='viewRecipe.php?Recipe_ID=".$RecipeID." '>".$recipeName;
-                echo $recipeName;
+           echo "<a href='viewRecipe.php?Recipe_ID=".$RecipeID." '>".$recipeName;
+              //  echo $recipeName;
               ?>
               <br>
               <?php
@@ -134,8 +134,8 @@
 
                 <td colspan="2"><h1>
                 <?php 
-           //echo "<a href='viewRecipe.php?Recipe_ID=".$RecipeIDF." '>".$recipeNameF;
-            echo $recipeNameF;
+           echo "<a href='viewRecipe.php?Recipe_ID=".$RecipeIDF." '>".$recipeNameF;
+           // echo $recipeNameF;
               }
          }
        }
@@ -180,7 +180,7 @@
       $dataB = mysqli_fetch_assoc($resultB1);
       $recipeNameB = $dataB['Recipe_Name'];
 
-      echo "<a href='viewRecipe.php?Recipe_ID=".$RecipeIDB." '>".$recipeNameB;
+     // echo "<a href='viewRecipe.php?Recipe_ID=".$RecipeIDB." '>".$recipeNameB;
 
       $sqlRI = "SELECT * FROM Recipe_Ingredients WHERE Recipe_ID = ".$RecipeIDB;
 
