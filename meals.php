@@ -76,7 +76,8 @@
              
 
                 <?php 
-            echo "<a href='viewRecipe.php?Recipe_ID=".$RecipeID." '>".$recipeName;
+          // echo "<a href='viewRecipe.php?Recipe_ID=".$RecipeID." '>".$recipeName;
+                echo $recipeName;
               ?>
               <br>
               <?php
@@ -133,7 +134,8 @@
 
                 <td colspan="2"><h1>
                 <?php 
-            echo "<a href='viewRecipe.php?Recipe_ID=".$RecipeIDF." '>".$recipeNameF;
+           //echo "<a href='viewRecipe.php?Recipe_ID=".$RecipeIDF." '>".$recipeNameF;
+            echo $recipeNameF;
               }
          }
        }
@@ -155,7 +157,12 @@
 
   <div id="basket" class="tabcontent">
     <h2>Basket</h2>
-    <button onsubmit= "basket.php">Basket</button>
+    <script type="text/javascript">
+      function basket(){
+      window.location.href = "basket.php";
+    }
+    </script>
+    <button onclick= "basket()">Basket</button>
     <div>
 <?php
   $resultB = mysqli_query($conn, "SELECT Recipe_ID FROM Meals WHERE User_ID = ".$_SESSION['id']);
