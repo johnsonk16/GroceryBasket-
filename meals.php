@@ -27,15 +27,6 @@
   } 
   ?>
 
-
-
-<script type="text/javascript">
-  function basket(){
-       alert("basket");
-  }
-
-</script>
-
 </head>
   <body>
 
@@ -50,7 +41,6 @@
      <button onclick = "basket()"> Generate Shopping List</button> 
      <div class="meals">
 
-   <form action = "basket.php" method = "GET">
           <?php
 
             $result = mysqli_query($conn, "SELECT Recipe_ID FROM Meals WHERE User_ID = ".$_SESSION['id']);
@@ -58,9 +48,8 @@
             $numRecipes = mysqli_num_rows($result);
 
             if ($numRecipes != 0){
-              for($i=0; $i<$numRecipes;$i++){
+              for($i=0; $i<$numRecipes;$i++){ 
                 while($row=mysqli_fetch_array($result, MYSQLI_NUM)){
-    
               $RecipeID= $row[0];
 
                 $sql = "SELECT * FROM Recipes WHERE Recipe_ID = '".$RecipeID. "'";
@@ -81,17 +70,37 @@
                 </tr>
 
                 <!-- Recipe Name -->
-                <tr>
+                <tr>             
+         <form method = "GET">
 
                 <td colspan="2"><h1>
-              <input type="checkbox" name="recipe" value = "<?php echo $RecipeID?>">
+              <input type = "hidden" name = "recipe" value= "0">
+              <input type="checkbox" name= "recipe" value = "1">
+              <!-- if checked, add value (1) to db (new row) -->
+
                 <?php 
             echo "<a href='viewRecipe.php?Recipe_ID=".$RecipeID." '>".$recipeName;
               ?>
               <br>
               <?php
-              }
-         }
+       
+   
+        if($_GET['recipe'] = '1'){
+         echo $_GET['recipe'];
+         
+          $sqlB = "INSERT INTO Basket(`Recipe_ID`, `User_ID`, `Checked`) VALUES ('".$RecipeID. "','".$_SESSION['id']. "','1')";
+  
+         $sqlInsert = mysqli_query($conn,$sqlB);
+          echo ($sqlB);
+        }
+      else 
+        echo ("nothing selected.");
+      } 
+    }   
+?>
+       <input type = "submit" value = "submit">
+     </form>
+     <?php
        }
          else {
                ?> 
@@ -104,9 +113,22 @@
        <?php
            }       
               ?>
-    <input type = "submit" value = "submit">
+   <!--  <input type = "submit" value = "submit">
      </form>
 
+
+      <?php
+     // if (isset($_GET['recipe'])){
+     //    if($_GET['recipe'] = 1)
+     //    {
+     //      $sqlB = "INSERT INTO Basket(`Recipe_ID`, `User_ID`, `Checked`) VALUES ('".$RecipeID. "','".$_SESSION['id']. "','1')";
+  
+     //   //  $sqlInsert = mysqli_query($conn,$sqlB);
+     //      echo ($sqlB);
+     //    }
+     // }
+
+      ?> -->
 
       </div>
   </div>
@@ -168,6 +190,57 @@
 
   <div id="basket" class="tabcontent">
     <h2>Basket</h2>
+<?php
+  $resultB = mysqli_query($conn, "SELECT Recipe_ID FROM Meals WHERE User_ID = ".$_SESSION['id']);
+    $numRecipesB = mysqli_num_rows($resultB);
+
+  if ($numRecipesB != 0){
+      for($i=0; $i<$numRecipesB;$i++){
+           while($rowB=mysqli_fetch_array($resultB, MYSQLI_NUM)){
+          $RecipeIDB= $rowB[0];
+         
+                    
+      $sqlB = "SELECT * FROM Recipes WHERE Recipe_ID = '".$RecipeIDB. "'";
+
+      $resultB1 = mysqli_query($conn, $sqlB);
+      $dataB = mysqli_fetch_assoc($resultB1);
+      $recipeNameB = $dataB['Recipe_Name'];
+
+      echo "<a href='viewRecipe.php?Recipe_ID=".$RecipeIDB." '>".$recipeNameB;
+
+      $sqlRI = "SELECT * FROM Recipe_Ingredients WHERE Recipe_ID = ".$RecipeIDB;
+
+      $sqlRI = "SELECT * FROM Recipe_Ingredients WHERE Recipe_ID = ".$RecipeIDB;
+        $resultB2 = mysqli_query($conn, $sqlRI);
+          if($resultB2->num_rows>0){
+            echo "<ul>";
+            while($row = $resultB2->fetch_assoc()){
+              $sqlName = "SELECT Ingredient_Name FROM Ingredients WHERE Ingredient_ID = ".$row["Ingredient_ID"];
+              $sqlMmt = "SELECT Measurement FROM Measurement WHERE Measurement_ID = ".$row["Measurement_ID"];
+              $getName = mysqli_query($conn, $sqlName);
+              $getMeasurement = mysqli_query($conn,$sqlMmt);
+                if($getName->num_rows>0) {
+                  $name = mysqli_fetch_assoc($getName);
+                  $measurement = mysqli_fetch_assoc($getMeasurement);
+                  $ingredientName = $name['Ingredient_Name'];
+                  $ingMeasurement = $measurement['Measurement'];
+                     if ($row["Quantity"] == "0")
+                        { $row["Quantity"] = "";}
+                  echo "<li>".$row["Quantity"]." ".$ingMeasurement." ".$ingredientName."</li>";
+
+                    }
+                  }
+                  echo "</ul>";
+                     echo "<br>";
+                }
+      
+              }
+  
+            }
+            
+          }
+?>
+
   </div>
 
   <script>

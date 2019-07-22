@@ -75,7 +75,7 @@
 
                   alert(<? echo $numFavs ?>);
                 }
-</script>>
+</script>
   
 
           <script>
@@ -155,6 +155,9 @@
                       $measurement = mysqli_fetch_assoc($getMeasurement);
                       $ingredientName = $name['Ingredient_Name'];
                       $ingMeasurement = $measurement['Measurement'];
+
+                       if ($row["Quantity"] == "0")
+                        { $row["Quantity"] = "";}
                       echo "<li>".$row["Quantity"]." ".$ingMeasurement." ".$ingredientName."</li>";
                     }
                   }

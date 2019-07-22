@@ -16,9 +16,15 @@
   // $pdf = new FPDF();
   // $pdf->AddPage();
   // $pdf->SetFont('Times', 'B',18);
+
+  // if the check box is checked in meals.php, add it to the DB as a value 1. then pull only the rows that have a value of 1??????
+
+
+
+
 if (isset($_GET['recipe'])){
- $checked_arr = $_GET['recipe'];
- $count = count($checked_arr);
+ //$checked_arr = $_GET['recipe'];
+ $count = sizeof(explode('&', $_GET['recipe']));
  echo "There are ".$count." checkboxe(s) are checked";
 
  echo "<br>";
@@ -44,6 +50,8 @@ $IDarray = $_GET['recipe'];
                        $measurement = mysqli_fetch_assoc($getMeasurement);
                        $ingredientName = $name['Ingredient_Name'];
                        $ingMeasurement = $measurement['Measurement'];
+                          if ($row["Quantity"] == "0")
+                        { $row["Quantity"] = "";}
                      echo "<li>".$row["Quantity"]." ".$ingMeasurement." ".$ingredientName."</li>";
                      
                    } 
@@ -53,7 +61,7 @@ $IDarray = $_GET['recipe'];
      }
   }
   else
-    echo "error";
+    echo "no recipes selected";
 
     
  // $pdf->Cell(40,10,$name);
