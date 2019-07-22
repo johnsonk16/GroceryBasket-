@@ -85,6 +85,12 @@
 
                 <td colspan="2"><h1>
               <input type="checkbox" name="recipe" value = "<?php echo $RecipeID?>">
+              $(function(){
+                $('.Delete').live('click',function(e){
+                $(this).parent().remove();
+                });
+              });
+              <div class='Option'><span class='Delete'>Delete</span></div>
                 <?php 
             echo "<a href='viewRecipe.php?Recipe_ID=".$RecipeID." '>".$recipeName;
               ?>

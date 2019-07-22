@@ -14,13 +14,6 @@
 
 <html lang="en" class="no-js">
 <link rel="stylesheet" href="css/reset.css">
-<?php  	 
-if(isset($_SESSION["login"]) && $_SESSION["login"] == true) {
-		include 'header-logged-in.php';
-	} else {
-		include 'header.php';
-	}
-?>
 <link rel="stylesheet" href="css/home.css"> 
 <link rel="stylesheet" href="css/demo.css"> 
 <link rel="stylesheet" href="css/add-meal.css"> <!-- Add meal modal style -->
@@ -28,42 +21,28 @@ if(isset($_SESSION["login"]) && $_SESSION["login"] == true) {
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 
-<!-- <?php
-		 	echo 'hi ' .$_SESSION["username"];
-		 ?> -->
-<!-- 	<div class="cd-intro">
-		<h1>Grocery Basket</h1>
+<?php  	 
+if(isset($_SESSION["login"]) && $_SESSION["login"] == true) {
+		include 'header-logged-in.php';
+	} else {
+		include 'header.php';
+	}
+?>	
 
-		<div class="row">
-			<div class="column">
-    			<img src="img/burrito.jpeg" alt="Burrito">
-  			</div>
-  			<div class="column">
-    			<img src="img/hamburger.jpeg" alt="hambuger">
-  			</div>
-  			<div class="column">
-    			<img src="img/pasta.jpg" alt="pasta">
-  			</div>
-  			<div class="column">
-    			<img src="img/sushi.jpg" alt="sushi">
-  			</div>
-		</div>
-	</div> -->
-
+<br>
+<div id="main">
+	<form class="center" id="form" action="search.php" method="post">
+		<h1>Find Recipes</h1>
 		<br>
-		<div id="main">
-        <form class="center" id="form" action="search.php" method="post">
-            <h1>Find Recipes</h1>
-            <br>
-            <input type="text" id="textBar" placeholder="enter keywords (optional)" name="term" autofocus>
-            <tr>
-                  <td colspan="2" style="text-align:center;">
-                    <input type="submit" class="formButton" value="Search Recipes"/>
-                    <!-- <button class="formButton" type="button" onclick="location.reload()" >Reset Fields</button> -->
-                  </td>
-                </tr>
-        </form>
-      </div>
+		<input type="text" id="textBar" placeholder="enter keywords (optional)" name="term" autofocus>
+		<tr>
+			<td colspan="2" style="text-align:center;">
+			<input type="submit" class="formButton" value="Search Recipes"/>
+			<!-- <button class="formButton" type="button" onclick="location.reload()" >Reset Fields</button> -->
+			</td>
+		</tr>
+	</form>
+</div>
 
 	<!-- <div class="cd-nugget-info">
 			<a href="explore.php">Explore</a>
@@ -216,6 +195,9 @@ if(isset($_SESSION["login"]) && $_SESSION["login"] == true) {
 $result = mysqli_query($conn,"SELECT * FROM Recipes"); 
 // calculates the number of recipes in DB
 $num_rows = mysqli_num_rows($result);
+
+$recipeIMG = array();
+
 for($i=1; $i<=$num_rows;$i++){
  
   $sql = "SELECT * FROM Recipes WHERE Recipe_ID = '" .mysqli_real_escape_string($conn,$i) . "'";
@@ -225,6 +207,36 @@ for($i=1; $i<=$num_rows;$i++){
   $recipeName = $data['Recipe_Name'];
   $recipeIMG= $data['Recipe_Img'];
  
+	$image_count = count($recipeIMG);
+	$count_each_column = ceil($num_rows/4);
+
+	echo '<div style="width:100%; max-width:950px; margin:0 auto;">';
+	$count = 0;
+	if (is_array($recipeIMG) || is_object($recipeIMG))
+	{
+		foreach($recipeIMG as $image) 
+		{
+			$count+=1;
+			if($count==1)
+			{
+					echo '<div class="box boxgallery">';
+			}
+
+					echo '<img src="img/'.$recipeIMG.'" />';
+
+			if($count>=$count_each_column)
+			{
+					$count=0;
+					echo '</div>';
+			}
+		}
+	}
+
+	if($count>0)
+	{
+			echo '</div>';
+	}
+	echo '</div>';
  ?>
      <table class="center" align="center" cellpadding="2" cellspacing="5" border="0"> 
 
@@ -239,9 +251,9 @@ for($i=1; $i<=$num_rows;$i++){
    
       <?php
 
-               if($recipeIMG!="NULL")
+							 if($recipeIMG!="NULL")
                  echo "<img src='img/".$recipeIMG."' class='resize'>";
-       
+      
                else
                echo "<img src='img/yummyFood.jpg' class='resize'>";
             ?>

@@ -13,3 +13,5 @@ header("location: home.php");
 
 
 ?>
+
+img src='img/'

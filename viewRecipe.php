@@ -22,7 +22,6 @@
   $servings = $data['Serving'];
   $email = $_SESSION['email'];
  ?>
-</style>
 
 <html lang="en" class="no-js">
 <head>
@@ -80,6 +79,9 @@
 
           <script>
             function addToMeals(){
+              $('.Delete').live('click',function(e){
+              $(this).parent().remove();
+              });
                <?php
                 $mealCheckSQL = "SELECT Recipe_ID FROM Meals WHERE Recipe_ID = '".$recipeID."'AND User_ID = ".$_SESSION['id'];
                 $mealCheck = mysqli_query($conn, $mealCheckSQL);
@@ -91,16 +93,18 @@
                 ?>
                 alert("Added to Meals");
                 <?
+                
                   }
+                  
 
-                else {
+               // else {
                
-                $rmMeal = "DELETE FROM `Meals` WHERE Recipe_ID = '".$recipeID."' AND User_ID ='".$_SESSION['id']."'";
-                  $Mrm = mysqli_query($conn,$rmMeal);
-                 ?>
-                alert("Removed from Meals");
+               // $rmMeal = "DELETE FROM `Meals` WHERE Recipe_ID = '".$recipeID."' AND User_ID ='".$_SESSION['id']."'";
+               //   $Mrm = mysqli_query($conn,$rmMeal);
+               //  ?>
+               // alert("Removed from Meals");
                 <?
-                }
+                //}
 
                 ?>   
                 }
@@ -109,7 +113,6 @@
         <tr>
           <td colspan="2" id="imageCell" >
           <button onclick="goBack()">Back to results</button> 
-
             <?php
 
                if($recipeIMG!="NULL")
@@ -133,6 +136,7 @@
            <input onclick="addToFavorites()" type="image" src="img/starClicked.png" width="40" height="40" />
 
           <button onclick = "addToMeals()">Add to Meals</button>
+          
 
           </h1></td>
         </tr>
