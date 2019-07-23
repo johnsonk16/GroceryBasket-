@@ -11,8 +11,13 @@
   if(!$conn){
     die('could not connect' . mysqli_error());
   }
+  if (isset($_GET['Serving'])){
+  $serving = $_GET['Serving'];}
+  else
+    echo "ERROR";
  ?>
  <body onload="window.location.href = 'meals.php'">
+  
 <div id="basket" class="tabcontent">
     <h2>Generating List...</h2>
     <div>
@@ -20,6 +25,10 @@
 $myfile = fopen("basket.txt", "w+") or die("Unable to open file!");
 fwrite($myfile, "Your basket: ");
 fwrite($myfile, "\n");
+fwrite($myfile, "Serving: ");
+fwrite($myfile,$serving);
+fwrite($myfile, "\n\n");
+
 
   $resultB = mysqli_query($conn, "SELECT Recipe_ID FROM Meals WHERE User_ID = ".$_SESSION['id']);
     $numRecipesB = mysqli_num_rows($resultB);
@@ -38,15 +47,15 @@ fwrite($myfile, "\n");
 
    
     fwrite($myfile, $recipeNameB);
-    fwrite($myfile, "\n");
-    fwrite($myfile, "\n");
+    fwrite($myfile, "\n\n");
+
 
       $sqlRI = "SELECT * FROM Recipe_Ingredients WHERE Recipe_ID = ".$RecipeIDB;
 
       $sqlRI = "SELECT * FROM Recipe_Ingredients WHERE Recipe_ID = ".$RecipeIDB;
         $resultB2 = mysqli_query($conn, $sqlRI);
           if($resultB2->num_rows>0){
-          // echo "<ul>";
+    
             while($row = $resultB2->fetch_assoc()){
               $sqlName = "SELECT Ingredient_Name FROM Ingredients WHERE Ingredient_ID = ".$row["Ingredient_ID"];
               $sqlMmt = "SELECT Measurement FROM Measurement WHERE Measurement_ID = ".$row["Measurement_ID"];
@@ -57,25 +66,27 @@ fwrite($myfile, "\n");
                   $measurement = mysqli_fetch_assoc($getMeasurement);
                   $ingredientName = $name['Ingredient_Name'];
                   $ingMeasurement = $measurement['Measurement'];
+                  $row["Quantity"] = $row["Quantity"]*$serving; 
+
                      if ($row["Quantity"] == "0")
                         { $row["Quantity"] = "";}
                       $fullMeasurement = $row["Quantity"]." ".$ingMeasurement." ".$ingredientName;
                 fwrite($myfile, $fullMeasurement);
                 fwrite($myfile, "\n");
-    
 
                     }
+
                   }
-                 echo "</ul>";
-                     echo "<br>";
+                  fwrite($myfile, "\n");
+
                 }
       
               }
   
             }
-            
+               
           }
-          fwrite($myfile, "\n");
+          fwrite($myfile, "\n\n");
           fclose($myfile);
 
 ?>
