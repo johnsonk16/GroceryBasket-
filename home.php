@@ -186,96 +186,200 @@ if(isset($_SESSION["login"]) && $_SESSION["login"] == true) {
     </div>
   </td>
 
+	<style>
+.column2 { 
+  float: left; 
+  width: 33.33%;
+	margin-left: 45px;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+	display: table;
+}
+
+.container {
+  position: relative; 
+  max-width: 800px; /* Maximum width */
+  margin: 0 auto; /* Center it */
+}
+
+.content {
+  position: absolute; /* Position the background text */
+  bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+  color: #f1f1f1; /* Grey text */
+  width: 100%; /* Full width */
+  padding: 20px; /* Some padding */
+}
+</style>
+	<div class="row">
+  <div class="column2">
+	  <a href="viewRecipe.php?Recipe_ID=1">
+    <img src="img/bacon.jpg" alt="Bacon" class="resize" ><h1>Spiced Candied Bacon</h1>
+  </div>
+  <div class="column2">
+		<a href="viewRecipe.php?Recipe_ID=2">
+    <img src="img/banana-bread-vertical-c-1200 8.53.49 PM 9.05.10 PM.jpg" alt="BananaBread" class="resize"><h1>Banana Bread</h1>
+  </div>
+  <div class="column2">
+		<a href="viewRecipe.php?Recipe_ID=3">
+    <img src="img/southern-oven-fried-chicken-3058647-5_preview-5b0ec6ecba61770036491ed7.jpeg" alt="Fried Chicken" class="resize"><h1>Fried Chicken</h1>
+  </div>	
+</div>
+
+<br>
+<br>
+
+<div class="row">
+  <div class="column2">
+	  <a href="viewRecipe.php?Recipe_ID=4">
+    <img src="img/beefstrog.jpg" alt="Beef Stroganoff" class="resize" ><h1>Beef Stroganoff</h1>
+  </div>
+  <div class="column2">
+		<a href="viewRecipe.php?Recipe_ID=13">
+    <img src="img/caulimaccheese.jpg" alt="Cauliflower Mac and Cheese" class="resize"><h1>Cauliflower Mac and Cheese</h1>
+  </div>
+  <div class="column2">
+		<a href="viewRecipe.php?Recipe_ID=21">
+    <img src="img/cauliricebeef.jpg" alt="Cauliflower Rice Beef Bowl" class="resize"><h1>Cauliflower Rice Beef Bowl</h1>
+  </div>	
+</div>
+<br>
+<br>
+
 
 
                     <!-- Show recipe name and image on home page -->
 <?php
 // as of 7/16, displays name and image in a list. Recipe name links to recipe. Fracnesca fixed the add recipe button -kristin
 
-$result = mysqli_query($conn,"SELECT * FROM Recipes"); 
+// $result = mysqli_query($conn,"SELECT * FROM Recipes"); 
 // calculates the number of recipes in DB
-$num_rows = mysqli_num_rows($result);
+// $num_rows = mysqli_num_rows($result);
 
-$recipeIMG = array();
-
-for($i=1; $i<=$num_rows;$i++){
+// for($i=1; $i<=$num_rows;$i++){
  
-  $sql = "SELECT * FROM Recipes WHERE Recipe_ID = '" .mysqli_real_escape_string($conn,$i) . "'";
-  $result = mysqli_query($conn, $sql);
-  $data = mysqli_fetch_assoc($result);
-  $recipeID= $data['Recipe_ID'];
-  $recipeName = $data['Recipe_Name'];
-  $recipeIMG= $data['Recipe_Img'];
+  // $sql = "SELECT * FROM Recipes WHERE Recipe_ID = '" .mysqli_real_escape_string($conn,$i) . "'";
+  // $result = mysqli_query($conn, $sql);
+  // $data = mysqli_fetch_assoc($result);
+  // $recipeID= $data['Recipe_ID'];
+  // $recipeName = $data['Recipe_Name'];
+  // $recipeIMG= $data['Recipe_Img'];
  
-	$image_count = count($recipeIMG);
-	$count_each_column = ceil($num_rows/4);
+	// $image_count = $num_rows;
+	// $count_each_column = ceil($image_count/4);
 
-	echo '<div style="width:100%; max-width:950px; margin:0 auto;">';
-	$count = 0;
-	if (is_array($recipeIMG) || is_object($recipeIMG))
-	{
-		foreach($recipeIMG as $image) 
-		{
-			$count+=1;
-			if($count==1)
-			{
-					echo '<div class="box boxgallery">';
-			}
+	// echo '<div style="width:100%; max-width:950px; margin:0 auto;">';
+	// $count = 0;
+	// if (is_array($recipeIMG) || is_object($recipeIMG))
+	// {
+		// foreach($recipeIMG as $image) 
+		// {
+			// $count+=1;
+			// if($count==1)
+			// {
+					// echo '<div class="box boxgallery">';
+			// }
+					// echo '<img src="img/'.$recipeIMG.'" />';
 
-					echo '<img src="img/'.$recipeIMG.'" />';
+			// if($count>=$count_each_column)
+			// {
+					// $count=0;
+					// echo '</div>';
+			// }
+		// }
+	// }
 
-			if($count>=$count_each_column)
-			{
-					$count=0;
-					echo '</div>';
-			}
-		}
-	}
-
-	if($count>0)
-	{
-			echo '</div>';
-	}
-	echo '</div>';
+	// if($count>0)
+	// {
+			// echo '</div>';
+	// }
+	// echo '</div>';
  ?>
-     <table class="center" align="center" cellpadding="2" cellspacing="5" border="0"> 
+     <!-- <table class="center" align="center" cellpadding="2" cellspacing="5" border="0">  -->
 
-        <col width = 30%>
-        <col witdh =70%>
+        <!-- <col width = 30%> -->
+        <!-- <col witdh =70%> -->
 
 
    
         <!-- Recipe Image -->
-        <tr>
-          <td colspan="2" id="imageCell">
+        <!-- <tr> -->
+          <!-- <td colspan="2" id="imageCell"> -->
    
       <?php
 
-							 if($recipeIMG!="NULL")
-                 echo "<img src='img/".$recipeIMG."' class='resize'>";
+							//  if($recipeIMG!="NULL")
+                //  echo "<img src='img/".$recipeIMG."' class='resize'>";
       
-               else
-               echo "<img src='img/yummyFood.jpg' class='resize'>";
+              //  else
+              //  echo "<img src='img/yummyFood.jpg' class='resize'>";
             ?>
 
-          </td>
-        </tr>
+          <!-- </td> -->
+        <!-- </tr> -->
 
         <!-- Recipe Name -->
-        <tr>
+        <!-- <tr> -->
 
-          <td colspan="2"><h1>
+          <!-- <td colspan="2"><h1> -->
             <?php 
-              echo "<a href='viewRecipe.php?Recipe_ID=".$recipeID." '>".$recipeName
-              ;
+              // echo "<a href='viewRecipe.php?Recipe_ID=".$recipeID." '>".$recipeName
+              // ;
       
-           } ?>
+          //  } ?>
       
-          </h1>
-        </td>
-      </tr>
-    </table>
+          <!-- </h1> -->
+        <!-- </td> -->
+      <!-- </tr> -->
+    <!-- </table> -->
     <script type="text/javascript" src="js/add-meal.js"></script>
 
+		<style>	
+		.btn {
+			background-color: #da5067;
+  		border-radius: 50em;
+  		color: white;
+			padding: 2em;
+			position: relative;
+			margin: 150px 350px;
+  		text-align: center;
+  		font-size: 16px;
+			width:60%;
+			text-align:center;
+  		opacity: 1;
+			transition: all 0.3s;
+			display:inline-block;
+		}
+
+		.btn:hover {opacity: 0.6}
+
+	
+	
+		</style>
+				<a href="search.php">
+				<button class="btn" button onclick="myFunction()" id="myBtn">View more</button>
+		<script>
+		
+		function myFunction() {
+  		var dots = document.getElementById("dots");
+  		var moreText = document.getElementById("more");
+  		var btnText = document.getElementById("myBtn");
+			
+			if (dots.style.display === "none") {
+				dots.style.display = "inline";
+    		btnText.innerHTML = "Read more"; 
+    		moreText.style.display = "none";
+				} else {
+					dots.style.display = "none";
+    			btnText.innerHTML = "Read less"; 
+    			moreText.style.display = "inline";
+  				}
+		}
+</script>
 
 </html>
