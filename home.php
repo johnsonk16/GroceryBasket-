@@ -207,7 +207,7 @@ for($i=1; $i<=$num_rows;$i++){
   $recipeName = $data['Recipe_Name'];
   $recipeIMG= $data['Recipe_Img'];
  
-	$image_count = count($recipeIMG);
+	//$image_count = count($recipeIMG);
 	$count_each_column = ceil($num_rows/4);
 
 	echo '<div style="width:100%; max-width:950px; margin:0 auto;">';

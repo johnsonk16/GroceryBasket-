@@ -40,8 +40,13 @@
                   <!-- have it write to a file instead of a page -->
                   <!-- change number of servings (drop down selction) -->
      <button onclick = "window.location.href= 'basket.php'"> Generate Shopping List</button> 
-     <div class="meals"> 
 
+     <form name = 'ChangeServings' id = 'ChangeServings' action = "basket.php" method='Get'>
+            Servings: <input type="text" name="Serving" size="3">
+    </form>
+
+
+<div class="meals"> 
           <?php
 
             $result = mysqli_query($conn, "SELECT Recipe_ID FROM Meals WHERE User_ID = ".$_SESSION['id']);
