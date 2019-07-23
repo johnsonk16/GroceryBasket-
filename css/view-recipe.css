@@ -10,7 +10,7 @@ tr h1 {
 #imageCell {
   float: center;
   width: 100%;
-  padding: 1px;
+  padding: 10px;
 }
 
 #resize {

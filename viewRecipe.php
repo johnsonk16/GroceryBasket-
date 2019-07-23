@@ -114,10 +114,7 @@
         <!-- Recipe Image -->
         <tr>
           <td colspan="2" id="imageCell" >
-
-          <button onclick="goBack()">Back to results</button> 
-
-            <?php
+     <?php
 
                if($recipeIMG!="NULL")
                  echo "<img src='img/".$recipeIMG."' id='resize'>";
