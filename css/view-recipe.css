@@ -10,8 +10,12 @@ tr h1 {
 #imageCell {
   float: center;
   width: 100%;
+<<<<<<< HEAD
   padding: 100px;
   margin: 100px;
+=======
+  padding: 10px;
+>>>>>>> dd8792b68e434aa44def356d8bbca40c6f51b718
 }
 
 #resize {
