@@ -17,6 +17,7 @@
     echo "ERROR";
  ?>
  <body onload="window.location.href = 'meals.php'">
+
   
 <div id="basket" class="tabcontent">
     <h2>Generating List...</h2>

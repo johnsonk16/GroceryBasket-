@@ -54,8 +54,6 @@ error_reporting(E_ERROR | E_PARSE);
         <tr>
           <td colspan="2" id="imageCell">
 
-          <button onclick="goBack()">Back to results</button> 
-
             <?php
 
                if($recipeIMG!="NULL")

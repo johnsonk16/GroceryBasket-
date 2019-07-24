@@ -39,10 +39,11 @@
     <h2>Meals</h2>
                   <!-- have it write to a file instead of a page -->
                   <!-- change number of servings (drop down selction) -->
-     <button onclick = "window.location.href= 'basket.php'"> Generate Shopping List</button> 
+     
 
      <form name = 'ChangeServings' id = 'ChangeServings' action = "basket.php" method='Get'>
-            Servings: <input type="text" name="Serving" size="3">
+            Servings: <input type="text" name="Serving" size="3" value = 1>
+        <button type = "submit" onclick = "window.location.href= 'basket.php'"> Generate Shopping List</button>     
     </form>
   
 
