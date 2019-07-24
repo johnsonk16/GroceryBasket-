@@ -18,21 +18,21 @@ error_reporting(E_ERROR | E_PARSE);
   else
     echo "ERROR";
 
-$CheckSQL = "SELECT Recipe_ID FROM Favorites WHERE Recipe_ID = '".$recipeID."'AND User_ID = ".$_SESSION['id'];
+$CheckSQL = "SELECT Recipe_ID FROM Meals WHERE Recipe_ID = '".$recipeID."'AND User_ID = ".$_SESSION['id'];
     $Check = mysqli_query($conn, $CheckSQL);
     $num = mysqli_num_rows($Check);
         
         if ($num == 0){
-            $sqlM = "INSERT INTO Favorites VALUES (".$recipeID.", ".$_SESSION['id'].")";
+            $sqlM = "INSERT INTO Meals VALUES (".$recipeID.", ".$_SESSION['id'].")";
                 $inputM = mysqli_query($conn,$sqlM);
                
-                echo "Added to Favorites";
+                echo "Added to Meals";
                 }
         else {
-          $rmMeal = "DELETE FROM `Favorites` WHERE Recipe_ID = '".$recipeID."' AND User_ID ='".$_SESSION['id']."'";
+          $rmMeal = "DELETE FROM `Meals` WHERE Recipe_ID = '".$recipeID."' AND User_ID ='".$_SESSION['id']."'";
             $rm = mysqli_query($conn,$rmMeal);
             
-              echo "Removed from Favorites";
+              echo "Removed from Meals";
                
              }
 
