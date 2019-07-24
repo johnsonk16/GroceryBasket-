@@ -10,7 +10,8 @@ tr h1 {
 #imageCell {
   float: center;
   width: 100%;
-  padding: 1px;
+  padding: 100px;
+  margin: 100px;
 }
 
 #resize {
@@ -34,7 +35,7 @@ table#searchFilters {
 
 #main {
 	width: 100%;
-  /*	height: 600px;
+  height: 600px;
   	/*background-color: gold;*/
   	position: absolute;
   	/*it can be fixed too*/
@@ -78,6 +79,7 @@ h4 {
 
 body {
   padding-top: 20px;
+  /* background-color: green; */
 }
 
 .click span {

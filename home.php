@@ -189,8 +189,8 @@ if(isset($_SESSION["login"]) && $_SESSION["login"] == true) {
 	<style>
 .column2 { 
   float: left; 
-  width: 33.33%;
-	margin-left: 45px;
+  width: 30%;
+	margin: 25px;	
 }
 
 /* Clear floats after image containers */
@@ -206,15 +206,6 @@ if(isset($_SESSION["login"]) && $_SESSION["login"] == true) {
   margin: 0 auto; /* Center it */
 }
 
-.content {
-  position: absolute; /* Position the background text */
-  bottom: 0; /* At the bottom. Use top:0 to append it to the top */
-  background: rgb(0, 0, 0); /* Fallback color */
-  background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
-  color: #f1f1f1; /* Grey text */
-  width: 100%; /* Full width */
-  padding: 20px; /* Some padding */
-}
 </style>
 	<div class="row">
   <div class="column2">
@@ -223,7 +214,7 @@ if(isset($_SESSION["login"]) && $_SESSION["login"] == true) {
   </div>
   <div class="column2">
 		<a href="viewRecipe.php?Recipe_ID=2">
-    <img src="img/banana-bread-vertical-c-1200 8.53.49 PM 9.05.10 PM.jpg" alt="BananaBread" class="resize"><h1>Banana Bread</h1>
+    <img src="img/bananabread.jpg" alt="BananaBread" class="resize"><h1>Banana Bread</h1>
   </div>
   <div class="column2">
 		<a href="viewRecipe.php?Recipe_ID=3">
@@ -346,9 +337,9 @@ if(isset($_SESSION["login"]) && $_SESSION["login"] == true) {
   		color: white;
 			padding: 2em;
 			position: relative;
-			margin: 150px 350px;
+			margin: 125px 325px;
   		text-align: center;
-  		font-size: 16px;
+  		font-size: 20px;
 			width:60%;
 			text-align:center;
   		opacity: 1;

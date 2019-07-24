@@ -1,5 +1,5 @@
  <?php
-
+session_start();
  require_once('config.php');
   $conn = mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME);
   $error = mysqli_connect_error();
@@ -28,7 +28,13 @@
 
    <!-- Including our scripting file. -->
    <link rel="stylesheet" href="css/home.css"> <!-- Resource style -->
-   <?php include 'header.php' ?>
+   <?php  	 
+if(isset($_SESSION["login"]) && $_SESSION["login"] == true) {
+		include 'header-logged-in.php';
+	} else {
+		include 'header.php';
+	}
+?>	    
 
    <script type="text/javascript" src="scripts.js"></script>
    <script> jQuery(document).ready(function($) {

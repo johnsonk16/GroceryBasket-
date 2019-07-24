@@ -1,5 +1,8 @@
+
 <?php
+error_reporting(E_ERROR | E_PARSE);
   session_start();
+  
   $_SESSION['email'];
   $_SESSION['id'];
 
@@ -24,10 +27,8 @@
  ?>
 
 <html lang="en" class="no-js">
-<head>
   <link rel="stylesheet" href="css/view-recipe.css">
    <script type="text/javascript" src = "favorite.js"></script>
-</head>
   <body>
     <header>
     <?php
@@ -42,14 +43,14 @@
 
     <div id="main">
       <form method="post" id="child">
-     <table class="center" id="searchFilters" align="center" cellpadding="2" cellspacing="5" border="0"> 
+     <table class="center" id="searchFilters" align="center" cellpadding="2" cellspacing="5" border="10"> 
 
         <col width = 30%>
         <col witdh =70%>
 
 <script type="text/javascript">
-  
-//if Rec/Usr ID combo in DB, it will be removed, else it'll be added
+    
+// if Rec/Usr ID combo in DB, it will be removed, else it'll be added
  //needs to be fixed so JS doenst run on page reload  (7/16) - kristin
  //hidden form
     function addToFavorites(){
@@ -111,16 +112,19 @@
                 ?>   
                 }
           </script>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         <!-- Recipe Image -->
         <tr>
-          <td colspan="2" id="imageCell" >
+          <td colspan="2" id="imageCell">
 
           <button onclick="goBack()">Back to results</button> 
 
             <?php
 
                if($recipeIMG!="NULL")
-                 echo "<img src='img/".$recipeIMG."' id='resize'>";
+                 echo "<img  src='img/".$recipeIMG."' id='recipeImage'>";
        
                else
                echo "<img src='img/GroceryBasket.jpg' id='recipeImage'>";
