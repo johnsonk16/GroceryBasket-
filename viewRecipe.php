@@ -1,6 +1,5 @@
 
 <?php
-error_reporting(E_ERROR | E_PARSE);
   session_start();
   
   $_SESSION['email'];
@@ -27,9 +26,6 @@ error_reporting(E_ERROR | E_PARSE);
  ?>
 
 <html lang="en" class="no-js">
-  <link rel="stylesheet" href="css/view-recipe.css">
-   <script type="text/javascript" src = "favorite.js"></script>
-  <body>
     <header>
     <?php
     if(isset($_SESSION["login"]) && $_SESSION["login"] == true) {
@@ -38,9 +34,9 @@ error_reporting(E_ERROR | E_PARSE);
 		include 'header.php';
   } 
   ?>
-    
     </header>
-
+    <body>
+    <link rel="stylesheet" href="css/view-recipe.css">
     <div id="main">
       <form method="post" id="child">
      <table class="center" id="searchFilters" align="center" cellpadding="2" cellspacing="5" border="10"> 
@@ -112,25 +108,26 @@ error_reporting(E_ERROR | E_PARSE);
                 ?>   
                 }
           </script>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<!-- <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
+<!-- <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
+<!-- <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
         <!-- Recipe Image -->
-        <tr>
-          <td colspan="2" id="imageCell">
-
-          <button onclick="goBack()">Back to results</button> 
+        <div class="responsive">
+          <tr>
+          <td colspan="2" id="resize">
 
             <?php
 
                if($recipeIMG!="NULL")
-                 echo "<img  src='img/".$recipeIMG."' id='recipeImage'>";
+                 echo "<img  src='img/".$recipeIMG."' id='resize'>";
        
                else
-               echo "<img src='img/GroceryBasket.jpg' id='recipeImage'>";
+               echo "<img src='img/GroceryBasket.jpg' id='resize'>";
             ?>
+            <button onclick="goBack()">Back to results</button> 
           </td>
         </tr>
+              </div>
   
         <!-- Recipe Name -->
         <tr>

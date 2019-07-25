@@ -207,6 +207,7 @@ if(isset($_SESSION["login"]) && $_SESSION["login"] == true) {
 }
 
 </style>
+<div class="responsive">
 	<div class="row">
   <div class="column2">
 	  <a href="viewRecipe.php?Recipe_ID=1">
@@ -221,6 +222,7 @@ if(isset($_SESSION["login"]) && $_SESSION["login"] == true) {
     <img src="img/southern-oven-fried-chicken-3058647-5_preview-5b0ec6ecba61770036491ed7.jpeg" alt="Fried Chicken" class="resize"><h1>Fried Chicken</h1>
   </div>	
 </div>
+
 
 <br>
 <br>
@@ -238,6 +240,7 @@ if(isset($_SESSION["login"]) && $_SESSION["login"] == true) {
 		<a href="viewRecipe.php?Recipe_ID=21">
     <img src="img/cauliricebeef.jpg" alt="Cauliflower Rice Beef Bowl" class="resize"><h1>Cauliflower Rice Beef Bowl</h1>
   </div>	
+</div>
 </div>
 <br>
 <br>
