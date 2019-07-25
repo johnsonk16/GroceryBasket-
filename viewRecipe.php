@@ -44,70 +44,7 @@
         <col width = 30%>
         <col witdh =70%>
 
-<script type="text/javascript">
-    
-// if Rec/Usr ID combo in DB, it will be removed, else it'll be added
- //needs to be fixed so JS doenst run on page reload  (7/16) - kristin
- //hidden form
-    function addToFavorites(){
-      <?
-    $favCheckSQL = "SELECT Recipe_ID FROM Favorites WHERE Recipe_ID = '".$recipeID."'AND User_ID = ".$_SESSION['id'];
-    $favCheck = mysqli_query($conn, $favCheckSQL);
-    $numFavs = mysqli_num_rows($favCheck);
-        
-        if ($numFavs == 0){
-            $sqlF = "INSERT INTO Favorites VALUES (".$recipeID.", ".$_SESSION['id'].")";
-                $inputF = mysqli_query($conn,$sqlF);
-               ?>
-                alert("Added to Favorites");
-                <?
-                }
-
-        else {
-          $rmFav = "DELETE FROM `Favorites` WHERE Recipe_ID = '".$recipeID."' AND User_ID ='".$_SESSION['id']."'";
-            $rm = mysqli_query($conn,$rmFav);
-               alert("Removed from Favorites");
-             }
-
-                ?>
-
-                  
-                }
-</script>
   
-
-          <script>
-            function addToMeals(){
-              $('.Delete').live('click',function(e){
-              $(this).parent().remove();
-              });
-               <?php
-                $mealCheckSQL = "SELECT Recipe_ID FROM Meals WHERE Recipe_ID = '".$recipeID."'AND User_ID = ".$_SESSION['id'];
-                $mealCheck = mysqli_query($conn, $mealCheckSQL);
-                $numMeals = mysqli_num_rows($mealCheck);
-  
-                if ($numMeals == 0){
-                $sqlM = "INSERT INTO Meals VALUES (".$recipeID.", ".$_SESSION['id'].")";
-                $inputM = mysqli_query($conn,$sqlM);
-                ?>
-                alert("Added to Meals");
-                <?
-                
-                  }
-                  
-
-               // else {
-               
-               // $rmMeal = "DELETE FROM `Meals` WHERE Recipe_ID = '".$recipeID."' AND User_ID ='".$_SESSION['id']."'";
-               //   $Mrm = mysqli_query($conn,$rmMeal);
-               //  ?>
-               // alert("Removed from Meals");
-                <?
-                //}
-
-                ?>   
-                }
-          </script>
         <!-- Recipe Image -->
         <div class="responsive">
           <tr>
