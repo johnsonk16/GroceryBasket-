@@ -19,6 +19,12 @@
         $recipename = NULL;
     }
 
+    if (isset($_POST["quantity"])){
+        $quantity = $_POST["quantity"];
+    }else{
+        $quantity = [];
+    }
+
     if(isset($_POST["measurements"])){
         $measurements = $_POST["measurements"];
     } else{
@@ -93,9 +99,9 @@
       mysqli_query($conn, $sql);
 
 
-    for($i=0; ($i<count($measurements) && !empty($measurements) && !empty($ingredients)) ; $i++){
+    for($i=0; ($i<count($quantity) && !empty($measurements) && !empty($ingredients)) ; $i++){
         
-        $sql = "INSERT INTO Recipe_Ingredients VALUES (".$ingredients[$i].", ".$recipeID.", '".$measurements[$i]."');";
+        $sql = "INSERT INTO Recipe_Ingredients VALUES (".$ingredients[$i].", ".$recipeID.",".$quantity[$i].", '".$measurements[$i]."');";
         echo $sql;
         mysqli_query($conn, $sql);
     }

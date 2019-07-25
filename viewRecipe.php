@@ -115,6 +115,12 @@
         <div class="responsive">
           <tr>
           <td colspan="2" id="resize">
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <!-- Recipe Image -->
+        <tr>
+          <td colspan="2" id="imageCell">
 
             <?php
 
@@ -137,11 +143,15 @@
               echo $recipeName;
             ?>
       
-
-           <input onclick = "addToFavorites()" type="image" src="img/starClicked.png" width="40" height="40" />
-
-          <button onclick = "addToMeals()">Add to Meals</button>
+          <a href="favorites.php?data=<?php echo $recipeID?>">
+            <img src="img/starClicked.png" type = "submit" width="40" height="40" />
+          </a>
           
+
+          <a href="InsertMeal.php?data=<?php echo $recipeID?>">
+            <img src="img/meal.png" type = "submit" width="40" height="40" />
+          </a>
+
 
           </h1></td>
         </tr>
