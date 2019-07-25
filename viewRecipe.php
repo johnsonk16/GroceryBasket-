@@ -1,4 +1,3 @@
-
 <?php
   session_start();
   
@@ -61,7 +60,7 @@
                else
                echo "<img src='img/GroceryBasket.jpg' id='resize'>";
             ?>
-            <button onclick="goBack()">Back to results</button> 
+          
           </td>
         </tr>
               </div>
@@ -74,13 +73,47 @@
               echo $recipeName;
             ?>
       
+            <!-- check db to see if recipe is in favorites table, if it is src = yellow star, if not src = white star -->
           <a href="favorites.php?data=<?php echo $recipeID?>">
-            <img src="img/starClicked.png" type = "submit" width="40" height="40" />
+            <?php
+            $CheckSQL= "SELECT Recipe_ID FROM Favorites WHERE Recipe_ID = '".$recipeID."'AND User_ID = ".$_SESSION['id'];
+             $Check = mysqli_query($conn, $CheckSQL);
+             $num = mysqli_num_rows($Check);
+
+             if ($num == 0){
+              ?> 
+              <img src="img/starUnclicked.png" type = "submit" width="40" height="40" />
+            <?php
+             }
+             else {
+              ?>
+              <img src="img/starClicked.png" type = "submit" width="40" height="40" />
+              <?php
+                  }
+            ?>
+
+            
           </a>
           
 
           <a href="InsertMeal.php?data=<?php echo $recipeID?>">
-            <img src="img/meal.png" type = "submit" width="40" height="40" />
+             <?php
+            $CheckSQL= "SELECT Recipe_ID FROM Meals WHERE Recipe_ID = '".$recipeID."'AND User_ID = ".$_SESSION['id'];
+             $Check = mysqli_query($conn, $CheckSQL);
+             $num = mysqli_num_rows($Check);
+
+             if ($num == 0){
+              ?> 
+
+              <img src="img/addToMealsbutton.png" type = "submit" width="55" height="40" />
+            <?php
+             }
+             else {
+              ?>
+              <img src="img/RemoveFromMealsButton.png" type = "submit" width="55" height="40" />
+              <?php
+                  }
+            ?>
           </a>
 
 
