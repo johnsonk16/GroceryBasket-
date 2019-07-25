@@ -108,16 +108,10 @@
                 ?>   
                 }
           </script>
-<!-- <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
-<!-- <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
-<!-- <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
         <!-- Recipe Image -->
         <div class="responsive">
           <tr>
           <td colspan="2" id="resize">
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         <!-- Recipe Image -->
         <tr>
           <td colspan="2" id="imageCell">

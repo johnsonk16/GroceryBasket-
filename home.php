@@ -355,7 +355,7 @@ if(isset($_SESSION["login"]) && $_SESSION["login"] == true) {
 	
 	
 		</style>
-				<a href="search.php">
+				<a href="explore.php">
 				<button class="btn" button onclick="myFunction()" id="myBtn">View more</button>
 		<script>
 		
