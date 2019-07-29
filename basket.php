@@ -5,7 +5,6 @@
 
 
   require_once('config.php');
- // require('../fpdf.php');
   $conn = mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME);
 
 
@@ -18,17 +17,13 @@
   else
     echo "ERROR";
 
-// $pdf = new FPDF();
-// $pdf->AddPage();
-// $pdf->SetFont('Arial','B',16);
  ?>
- <body onload="window.location.href = 'meals.php'">
-<!-- onload="window.location.href = 'meals.php'" -->
+ <body>
   
 <div id="basket" class="tabcontent">
-    <h2>Generating List...</h2>
     <div>
 <?php
+  
  $myfile = fopen("basket.txt", "w+") or die("Unable to open file!");
  fwrite($myfile, "Your basket: ");
  fwrite($myfile, "\n");
@@ -36,12 +31,17 @@
  fwrite($myfile,$serving);
  fwrite($myfile, "\n\n");
 
-// $pdf->Cell(40,10,'Your Basket: ');
-// $pdf->Ln(10);
-// $pdf->Cell(40,10,'Serving: ');
-// $pdf->Cell(40,10,'$serving');
-// $pdf->Ln(10);
+?>
 
+<a href="meals.php"> <-- Back to Meals </a>
+<br>
+<br>
+
+<?php
+
+echo "Your Basket List: ";
+echo "<br>";
+echo "<br>";
 
   $resultB = mysqli_query($conn, "SELECT Recipe_ID FROM Meals WHERE User_ID = ".$_SESSION['id']);
     $numRecipesB = mysqli_num_rows($resultB);
@@ -59,12 +59,11 @@
       $recipeNameB = $dataB['Recipe_Name'];
 
    
-   fwrite($myfile, $recipeNameB);
-   fwrite($myfile, "\n\n");
+      fwrite($myfile, $recipeNameB);
+      fwrite($myfile, "\n\n");
 
-//    $pdf->Cell(40,10,'$recipeNameB');
- //   $pdf->Ln(10);
-
+      echo $recipeNameB;
+      echo "<br>";
 
       $sqlRI = "SELECT * FROM Recipe_Ingredients WHERE Recipe_ID = ".$RecipeIDB;
 
@@ -90,14 +89,16 @@
                 fwrite($myfile, $fullMeasurement);
                 fwrite($myfile, "\n");
 
-                // $pdf->Cell(40,10,'$fullMeasurement');
-                // $pdf->Ln(10);
+                echo $fullMeasurement;
+                echo "<br>";
 
+        
                     }
 
                   }
                   fwrite($myfile, "\n");
-                 // $pdf->Ln(10);
+                  echo "<br>";
+      
 
                 }
       
@@ -108,8 +109,8 @@
           }
            fwrite($myfile, "\n\n");
            fclose($myfile);
-           // $pdf->Ln(10);
-           // $pdf->Output();
+          echo "<br>";
+   
 
 ?>
 </div>
