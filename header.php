@@ -12,6 +12,19 @@
 	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
 	<link rel="stylesheet" href="css/home.css"> <!-- Resource style -->
 	<link rel="stylesheet" href="css/demo.css"> <!-- Demo style -->
+
+	<script> 
+    // Change the type of input to password or text 
+        function Toggle() { 
+            var temp = document.getElementById("signin-password"); 
+            if (temp.type === "password") { 
+                temp.type = "text"; 
+            } 
+            else { 
+                temp.type = "password"; 
+            } 
+        } 
+</script> 
   	
 	<title>Grocery Basket</title>
 </head>
@@ -55,10 +68,11 @@
 					<p class="cd-signin-modal__fieldset">
 						<label class="cd-signin-modal__label cd-signin-modal__label--password cd-signin-modal__label--image-replace" for="signin-password">Password</label>
 						<input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" id="signin-password" type="text"  placeholder="Password" name ="password">
-						<a href="#0" class="cd-signin-modal__hide-password js-hide-password">Hide</a>
-
+						<input type="checkbox" id="hidePass" checked class="cd-signin-modal__input " onclick = "Toggle()">Hide
 					
 					</p>
+
+
 
 					<p class="cd-signin-modal__fieldset">
 						<input type="checkbox" id="remember-me" checked class="cd-signin-modal__input ">
@@ -90,7 +104,7 @@
 					<p class="cd-signin-modal__fieldset">
 						<label class="cd-signin-modal__label cd-signin-modal__label--password cd-signin-modal__label--image-replace" for="signup-password">Password</label>
 						<input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" id="signup-password" type="text"  placeholder="Password" name="password">
-						<a href="#0" class="cd-signin-modal__hide-password js-hide-password">Hide</a>
+						<a href="#0" class="cd-signin-modal__hide-password js-hide-password">Show</a>
 						
 					</p>
 
