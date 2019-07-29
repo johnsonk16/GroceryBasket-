@@ -5,6 +5,7 @@
 
 
   require_once('config.php');
+ // require('../fpdf.php');
   $conn = mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME);
 
 
@@ -12,23 +13,34 @@
     die('could not connect' . mysqli_error());
   }
   if (isset($_GET['Serving'])){
-  $serving = $_GET['Serving'];}
+  $serving = $_GET['Serving'];
+  }
   else
     echo "ERROR";
+
+// $pdf = new FPDF();
+// $pdf->AddPage();
+// $pdf->SetFont('Arial','B',16);
  ?>
  <body onload="window.location.href = 'meals.php'">
-
+<!-- onload="window.location.href = 'meals.php'" -->
   
 <div id="basket" class="tabcontent">
     <h2>Generating List...</h2>
     <div>
 <?php
-$myfile = fopen("basket.txt", "w+") or die("Unable to open file!");
-fwrite($myfile, "Your basket: ");
-fwrite($myfile, "\n");
-fwrite($myfile, "Serving: ");
-fwrite($myfile,$serving);
-fwrite($myfile, "\n\n");
+ $myfile = fopen("basket.txt", "w+") or die("Unable to open file!");
+ fwrite($myfile, "Your basket: ");
+ fwrite($myfile, "\n");
+ fwrite($myfile, "Serving: ");
+ fwrite($myfile,$serving);
+ fwrite($myfile, "\n\n");
+
+// $pdf->Cell(40,10,'Your Basket: ');
+// $pdf->Ln(10);
+// $pdf->Cell(40,10,'Serving: ');
+// $pdf->Cell(40,10,'$serving');
+// $pdf->Ln(10);
 
 
   $resultB = mysqli_query($conn, "SELECT Recipe_ID FROM Meals WHERE User_ID = ".$_SESSION['id']);
@@ -47,8 +59,11 @@ fwrite($myfile, "\n\n");
       $recipeNameB = $dataB['Recipe_Name'];
 
    
-    fwrite($myfile, $recipeNameB);
-    fwrite($myfile, "\n\n");
+   fwrite($myfile, $recipeNameB);
+   fwrite($myfile, "\n\n");
+
+//    $pdf->Cell(40,10,'$recipeNameB');
+ //   $pdf->Ln(10);
 
 
       $sqlRI = "SELECT * FROM Recipe_Ingredients WHERE Recipe_ID = ".$RecipeIDB;
@@ -75,10 +90,14 @@ fwrite($myfile, "\n\n");
                 fwrite($myfile, $fullMeasurement);
                 fwrite($myfile, "\n");
 
+                // $pdf->Cell(40,10,'$fullMeasurement');
+                // $pdf->Ln(10);
+
                     }
 
                   }
                   fwrite($myfile, "\n");
+                 // $pdf->Ln(10);
 
                 }
       
@@ -87,8 +106,10 @@ fwrite($myfile, "\n\n");
             }
                
           }
-          fwrite($myfile, "\n\n");
-          fclose($myfile);
+           fwrite($myfile, "\n\n");
+           fclose($myfile);
+           // $pdf->Ln(10);
+           // $pdf->Output();
 
 ?>
 </div>

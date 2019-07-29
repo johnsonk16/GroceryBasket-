@@ -25,36 +25,42 @@
         $quantity = [];
     }
 
-    if(isset($_POST["measurements"])){
-        $measurements = $_POST["measurements"];
+    if(isset($_POST["measurement"])){
+        $measurements = $_POST["measurement"];
     } else{
         $measurements = []; 
     }
+
     if(isset($_POST["ingredients"])){
         $ingredients = $_POST["ingredients"];
     } else{
         $ingredients = []; 
     }
+
     if(isset($_POST["tags"])){
         $tags = $_POST["tags"];
     } else{
         $tags = []; 
     }
+
     if(isset($_POST["totaltime"])){
         $time = $_POST["totaltime"];
     } else{
         $time = "NULL";
     }
+
     if(isset($_POST["servings"])){
         $servings = $_POST["servings"];
     } else{
         $servings = 0;
     }
+
     if(isset($_POST["steps"])){
         $steps = $_POST["steps"];
     } else{
         $steps = [];
     }
+
     global $filename;
 
     $filename = "NULL";
@@ -94,27 +100,26 @@
     }
 
       $sql = "INSERT INTO Recipes VALUES (".$recipeID.", '".$recipename."', '".$time."', ".$servings.", '".$filename."')";
-      echo $sql."<br/>";
+    echo $sql."<br/>";
     
-      mysqli_query($conn, $sql);
+    mysqli_query($conn, $sql);
 
 
-    for($i=0; ($i<count($quantity) && !empty($measurements) && !empty($ingredients)) ; $i++){
+    for($i=0; ($i<count($measurements) && !empty($quantity) && !empty($measurements) && !empty($ingredients)) ; $i++){
         
         $sql = "INSERT INTO Recipe_Ingredients VALUES (".$ingredients[$i].", ".$recipeID.",".$quantity[$i].", '".$measurements[$i]."');";
-        echo $sql;
-        mysqli_query($conn, $sql);
+     echo $sql;
+     mysqli_query($conn, $sql);
     }
-    
-    foreach($tags as $tag){
-        $sql = "INSERT INTO Recipe_Tags VALUES (".$tag.", ".$recipeID.");";
-        mysqli_query($conn, $sql);
-    }
-    
+    for ($i=0; ($i<count($tags));$i++){
+        $sql = "INSERT INTO Recipe_Tag VALUES (".$tags[$i].", ".$recipeID.");";
+      //  echo $sql; 
+       mysqli_query($conn, $sql);
+   } 
     
     for($i=0;$i<count($steps);$i++){
         $stepNo = $i + 1;
-        echo $stepNo.": ".$steps[$i];
+      //  echo $stepNo.": ".$steps[$i];
         $sql = "INSERT INTO Step VALUES (".$recipeID.", '".$steps[$i]."', ".$stepNo.");";
         echo "<br/>".$sql;
         mysqli_query($conn, $sql);

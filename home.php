@@ -81,7 +81,7 @@ if(isset($_SESSION["login"]) && $_SESSION["login"] == true) {
       					<div class="col-75">
       						<table id="ingredients"> 
                     			<tr id="ingredientRow">
-                        		<td class="Quantity"><input type="text" class="number" id = "quantity[]" name="quantity" placeholder="(ex. 2)"></td>
+                        		<td class="Quantity"><input id = "quantity" name="quantity[]" placeholder="(ex. 2)"></td>
                             <td><select class="measurement" id="measurement" name="measurement[]" data-placeholder="Select measurement..." required="">
                               <option value="">Select Measurement...</option>
                             <option value='1'>Pinch</option><option value='2'>Teaspoon</option><option value='3'>Tablespoon</option><option value='4'>Cup</option><option value='5'>Ounce</option><option value='6'>Pound</option><option value='7'>Gallon</option><option value='8'> </option><option value='9'>Pint</option><option value='10'>Quart</option><option value='11'>Clove</option> <option value = '12'>Can</option><option value = '13'>Slice</option></select>
