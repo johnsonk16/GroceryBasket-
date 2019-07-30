@@ -65,7 +65,7 @@
 
     $filename = "NULL";
 
-    if($_SERVER["REQUEST_METHOD"] == "POST"){
+ if($_SERVER["REQUEST_METHOD"] == "POST"){
         // Check if file was uploaded without errors
         if(isset($_FILES["photoUpload"]) && $_FILES["photoUpload"]["error"] == 0){
             $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
@@ -80,10 +80,8 @@
             // Verify file size - 5MB maximum
             $maxsize = 5 * 1024 * 1024;
             if($filesize > $maxsize) die("Error: File size is larger than the allowed limit.");
-
-
+        
             // Verify MYME type of the file
-
             if(in_array($filetype, $allowed)){
                 // Check whether file exists before uploading it
                 if(file_exists("img/" . $filename)){
@@ -95,10 +93,8 @@
             } else{
                 echo "Error: There was a problem uploading your file. Please try again."; 
             }
-
         } 
     }
-
       $sql = "INSERT INTO Recipes VALUES (".$recipeID.", '".$recipename."', '".$time."', ".$servings.", '".$filename."')";
     echo $sql."<br/>";
     
@@ -109,12 +105,12 @@
         
         $sql = "INSERT INTO Recipe_Ingredients VALUES (".$ingredients[$i].", ".$recipeID.",".$quantity[$i].", '".$measurements[$i]."');";
      echo $sql;
-     mysqli_query($conn, $sql);
+   //  mysqli_query($conn, $sql);
     }
     for ($i=0; ($i<count($tags));$i++){
         $sql = "INSERT INTO Recipe_Tag VALUES (".$tags[$i].", ".$recipeID.");";
       //  echo $sql; 
-       mysqli_query($conn, $sql);
+     //  mysqli_query($conn, $sql);
    } 
     
     for($i=0;$i<count($steps);$i++){
@@ -122,7 +118,7 @@
       //  echo $stepNo.": ".$steps[$i];
         $sql = "INSERT INTO Step VALUES (".$recipeID.", '".$steps[$i]."', ".$stepNo.");";
         echo "<br/>".$sql;
-        mysqli_query($conn, $sql);
+      //  mysqli_query($conn, $sql);
     }
     ?>
     <script>

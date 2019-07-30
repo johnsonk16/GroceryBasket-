@@ -28,8 +28,12 @@
 <html lang="en" class="no-js">
     <header>
     <?php
+    global $loggedin;
+    $loggedin = FALSE; 
+
     if(isset($_SESSION["login"]) && $_SESSION["login"] == true) {
 		include 'header-logged-in.php';
+    $loggedin= TRUE;
 	} else {
 		include 'header.php';
   } 
@@ -72,6 +76,10 @@
           <td colspan="2"><h1>
             <?php 
               echo $recipeName;
+
+              //favoriting and adding to meals only available if user is logged in
+            
+              if ($loggedin == TRUE){
             ?>
       
             <!-- check db to see if recipe is in favorites table, if it is src = yellow star, if not src = white star -->
@@ -95,7 +103,6 @@
 
             
           </a>
-          
 
           <a href="InsertMeal.php?data=<?php echo $recipeID?>">
              <?php
@@ -116,7 +123,9 @@
                   }
             ?>
           </a>
-
+       <?php
+        } 
+        ?>
 
           </h1></td>
         </tr>

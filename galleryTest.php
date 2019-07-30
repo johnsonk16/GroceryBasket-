@@ -55,52 +55,38 @@ if(isset($_SESSION["login"]) && $_SESSION["login"] == true) {
  <div class="gallery">
  
   <?php
-    // Image extensions
-    $image_extensions = array("png","jpg","jpeg","gif");
-
-  // Target directory
-  $dir = 'img/';
-  if (is_dir($dir)){
- 
-   if ($dh = opendir($dir)){
     $count = 1;
+     $files = glob("gallery/*.*");
+     for ($i=0; $i<count($files); $i++)
+      {
+        $image = $files[$i];
+        $supported_file = array(
+                'gif',
+                'jpg',
+                'jpeg',
+                'png'
+         );
 
-    // Read files
-    while (($file = readdir($dh)) !== false){
-
-     if($file != '' && $file != '.' && $file != '..'){
- 
-      // Thumbnail image path
-      $thumbnail_path = "img/".$file;
-
- 
-      $thumbnail_ext = pathinfo($thumbnail_path, PATHINFO_EXTENSION);
-
-      // Check its not folder and it is image file
-      if(!is_dir($thumbnail_path) && 
-         in_array($thumbnail_ext,$image_extensions)){
-   ?>   
-
-       <!-- Image -->
-       <a href="<?php echo $image_path; ?>">
-        <img src="<?php echo $thumbnail_path; ?>" alt="" title=""/>
-       </a>
-       <!-- --- -->
-       <?php
-       // Break
-       if( $count%4 == 0){
+         $ext = strtolower(pathinfo($image, PATHINFO_EXTENSION));
+         if (in_array($ext, $supported_file)) {
+            $path_parts= pathinfo($image);
+           // echo basename($image)."<br />"; // show only image name if you want to show full path then use this code // echo $image."<br />";
+            $filename =  $path_parts["filename"];
+          //  echo $filename;
+             echo "<a href='viewRecipe.php?".$filename." '>";
+             echo '<img src="'.$image .'" alt="Random image" />'."<br /><br />";
+          if( $count%4 == 0){
        ?>
          <div class="clear"></div>
        <?php 
        }
        $count++;
-      }
-     }
- 
-    }
-    closedir($dh);
-   }
-  }
+         
+            } else {
+                continue;
+            }
+          }
+
  ?>
  </div>
 </div>
