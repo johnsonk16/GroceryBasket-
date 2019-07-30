@@ -67,8 +67,8 @@
 
 					<p class="cd-signin-modal__fieldset">
 						<label class="cd-signin-modal__label cd-signin-modal__label--password cd-signin-modal__label--image-replace" for="signin-password">Password</label>
-						<input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" id="signin-password" type="text"  placeholder="Password" name ="password">
-						<input type="checkbox" id="hidePass" checked class="cd-signin-modal__input " onclick = "Toggle()">Hide
+						<input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" id="signin-password" type="password"  placeholder="Password" name ="password">
+						<!-- <input type="checkbox" id="hidePass" checked class="cd-signin-modal__input " onclick = "Toggle()">Hide -->
 					
 					</p>
 
@@ -84,7 +84,7 @@
 					</p> 
 				</form>
 				
-				<p class="cd-signin-modal__bottom-message js-signin-modal-trigger"><a href="#0" data-signin="reset">Forgot your password?</a></p>
+				<!-- <p class="cd-signin-modal__bottom-message js-signin-modal-trigger"><a href="#0" data-signin="reset">Forgot your password?</a></p> -->
 			</div> <!-- cd-signin-modal__block -->
 
 			<div class="cd-signin-modal__block js-signin-modal-block" data-type="signup"> <!-- sign up form -->
@@ -103,15 +103,15 @@
 
 					<p class="cd-signin-modal__fieldset">
 						<label class="cd-signin-modal__label cd-signin-modal__label--password cd-signin-modal__label--image-replace" for="signup-password">Password</label>
-						<input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" id="signup-password" type="text"  placeholder="Password" name="password">
-						<a href="#0" class="cd-signin-modal__hide-password js-hide-password">Show</a>
+						<input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border" id="signup-password" type="password"  placeholder="Password" name="password">
+						<!-- <a href="#0" class="cd-signin-modal__hide-password js-hide-password">Show</a> -->
 						
 					</p>
 
-					<p class="cd-signin-modal__fieldset">
+					<!-- <p class="cd-signin-modal__fieldset">
 						<input type="checkbox" id="accept-terms" class="cd-signin-modal__input ">
 						<label for="accept-terms">I agree to the <a href="#0">Terms</a></label>
-					</p>
+					</p> -->
 
 					<p class="cd-signin-modal__fieldset">
 						<input class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding" type="submit" value="Create account" name="reg_user">
@@ -120,8 +120,8 @@
 			</div> <!-- cd-signin-modal__block -->
 
 
-			<div class="cd-signin-modal__block js-signin-modal-block" data-type="reset"> 
-				<p class="cd-signin-modal__message">Lost your password? Please enter your email address. You will receive a link to create a new password.</p> <!-- reset password form -->
+			<!-- <div class="cd-signin-modal__block js-signin-modal-block" data-type="reset"> 
+				<p class="cd-signin-modal__message">Lost your password? Please enter your email address. You will receive a link to create a new password.</p> 
 
 				<form class="cd-signin-modal__form">
 					<p class="cd-signin-modal__fieldset">
@@ -136,7 +136,7 @@
 				</form>
 
 				<p class="cd-signin-modal__bottom-message js-signin-modal-trigger"><a href="#0" data-signin="login">Back to log-in</a></p>
-			</div> <!-- cd-signin-modal__block -->
+			</div>  -->
 			<a href="#0" class="cd-signin-modal__close js-close">Close</a>
 		</div> <!-- cd-signin-modal__container -->
 	</div> <!-- cd-signin-modal -->
