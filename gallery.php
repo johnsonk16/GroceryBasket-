@@ -1,83 +1,93 @@
 <?php
-  error_reporting(0); 
+  error_reporting(0);
   session_start();
-  $_SESSION['email'];
-  $_SESSION['id'];
-
   require_once('config.php');
 
   $conn = mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME);
 
+  if(!$conn){
+    die('could not connect' . mysqli_error());
+  } 
+   // echo 'CONNECTED TO DB';
 
-	if(!$conn){
-   	die('could not connect' . mysqli_error());
-  } 
-  ?>
-<html lang="en" class="no-js">
-<?php
-    if(isset($_SESSION["login"]) && $_SESSION["login"] == true) {
-		include 'header-logged-in.php';
-	} else {
-		include 'header.php';
-  } 
-  ?>
-<head>
+ ?> 
+<html>
+
+<?php    
+if(isset($_SESSION["login"]) && $_SESSION["login"] == true) {
+    include 'header-logged-in.php';
+  } else {
+    include 'header.php';
+  }
+?>
+
 <style>
-div.gallery {
-  margin: 5px;
-  border: 1px solid #ccc;
+.container .gallery a img {
   float: left;
-  width: 180px;
-}
-
-div.gallery:hover {
-  border: 1px solid #777;
-}
-
-div.gallery img {
-  width: 100%;
+  width: 20%;
   height: auto;
+  border: 2px solid #fff;
+  -webkit-transition: -webkit-transform .15s ease;
+  -moz-transition: -moz-transform .15s ease;
+  -o-transition: -o-transform .15s ease;
+  -ms-transition: -ms-transform .15s ease;
+  transition: transform .15s ease;
+  position: relative;
 }
 
-div.desc {
-  padding: 15px;
-  text-align: center;
+.container .gallery a:hover img {
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -o-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+  z-index: 5;
+}
+
+.clear {
+  clear: both;
+  float: none;
+  width: 100%;
 }
 </style>
-</head>
 
-<body>
-  <div class='container'>
-    <div class="gallery">
-      <?php
-      $result = mysqli_query($conn,"SELECT * FROM Recipes"); 
-      // calculates the number of recipes in DB
-      $num_rows = mysqli_num_rows($result);
-      
-      for($i=1; $i<=$num_rows;$i++){
-        $sql = "SELECT * FROM Recipes WHERE Recipe_ID = '" .mysqli_real_escape_string($conn,$i) . "'";
-        $result = mysqli_query($conn, $sql);
-        $data = mysqli_fetch_assoc($result);
-        $recipeID= $data['Recipe_ID'];
-        $recipeName = $data['Recipe_Name'];
-        $recipeIMG= $data['Recipe_Img'];
+<div class='container'>
+ <div class="gallery">
+ 
+  <?php
+    $count = 1;
+     $files = glob("gallery/*.*");
+     for ($i=0; $i<count($files); $i++)
+      {
+        $image = $files[$i];
+        $supported_file = array(
+                'gif',
+                'jpg',
+                'jpeg',
+                'png'
+         );
 
-        $count = 1;
-
-        if($recipeIMG!="NULL")
-          // image gallery
-          echo "<a href='viewRecipe.php?Recipe_ID=".$recipeID." '>".$recipeName;
-              echo "<img src='img/".$recipeIMG."' id='recipeImage'>";
-          // Break
+         $ext = strtolower(pathinfo($image, PATHINFO_EXTENSION));
+         if (in_array($ext, $supported_file)) {
+            $path_parts= pathinfo($image);
+           // echo basename($image)."<br />"; // show only image name if you want to show full path then use this code // echo $image."<br />";
+            $filename =  $path_parts["filename"];
+          //  echo $filename;
+             echo "<a href='viewRecipe.php?".$filename." '>";
+             echo '<img src="'.$image .'" alt="Random image" />'."<br /><br />";
           if( $count%4 == 0){
-            ?>
-            <div class="clear"></div>
-          <?php 
+       ?>
+         <div class="clear"></div>
+       <?php 
+       }
+       $count++;
+         
+            } else {
+                continue;
+            }
           }
-          $count++;
-        }
-        ?>
-      </div>
-    </div>
-  </body>
-  </html>
+
+ ?>
+ </div>
+</div>
+</html>
