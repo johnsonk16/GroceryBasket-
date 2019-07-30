@@ -29,6 +29,38 @@
   ?>
 
 </head>
+<style>
+.container .gallery a img {
+  float: left;
+  width: 20%;
+  height: auto;
+  border: 2px solid #fff;
+  -webkit-transition: -webkit-transform .15s ease;
+  -moz-transition: -moz-transform .15s ease;
+  -o-transition: -o-transform .15s ease;
+  -ms-transition: -ms-transform .15s ease;
+  transition: transform .15s ease;
+  position: relative;
+}
+
+.container .gallery a:hover img {
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -o-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+  z-index: 5;
+}
+
+.clear {
+  clear: both;
+  float: none;
+  width: 100%;
+}
+</style>
+
+<div class='container'>
+ <div class="gallery">
   <body>
 
   <div class="tab">
@@ -53,6 +85,7 @@
       <?php
       $result = mysqli_query($conn, "SELECT Recipe_ID FROM Meals WHERE User_ID = ".$_SESSION['id']);
       $numRecipes = mysqli_num_rows($result);
+      $count = 1;
 
       if ($numRecipes != 0) {
         for($i=0; $i<$numRecipes;$i++) { 
@@ -128,6 +161,12 @@
               echo "<img src='img/".$recipeIMGF."' id='recipeImage'>";
             else
               echo "<img src='img/GroceryBasket.jpg' id='recipeImage'>";
+            if( $count%4 == 0){
+       ?>
+         <br>
+       <?php 
+       }
+       $count++;
             ?>
             </td>
             </tr>
