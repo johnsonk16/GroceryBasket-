@@ -32,8 +32,9 @@
 <style>
 .container .gallery a img {
   float: left;
-  width: 20%;
-  height: auto;
+  width: 25%;
+  height: 50%;
+  overflow: hidden;
   border: 2px solid #fff;
   -webkit-transition: -webkit-transform .15s ease;
   -moz-transition: -moz-transform .15s ease;
@@ -81,7 +82,7 @@
   
 
 
-    <div class="meals resize"> 
+    <!-- <div class="meals resize">  -->
       <?php
       $result = mysqli_query($conn, "SELECT Recipe_ID FROM Meals WHERE User_ID = ".$_SESSION['id']);
       $numRecipes = mysqli_num_rows($result);
@@ -134,7 +135,7 @@
         <?php
       }       
     ?>
-    </div>
+    <!-- </div> -->
   </div>
 
 <div id="favorites" class="tabcontent">
@@ -163,6 +164,7 @@
               echo "<img src='img/GroceryBasket.jpg' id='recipeImage'>";
             if( $count%4 == 0){
        ?>
+                <div class="clear"></div>
          <br>
        <?php 
        }

@@ -22,10 +22,13 @@ if(isset($_SESSION["login"]) && $_SESSION["login"] == true) {
 ?>
 
 <style>
+.container{
+    display:block;
+}
 .container .gallery a img {
   float: left;
-  width: 20%;
-  height: auto;
+  width: 25%;
+  height: 50%;
   border: 2px solid #fff;
   -webkit-transition: -webkit-transform .15s ease;
   -moz-transition: -moz-transform .15s ease;
@@ -33,6 +36,7 @@ if(isset($_SESSION["login"]) && $_SESSION["login"] == true) {
   -ms-transition: -ms-transform .15s ease;
   transition: transform .15s ease;
   position: relative;
+  overflow: hidden;
 }
 
 .container .gallery a:hover img {
@@ -42,6 +46,19 @@ if(isset($_SESSION["login"]) && $_SESSION["login"] == true) {
   -ms-transform: scale(1.05);
   transform: scale(1.05);
   z-index: 5;
+}
+
+.column2 { 
+  float: left; 
+  width: 30%;
+	margin: 25px;	
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+	display: table;
 }
 
 .clear {
