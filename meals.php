@@ -32,7 +32,7 @@
 <style>
 .container .gallery a img {
   float: left;
-  width: 25%;
+  width: 33.33%;
   height: 50%;
   overflow: hidden;
   border: 2px solid #fff;
@@ -79,14 +79,12 @@
             Servings: <input type="text" name="Serving" size="3" value = 1>
         <button type = "submit" onclick = "window.location.href= 'basket.php'"> Generate Shopping List</button>     
     </form>
-  
-
 
     <!-- <div class="meals resize">  -->
       <?php
       $result = mysqli_query($conn, "SELECT Recipe_ID FROM Meals WHERE User_ID = ".$_SESSION['id']);
       $numRecipes = mysqli_num_rows($result);
-      $count = 1;
+      $count = 0; 
 
       if ($numRecipes != 0) {
         for($i=0; $i<$numRecipes;$i++) { 
@@ -100,9 +98,12 @@
             $recipeName = $data['Recipe_Name'];
             $recipeIMG= $data['Recipe_Img'];
        
-            if($recipeIMG!="NULL")
+            if($recipeIMG!="NULL"){
+
+              echo "<a href='viewRecipe.php?Recipe_ID=".$RecipeID." '>".$recipeName;
+              echo "<br>";
               echo "<img src='img/".$recipeIMG."' id='recipeImage'>";
-       
+            }
             else
               echo "<img src='img/GroceryBasket.jpg' id='recipeImage'>";
             ?>
@@ -114,10 +115,6 @@
             <tr>             
 
             <td colspan="2"><h1>
-            <?php 
-              echo "<a href='viewRecipe.php?Recipe_ID=".$RecipeID." '>".$recipeName;
-              //  echo $recipeName;
-            ?>
     
             <br>
             <?php
@@ -162,7 +159,7 @@
               echo "<img src='img/".$recipeIMGF."' id='recipeImage'>";
             else
               echo "<img src='img/GroceryBasket.jpg' id='recipeImage'>";
-            if( $count%4 == 0){
+            if( $count%3 == 0){
        ?>
                 <div class="clear"></div>
          <br>

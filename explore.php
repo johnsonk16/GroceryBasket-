@@ -22,11 +22,10 @@ if(isset($_SESSION["login"]) && $_SESSION["login"] == true) {
 ?>
 
 <style>
-.container{
-    display:block;
-}
+
 .container .gallery a img {
   float: left;
+  display: block;
   width: 25%;
   height: 50%;
   border: 2px solid #fff;
@@ -37,6 +36,7 @@ if(isset($_SESSION["login"]) && $_SESSION["login"] == true) {
   transition: transform .15s ease;
   position: relative;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .container .gallery a:hover img {
@@ -47,20 +47,6 @@ if(isset($_SESSION["login"]) && $_SESSION["login"] == true) {
   transform: scale(1.05);
   z-index: 5;
 }
-
-.column2 { 
-  float: left; 
-  width: 30%;
-	margin: 25px;	
-}
-
-/* Clear floats after image containers */
-.row::after {
-  content: "";
-  clear: both;
-	display: table;
-}
-
 .clear {
   clear: both;
   float: none;
@@ -72,8 +58,34 @@ if(isset($_SESSION["login"]) && $_SESSION["login"] == true) {
  <div class="gallery">
  
   <?php
+    $result = mysqli_query($conn,"SELECT * FROM Recipes"); 
+    $numRecipes = mysqli_num_rows($result);
+
     $count = 1;
-     $files = glob("gallery/*.*");
+
+    if ($numRecipes != 0) {
+      for($i=0; $i<$numRecipes;$i++) { 
+        while($row=mysqli_fetch_array($result, MYSQLI_NUM)) {
+          $RecipeID= $row[0];
+
+          $sql = "SELECT * FROM Recipes WHERE Recipe_ID = '".$RecipeID. "'";
+
+          $resultR = mysqli_query($conn, $sql);
+          $data = mysqli_fetch_assoc($resultR);
+          $recipeName = $data['Recipe_Name'];
+          $recipeIMG= $data['Recipe_Img'];
+                 
+          if($recipeIMG!="NULL"){
+            echo "<a href='viewRecipe.php?Recipe_ID=".$RecipeID." '>".$recipeName;
+            echo "<br>";
+            echo "<img src='img/".$recipeIMG."' id='recipeImage'>";
+          }
+        }
+      }
+    }
+    //code commented out below was previous way of calling images but
+    //it wouldn't call the recipe names correctly
+   /*  $files = glob("gallery/*.*");
      for ($i=0; $i<count($files); $i++)
       {
         $image = $files[$i];
@@ -103,7 +115,7 @@ if(isset($_SESSION["login"]) && $_SESSION["login"] == true) {
                 continue;
             }
           }
-
+*/
  ?>
  </div>
 </div>

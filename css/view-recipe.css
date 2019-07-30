@@ -49,13 +49,13 @@ tr {
 
 table#searchFilters {
 	border-collapse:separate;
-    border-spacing:0 20px;
+    border-spacing:20px;
 }
 
 #main {
 	width: 100%;
   height: 600px;
-  	/*background-color: gold;*/
+  	/* background-color: gold; */
   	/* position: fixed; */
   	/*it can be fixed too*/
   	left: 0;
@@ -64,16 +64,17 @@ table#searchFilters {
   	/* bottom: 0; */
   	/* margin: auto; */
   	/*this to solve "the content will not be cut when the window is smaller than the content": */
-  	max-width: 100%;
-  	max-height: 100%;
+  	/* max-width: 100%; */
+  	/* max-height: 100%; */
   	overflow: auto;
 }
 
 #child {
-	position: absolute;
-  	top: 50%;
-  	left: 50%;
-  	transform: translate(-50%, -50%);
+  position: relative;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 
 @import url(//fonts.googleapis.com/css?family=Open+Sans:600,400&subset=latin,cyrillic);

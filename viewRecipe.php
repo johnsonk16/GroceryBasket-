@@ -39,11 +39,12 @@
   } 
   ?>
     </header>
+    
     <body>
     <link rel="stylesheet" href="css/view-recipe.css">
     <div id="main">
       <form method="post" id="child">
-     <table class="center" id="searchFilters" align="center" cellpadding="2" cellspacing="5" border="10"> 
+     <table  id="searchFilters" cellpadding="2" cellspacing="5"> 
 
         <col width = 30%>
         <col witdh =70%>
@@ -52,7 +53,7 @@
         <!-- Recipe Image -->
         <div class="responsive">
           <tr>
-          <td colspan="2" id="resize">
+          <td colspan="2">
         <!-- Recipe Image -->
         <tr>
           <td colspan="2" id="imageCell">
@@ -60,7 +61,7 @@
             <?php
 
                if($recipeIMG!="NULL")
-                 echo "<img  src='img/".$recipeIMG."' id='resize'>";
+                 echo "<img  src='img/".$recipeIMG."'>";
        
                else
                echo "<img src='img/GroceryBasket.jpg' id='resize'>";
