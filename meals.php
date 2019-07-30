@@ -137,7 +137,7 @@
 
 <div id="favorites" class="tabcontent">
   <h2>Favorites</h2>
-  <div class="favorites resize">
+  <!-- <div class="favorites resize"> -->
     <?php
       $resultF = mysqli_query($conn, "SELECT Recipe_ID FROM Favorites WHERE User_ID = ".$_SESSION['id']);
 
@@ -155,13 +155,17 @@
             $recipeNameF = $dataF['Recipe_Name'];
             $recipeIMGF= $dataF['Recipe_Img'];
 
-            if($recipeIMGF!="NULL")
+            if($recipeIMGF!="NULL"){
+
+              echo "<a href='viewRecipe.php?Recipe_ID=".$RecipeIDF." '>".$recipeNameF;
+              echo "<br>";
               echo "<img src='img/".$recipeIMGF."' id='recipeImage'>";
+            }
             else
               echo "<img src='img/GroceryBasket.jpg' id='recipeImage'>";
             if( $count%3 == 0){
        ?>
-                <div class="clear"></div>
+                <!-- <div class="clear"></div> -->
          <br>
        <?php 
        }
@@ -174,7 +178,7 @@
 
             <td colspan="2"><h1>
             <?php 
-              echo "<a href='viewRecipe.php?Recipe_ID=".$RecipeIDF." '>".$recipeNameF;
+              // echo "<a href='viewRecipe.php?Recipe_ID=".$RecipeIDF." '>".$recipeNameF;
               // echo $recipeNameF;
           }
         }
