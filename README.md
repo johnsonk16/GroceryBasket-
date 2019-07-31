@@ -33,14 +33,19 @@ Tools
 
 ## Deliverables
 
-1.	Web app
-  - User can choose meals 
-  - User can favorite meals 
-  - User can add meals 
-  - User can delete meals 
-  - User can check on/off ingredients 
-  - Analyze picture of food; output what the food is
-2.	Documentation and testing 
+1. Front-end
+   - User-paths are clear
+   - Responsive design
+   - User-friendly layout
+   
+2. Back-end
+   - User can add recipes to the site
+   - User can (un)favorite meals 
+   - User can add/delete meals from Planner
+   - User can curate a shopping list
+   
+3. Software Design Document
+
 
 ## Plan
 
@@ -56,6 +61,10 @@ Tools
 10.	07/22 - Produce poster 
 11.	07/29 - More testing. Practice final presentation 
 12.	08/05 - Wrap-up, prepare for the showcase. Final push to team repo. Celebrate!!!
+
+## Getting Started
+
+#Install
 
 ## Team members
 
