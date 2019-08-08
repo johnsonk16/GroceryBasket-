@@ -5,8 +5,9 @@
 \margl1440\margr1440\vieww11980\viewh14420\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\fs24 \cf0 \
-DROP TABLE IF EXISTS Recipes; \
+\f0\fs24 \cf0 DROP DATABASE IF EXISTS GroceryBasket; \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 DROP TABLE IF EXISTS Recipes; \
 DROP TABLE IF EXISTS Recipe_Ingredients;\
 DROP TABLE IF EXISTS Ingredients;\
 DROP TABLE IF EXISTS Step;\
@@ -19,6 +20,7 @@ DROP TABLE IF EXISTS Ingredient_Category;\
 DROP TABLE IF EXISTS Measurement;\
 DROP TABLE IF EXISTS Meals;\
 \
+CREATE DATABASE GroceryBasket; \
 \
 CREATE TABLE Recipes (\
 	Recipe_ID INT NOT NULL AUTO_INCREMENT,\
