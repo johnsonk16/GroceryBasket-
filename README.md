@@ -6,9 +6,7 @@ A web-based application that curates a grocery list based on the recipes you wan
 
 ### Why?
 
-People's’ inability to organize their times and fridge leads to further problems. Poor organization can lead to fridges full of unused and spoiled food. This has an obvious financial cost. The price and unpleasantry of throwing out food will discourage people from shopping for ingredients. They will, instead opt to buy frozen unhealthy meals, or spend even more money on takeout.  
-
-Many people do not have time to build a shopping list and go grocery shopping. This lack of time also pushes people to buy fattening frozen meals or spend even more hard-earned money on takeout meals. 
+Many people do not have time to build a shopping list and go grocery shopping. This lack of time pushes people to buy fattening frozen meals or spend even more hard-earned money on takeout meals. 
 
 With Grocery Basket, a tool that builds shopping list for users, people can have more freedom, alleviating the symptoms of being a bad planner. A tool like this would improve the users lives by cutting down on food waste and promoting healthier eating. 
 
@@ -65,11 +63,12 @@ This editor is extremely popular in the web development community.
 We like this editor because of it's ability to push, pull and merge Github commits and all of the packages/features are great add-ons. You can also change the theme to look like Sublime if that's what you're used to.
 
 ### Run
-- After downloading the correct version of xammp for your computer, either download the ZIP file for Grocery Basket or select Open in Desktop, if you have the desktop version of GitHub downloaded, by clicking on the 'clone or download' button.  
 
-- Once downloaded, save the ZIP file under htdocs within your running XAMPP application.  
+- Either download the ZIP file for Grocery Basket or select Open in Desktop, if you have the desktop version of GitHub downloaded, by clicking on the 'clone or download' button.  
 
-- Next, using your preffered web browser, launch PHPMyAdmin by navigating to the localhost dashboard at localhost/dashboard (depending on the version of localhost, the port number may need to be specified) and selecting phpMyAdmin. Select the 'SQL' tab. First copy and paste the file 'GroceryBasketDB.rtf', then 'recipeInserts.rtf', 'insertsCont.rtf', 'steps.rtf' and 'tags.rtf'. After this, the database will be fully loaded. 
+- After downloading the correct version of XAMPP for your computer, open the application.  Under the General tab, click 'Start'.  Once the Status turns green, click on the Services tab and click 'Start All'.  Once all of the stack services turn green, head to the Network tab and click 'Enable'. Then head over to the Volumes tab, click 'Mount' and then 'Explore'.  Once you hit 'Explore', a finder window will pop up. You will then save the ZIP file for Grocery Basket under the htdocs folders in the finder.
+
+- Next, using your preferred web browser, launch PHPMyAdmin by navigating to the localhost dashboard at localhost/dashboard (depending on the version of localhost, the port number may need to be specified) and selecting phpMyAdmin. Select the 'SQL' tab. First copy and paste the file 'GroceryBasketDB.rtf', then 'recipeInserts.rtf', 'insertsCont.rtf', 'steps.rtf' and 'tags.rtf'. After this, the database will be fully loaded. 
 
 - Again in your preffered web browser, navigate to Grocery Basket home page by using the url 'http://localhost/GroceryBasket-Web/home.php', again depending on the version of localhost, the port number may need to be specified.  
 
@@ -93,4 +92,6 @@ Feature #7: Generate shopping list with specified serving size
 * Francesca Matira - Front-End/Back-End
 * Kristin Johnson - Back-End/Database
 * Leslie Vongphakdy - Front-End/Debugger
+
+
 
