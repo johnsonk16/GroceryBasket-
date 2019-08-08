@@ -23,16 +23,6 @@
   
 <div id="basket" class="tabcontent">
     <div>
-<?php
-  
- $myfile = fopen("basket.txt", "w+") or die("Unable to open file!");
- fwrite($myfile, "Your basket: ");
- fwrite($myfile, "\n");
- fwrite($myfile, "Serving: ");
- fwrite($myfile,$serving);
- fwrite($myfile, "\n\n");
-
-?>
 
 <a href="meals.php"> <-- Back to Meals </a>
 <br>
@@ -41,6 +31,9 @@
 <?php
 
 echo "Your Basket List: ";
+echo "<br>";
+echo "Servings: ";
+echo $serving;
 echo "<br>";
 echo "<br>";
 
@@ -58,10 +51,6 @@ echo "<br>";
       $resultB1 = mysqli_query($conn, $sqlB);
       $dataB = mysqli_fetch_assoc($resultB1);
       $recipeNameB = $dataB['Recipe_Name'];
-
-   
-      fwrite($myfile, $recipeNameB);
-      fwrite($myfile, "\n\n");
 
       echo $recipeNameB;
       echo "<br>";
@@ -87,9 +76,7 @@ echo "<br>";
                      if ($row["Quantity"] == "0")
                         { $row["Quantity"] = "";}
                       $fullMeasurement = $row["Quantity"]." ".$ingMeasurement." ".$ingredientName;
-                fwrite($myfile, $fullMeasurement);
-                fwrite($myfile, "\n");
-
+             
                 echo $fullMeasurement;
                 echo "<br>";
 
@@ -97,7 +84,7 @@ echo "<br>";
                     }
 
                   }
-                  fwrite($myfile, "\n");
+                  
                   echo "<br>";
       
 
@@ -108,8 +95,7 @@ echo "<br>";
             }
                
           }
-           fwrite($myfile, "\n\n");
-           fclose($myfile);
+         
           echo "<br>";
    
 

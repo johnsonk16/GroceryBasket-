@@ -105,12 +105,12 @@
         
         $sql = "INSERT INTO Recipe_Ingredients VALUES (".$ingredients[$i].", ".$recipeID.",".$quantity[$i].", '".$measurements[$i]."');";
      echo $sql;
-   //  mysqli_query($conn, $sql);
+  mysqli_query($conn, $sql);
     }
     for ($i=0; ($i<count($tags));$i++){
         $sql = "INSERT INTO Recipe_Tag VALUES (".$tags[$i].", ".$recipeID.");";
       //  echo $sql; 
-     //  mysqli_query($conn, $sql);
+      mysqli_query($conn, $sql);
    } 
     
     for($i=0;$i<count($steps);$i++){
@@ -118,7 +118,7 @@
       //  echo $stepNo.": ".$steps[$i];
         $sql = "INSERT INTO Step VALUES (".$recipeID.", '".$steps[$i]."', ".$stepNo.");";
         echo "<br/>".$sql;
-      //  mysqli_query($conn, $sql);
+      mysqli_query($conn, $sql);
     }
     ?>
     <script>
