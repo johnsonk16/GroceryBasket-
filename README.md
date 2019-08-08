@@ -67,7 +67,7 @@ We like this editor because of it's ability to push, pull and merge Github commi
 ### Run
 - After downloading the correct version of xammp for your computer, either download the ZIP file for Grocery Basket or select Open in Desktop, if you have the desktop version of GitHub downloaded, by clicking on the 'clone or download' button.  
 
-- Once downloaded, save the ZIP file under htdocs within your running XAMMP application.  
+- Once downloaded, save the ZIP file under htdocs within your running XAMPP application.  
 
 - Next, using your preffered web browser, launch PHPMyAdmin by navigating to the localhost dashboard at localhost/dashboard (depending on the version of localhost, the port number may need to be specified) and selecting phpMyAdmin. Select the 'SQL' tab. First copy and paste the file 'GroceryBasketDB.rtf', then 'recipeInserts.rtf', 'insertsCont.rtf', 'steps.rtf' and 'tags.rtf'. After this, the database will be fully loaded. 
 
