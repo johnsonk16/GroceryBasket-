@@ -70,6 +70,9 @@ This editor is extremely popular in the web development community.
 [Visual Studio Code](https://code.visualstudio.com/)
 We like this editor because of it's ability to push, pull and merge Github commits and all of the packages/features are great add-ons. You can also change the theme to look like Sublime if that's what you're used to.
 
+## Run
+
+
 ## Features 
 Feature #1: User sign up/ log in  
 Feature #2: Favorite/Unfavorite recipe  
