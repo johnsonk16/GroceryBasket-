@@ -47,21 +47,6 @@ Tools
 3. Software Design Document
 
 
-## Plan
-
-1.	05/20 - Setup team Github repo and prototype both web and mobile 
-2.	05/27 - Produce design document: frontend, backend, workflow and refactor database in mobile 
-3.	06/03 - Implement UI for web app and new features in mobile 
-4.	06/10 - Implement frontend and backend for both mobile and web 
-5.	06/17 - Integrate frontend and backend
-6.	06/24 - Prepare for 1st demo 
-7.	07/01 - Testing 
-8.	07/08 - Add more features 
-9.	07/15 - Testing
-10.	07/22 - Produce poster 
-11.	07/29 - More testing. Practice final presentation 
-12.	08/05 - Wrap-up, prepare for the showcase. Final push to team repo. Celebrate!!!
-
 ## Getting Started
 
 Before downloading all the files from GroceryBasket-Web, follow the steps below to view the website locally.
@@ -85,7 +70,8 @@ This editor is extremely popular in the web development community.
 [Visual Studio Code](https://code.visualstudio.com/)
 We like this editor because of it's ability to push, pull and merge Github commits and all of the packages/features are great add-ons. You can also change the theme to look like Sublime if that's what you're used to.
 
-## Video Demo: https://www.youtube.com/watch?v=zHZ-4Yna8YI&feature=youtu.be
+## Video Demo:
+https://www.youtube.com/watch?v=zHZ-4Yna8YI&feature=youtu.be
 
 ## Team members
 
