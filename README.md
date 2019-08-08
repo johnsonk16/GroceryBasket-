@@ -14,19 +14,15 @@ With Grocery Basket, a tool that builds shopping list for users, people can have
 
 ### How?
 
-A previously built mobile application in Android Studio will be our inspiration.  We want to develop a web application that curates a shopping list based off their meals. This application will give the user the freedom to favorite meals and add their own meals.  The application will have a responsive design in order to be accessed from any technology, such as phone (Android or iOS), tablet, or computer. This application will help solve the problem of grocery and meal planning, as well as time planning. 
+A previously built mobile application in Android Studio will be our inspiration.  We want to develop a web application that curates a shopping list based off their meals. This application will give the user the freedom to favorite meals and add their own meals. This application will help solve the problem of grocery and meal planning, as well as time planning. 
 
 Front End (Web Application)
 * HTML/CSS
-* JavaScript (choose Framework)
-
-Front End (Mobile Application)
-* XML
-* Java
+* JavaScript
 
 Back end
-* Firebase
-* Google Recipe API
+* PHP 
+* MySQL
 
 Tools
 * Git/GitHub
@@ -41,11 +37,9 @@ Tools
 2. Back-end
    - User can add recipes to the site
    - User can (un)favorite meals 
-   - User can add/delete meals from Planner
-   - User can curate a shopping list
-   
-3. Software Design Document
-
+   - User can add/delete meals
+   - User can curate a shopping list  
+   - User can search for recipes based on keywords  
 
 ## Getting Started
 
