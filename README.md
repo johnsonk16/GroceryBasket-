@@ -65,6 +65,16 @@ This editor is extremely popular in the web development community.
 We like this editor because of it's ability to push, pull and merge Github commits and all of the packages/features are great add-ons. You can also change the theme to look like Sublime if that's what you're used to.
 
 ### Run
+- After downloading the correct version of xammp for your computer, either download the ZIP file for Grocery Basket or select Open in Desktop, if you have the desktop version of GitHub downloaded, by clicking on the 'clone or download' button.  
+
+- Once downloaded, save the ZIP file under htdocs within your running XAMMP application.  
+
+- Next, using your preffered web browser, launch PHPMyAdmin by navigating to the localhost dashboard at localhost/dashboard (depending on the version of localhost, the port number may need to be specified) and selecting phpMyAdmin. Select the 'SQL' tab. First copy and paste the file 'GroceryBasketDB.rtf', then 'recipeInserts.rtf', 'insertsCont.rtf', 'steps.rtf' and 'tags.rtf'. After this, the database will be fully loaded. 
+
+- Again in your preffered web browser, navigate to Grocery Basket home page by using the url 'http://localhost/GroceryBasket-Web/home.php', again depending on the version of localhost, the port number may need to be specified.  
+
+- Grocery Basket is now up and running. Users are able to sign up/log in, search for recipes, add their own recipes, add a recipe to either favorites or meals and generate a shopping list. 
+
 
 
 ### Features 
@@ -76,8 +86,7 @@ Feature #5: View all recipes on explore page
 Feature #6: Search for recipes based on key terms  
 Feature #7: Generate shopping list with specified serving size   
 
-### Video Demo:
-https://www.youtube.com/watch?v=zHZ-4Yna8YI&feature=youtu.be
+### Video Demo: [Via YouTube](https://www.youtube.com/watch?v=zHZ-4Yna8YI&feature=youtu.be)
 
 ## Team members
 
