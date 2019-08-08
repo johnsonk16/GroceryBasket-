@@ -27,7 +27,7 @@ Back end
 Tools
 * Git/GitHub
 
-## Deliverables
+### Deliverables
 
 1. Front-end
    - User-paths are clear
@@ -64,10 +64,10 @@ This editor is extremely popular in the web development community.
 [Visual Studio Code](https://code.visualstudio.com/)
 We like this editor because of it's ability to push, pull and merge Github commits and all of the packages/features are great add-ons. You can also change the theme to look like Sublime if that's what you're used to.
 
-## Run
+### Run
 
 
-## Features 
+### Features 
 Feature #1: User sign up/ log in  
 Feature #2: Favorite/Unfavorite recipe  
 Feature #3: Add and remove recipe to Meals  
@@ -76,7 +76,7 @@ Feature #5: View all recipes on explore page
 Feature #6: Search for recipes based on key terms  
 Feature #7: Generate shopping list with specified serving size   
 
-## Video Demo:
+### Video Demo:
 https://www.youtube.com/watch?v=zHZ-4Yna8YI&feature=youtu.be
 
 ## Team members
