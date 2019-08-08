@@ -85,6 +85,8 @@ This editor is extremely popular in the web development community.
 [Visual Studio Code](https://code.visualstudio.com/)
 We like this editor because of it's ability to push, pull and merge Github commits and all of the packages/features are great add-ons. You can also change the theme to look like Sublime if that's what you're used to.
 
+## Video Demo: https://www.youtube.com/watch?v=zHZ-4Yna8YI&feature=youtu.be
+
 ## Team members
 
 * Francesca Matira - Front-End/Back-End
